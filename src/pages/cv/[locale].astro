@@ -1,0 +1,174 @@
+---
+import { getResume } from '../../content';
+import { useTranslations, locales, type Locale } from '../../i18n';
+
+export function getStaticPaths() {
+  return locales.map((locale) => ({ params: { locale } }));
+}
+
+const locale = Astro.params.locale as Locale;
+const resume = getResume(locale);
+const t = useTranslations(locale);
+const { basics } = resume;
+
+function fmt(ym: string): string {
+  const [y, m] = ym.split('-');
+  if (!m) return y!;
+  return new Intl.DateTimeFormat(locale, { month: 'short', year: 'numeric' }).format(
+    new Date(Number(y), Number(m) - 1)
+  );
+}
+---
+
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="utf-8" />
+    <title>{basics.name} — CV ({locale.toUpperCase()})</title>
+    <meta name="robots" content="noindex" />
+    <style>
+      :root {
+        color-scheme: light;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        padding: 14mm 16mm;
+        font-family: Georgia, 'Times New Roman', serif;
+        font-size: 10.5pt;
+        line-height: 1.5;
+        color: #1c1917;
+        background: #fff;
+      }
+      h1 {
+        font-size: 22pt;
+        margin: 0;
+      }
+      .head {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        border-bottom: 2px solid #a34e06;
+        padding-bottom: 4mm;
+        margin-bottom: 6mm;
+      }
+      .contact {
+        text-align: right;
+        font-size: 9pt;
+        color: #5f5a53;
+      }
+      .title {
+        color: #a34e06;
+        font-weight: 600;
+        margin: 1mm 0 0;
+      }
+      h2 {
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 8.5pt;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #a34e06;
+        margin: 6mm 0 2mm;
+      }
+      article {
+        margin-bottom: 4mm;
+        break-inside: avoid;
+      }
+      h3 {
+        font-size: 11.5pt;
+        margin: 0;
+      }
+      .period {
+        font-size: 9pt;
+        color: #5f5a53;
+        margin: 0 0 1mm;
+      }
+      p {
+        margin: 0 0 1.5mm;
+      }
+      ul {
+        margin: 0 0 1.5mm;
+        padding-left: 5mm;
+      }
+      .stack,
+      dd {
+        font-size: 9pt;
+        color: #5f5a53;
+      }
+      dl {
+        margin: 0;
+      }
+      dt {
+        font-weight: 700;
+        font-size: 9.5pt;
+        margin-top: 1.5mm;
+      }
+      dd {
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="head">
+      <div>
+        <h1>{basics.name}</h1>
+        <p class="title">{basics.title}</p>
+      </div>
+      <div class="contact">
+        {basics.location}<br />
+        {basics.email}<br />
+        {basics.linkedin.replace('https://www.', '')}
+      </div>
+    </header>
+
+    <p>{basics.summary}</p>
+
+    <h2>{t('section.experience')}</h2>
+    {
+      resume.experience.map((job) => (
+        <article>
+          <h3>
+            {job.role} · {job.company}
+          </h3>
+          <p class="period">
+            {fmt(job.start)} — {job.end ? fmt(job.end) : t('experience.present')}
+          </p>
+          <p>{job.summary}</p>
+          <ul>
+            {job.highlights.map((h) => (
+              <li>{h}</li>
+            ))}
+          </ul>
+          {job.stack.length > 0 && <p class="stack">{job.stack.join(' · ')}</p>}
+        </article>
+      ))
+    }
+
+    <h2>{t('section.skills')}</h2>
+    <dl>
+      {
+        resume.skills.map((g) => (
+          <div>
+            <dt>{g.group}</dt>
+            <dd>{g.items.join(' · ')}</dd>
+          </div>
+        ))
+      }
+    </dl>
+
+    {
+      resume.education.length > 0 && (
+        <>
+          <h2>{t('section.education')}</h2>
+          {resume.education.map((e) => (
+            <p>
+              <strong>{e.degree}</strong>, {e.school} · {e.year}
+            </p>
+          ))}
+        </>
+      )
+    }
+  </body>
+</html>

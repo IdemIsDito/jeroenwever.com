@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "astro build && bun run scripts/generate-assets.ts",
     "preview": "astro preview",
     "check": "astro check",
     "test:unit": "bun test tests/unit",

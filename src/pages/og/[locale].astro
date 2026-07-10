@@ -1,0 +1,60 @@
+---
+import { getResume } from '../../content';
+import { locales, type Locale } from '../../i18n';
+
+export function getStaticPaths() {
+  return locales.map((locale) => ({ params: { locale } }));
+}
+
+const locale = Astro.params.locale as Locale;
+const { basics } = getResume(locale);
+---
+
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex" />
+    <title>og-image source</title>
+    <style>
+      * {
+        margin: 0;
+        box-sizing: border-box;
+      }
+      body {
+        width: 1200px;
+        height: 630px;
+        background: #faf9f6;
+        color: #1c1917;
+        font-family: Georgia, 'Times New Roman', serif;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 80px;
+        border-bottom: 24px solid #a34e06;
+      }
+      h1 {
+        font-size: 96px;
+        font-weight: 700;
+        line-height: 1.05;
+      }
+      .title {
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 36px;
+        color: #a34e06;
+        margin-top: 24px;
+      }
+      .tagline {
+        font-style: italic;
+        font-size: 32px;
+        color: #5f5a53;
+        margin-top: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>{basics.name}</h1>
+    <p class="title">{basics.title}</p>
+    <p class="tagline">{basics.tagline}</p>
+  </body>
+</html>
