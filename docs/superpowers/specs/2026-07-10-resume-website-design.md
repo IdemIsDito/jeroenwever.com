@@ -77,11 +77,11 @@ Validation runs at build time: invalid content fails the build, never ships. The
 
 **Design direction:** editorial minimal. Warm off-white background (≈`#fafaf8`), near-black text, serif headings in **Fraunces** (self-hosted, subset woff2) — an expressive editorial serif, chosen because typography carries the personality of this design, clean sans-serif body. One warm accent color (starting point: amber ≈`#b45309`) used for section labels, links, small flourishes. All colors defined as CSS custom properties in `tokens.css` so accent/palette changes are one-variable edits ("more color later" is anticipated).
 
-**Dark mode:** respects `prefers-color-scheme`; inverted palette from the same tokens. All contrast requirements apply to both modes.
+**Dark mode:** `prefers-color-scheme` is the default, but a visible theme toggle lets the user override it. The override is persisted in `localStorage` and re-applied by a tiny inline script in `<head>` before first paint (no flash of wrong theme). Clearing the override returns to following the system preference. The toggle is the site's one piece of client-side JS. Palette is inverted from the same tokens; all contrast requirements apply to both modes.
 
 **Layout (desktop):**
 
-- **Sticky sidebar (left):** name in large serif; "Freelance staff engineer"; tagline *"I build products that ship."* as supporting text (not the main headline); action list: Email (mailto), LinkedIn, Download CV (locale-matched PDF); EN/NL toggle at the bottom.
+- **Sticky sidebar (left):** name in large serif; "Freelance staff engineer"; tagline *"I build products that ship."* as supporting text (not the main headline); action list: Email (mailto), LinkedIn, Download CV (locale-matched PDF); EN/NL toggle and theme toggle at the bottom (theme toggle moves into the compact header on mobile).
 - **Content (right, scrolls):** short intro paragraph → Experience (role, client, period, 2–3 highlights, stack) → Skills (grouped) → Education/certs (if provided) → closing contact nudge.
 
 **Mobile:** sidebar collapses to a compact header; contact actions remain reachable via a small sticky footer bar.
@@ -94,7 +94,7 @@ Validation runs at build time: invalid content fails the build, never ships. The
 - Skip-to-content link.
 - Visible focus states on all interactive elements (`:focus-visible`, styled with the design, not suppressed).
 - Color contrast ≥ 4.5:1 for body text, ≥ 3:1 for large text — verified for every text/background combination in **both** light and dark mode. The amber accent is adjusted per mode if needed to pass.
-- Language toggle and sticky footer bar fully keyboard-operable; correct `lang` attributes (`lang="en"` / `lang="nl"`, plus `hreflang` on toggle links).
+- Language toggle, theme toggle, and sticky footer bar fully keyboard-operable; theme toggle has an accessible name and announces its state (e.g. `aria-pressed` or equivalent); correct `lang` attributes (`lang="en"` / `lang="nl"`, plus `hreflang` on toggle links).
 - `prefers-reduced-motion` respected for any transitions/animations.
 - Images (og-image aside) have alt text; decorative flourishes are `aria-hidden`.
 - Touch targets ≥ 24×24px (WCAG 2.2 target size).
