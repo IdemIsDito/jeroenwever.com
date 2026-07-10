@@ -1,0 +1,72 @@
+---
+import { useTranslations, type Locale } from '../i18n';
+import type { Resume } from '../content/schema';
+
+interface Props {
+  job: Resume['experience'][number];
+  locale: Locale;
+}
+
+const { job, locale } = Astro.props;
+const t = useTranslations(locale);
+
+function fmt(ym: string): string {
+  const [y, m] = ym.split('-');
+  if (!m) return y!;
+  return new Intl.DateTimeFormat(locale, { month: 'short', year: 'numeric' }).format(
+    new Date(Number(y), Number(m) - 1)
+  );
+}
+
+const period = `${fmt(job.start)} — ${job.end ? fmt(job.end) : t('experience.present')}`;
+---
+
+<article>
+  <header>
+    <h3>{job.role} · {job.company}</h3>
+    <p class="period">{period}</p>
+  </header>
+  <p>{job.summary}</p>
+  <ul>
+    {job.highlights.map((h) => <li>{h}</li>)}
+  </ul>
+  {job.stack.length > 0 && <p class="stack">{job.stack.join(' · ')}</p>}
+</article>
+
+<style>
+  article {
+    margin-bottom: var(--space-5);
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  h3 {
+    font-size: var(--text-lg);
+  }
+
+  .period {
+    font-size: var(--text-sm);
+    color: var(--color-muted);
+    margin: var(--space-1) 0 var(--space-3);
+  }
+
+  ul {
+    margin: 0 0 var(--space-3);
+    padding-left: 1.2em;
+
+    & li {
+      margin-bottom: var(--space-1);
+
+      &::marker {
+        color: var(--color-accent);
+      }
+    }
+  }
+
+  .stack {
+    font-size: var(--text-sm);
+    color: var(--color-muted);
+  }
+</style>

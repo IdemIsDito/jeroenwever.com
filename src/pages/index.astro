@@ -1,10 +1,5 @@
 ---
-import Base from '../layouts/Base.astro';
-import { useTranslations } from '../i18n';
-
-const t = useTranslations('en');
+import ResumePage from '../components/ResumePage.astro';
 ---
 
-<Base locale="en" title="Jeroen Wever — Freelance staff engineer" description={t('meta.description')}>
-  <main id="main"><h1>Jeroen Wever</h1></main>
-</Base>
+<ResumePage locale="en" />

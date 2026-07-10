@@ -1,0 +1,38 @@
+---
+import type { Resume } from '../content/schema';
+
+interface Props {
+  groups: Resume['skills'];
+}
+
+const { groups } = Astro.props;
+---
+
+<dl>
+  {
+    groups.map((g) => (
+      <div>
+        <dt>{g.group}</dt>
+        <dd>{g.items.join(' · ')}</dd>
+      </div>
+    ))
+  }
+</dl>
+
+<style>
+  dl {
+    margin: 0;
+    display: grid;
+    gap: var(--space-3);
+  }
+
+  dt {
+    font-weight: 600;
+    font-size: var(--text-sm);
+  }
+
+  dd {
+    margin: var(--space-1) 0 0;
+    color: var(--color-muted);
+  }
+</style>
