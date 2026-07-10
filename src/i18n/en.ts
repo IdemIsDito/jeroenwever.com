@@ -1,0 +1,21 @@
+export default {
+  'nav.skip': 'Skip to content',
+  'sidebar.contactNav': 'Contact',
+  'sidebar.email': 'Email me',
+  'sidebar.linkedin': 'LinkedIn',
+  'sidebar.downloadCv': 'Download CV (PDF)',
+  'mobile.contactNav': 'Quick contact',
+  'section.about': 'About',
+  'section.experience': 'Experience',
+  'section.skills': 'Skills',
+  'section.education': 'Education',
+  'experience.present': 'present',
+  'outro.line': 'Interested in working together? Reach me at',
+  'locale.switch': 'Nederlands',
+  'theme.legend': 'Theme',
+  'theme.system': 'System',
+  'theme.light': 'Light',
+  'theme.dark': 'Dark',
+  'meta.description':
+    'Jeroen Wever — freelance staff engineer. 15+ years shipping web products. Available for assignments.',
+} as const;
