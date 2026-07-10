@@ -1,14 +1,10 @@
 ---
-// Temporary placeholder — replaced by the real page in Task 5.
+import Base from '../layouts/Base.astro';
+import { useTranslations } from '../i18n';
+
+const t = useTranslations('en');
 ---
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Jeroen Wever</title>
-  </head>
-  <body>
-    <main><h1>Jeroen Wever</h1></main>
-  </body>
-</html>
+
+<Base locale="en" title="Jeroen Wever — Freelance staff engineer" description={t('meta.description')}>
+  <main id="main"><h1>Jeroen Wever</h1></main>
+</Base>
