@@ -1,0 +1,46 @@
+{
+  "basics": {
+    "name": "Jeroen Wever",
+    "title": "Freelance staff engineer",
+    "tagline": "I build products that ship.",
+    "summary": "Staff-level engineer with 15+ years of shipping web products — from jQuery and Knockout to React, Vue and Svelte. I pick the right tool for the product, raise the bar on quality, and help teams deliver.",
+    "location": "The Netherlands",
+    "email": "jeroen@jeroenwever.com",
+    "linkedin": "https://www.linkedin.com/in/jeroenwever"
+  },
+  "experience": [
+    {
+      "role": "Staff Engineer (PLACEHOLDER)",
+      "company": "Acme Corp",
+      "start": "2022-03",
+      "end": null,
+      "summary": "Led the platform rebuild for Acme's customer-facing product suite.",
+      "highlights": [
+        "Cut deployment lead time from days to minutes by rebuilding CI/CD",
+        "Mentored a team of 8 engineers across three product squads",
+        "Drove the migration from a legacy monolith to a modular architecture"
+      ],
+      "stack": ["TypeScript", "Vue", "Node.js", "PostgreSQL"]
+    },
+    {
+      "role": "Lead Developer (PLACEHOLDER)",
+      "company": "Example B.V.",
+      "start": "2019-01",
+      "end": "2022-02",
+      "summary": "Shipped v2 of the customer portal used by 200k+ users.",
+      "highlights": [
+        "Rebuilt the front end from Knockout to React with zero downtime",
+        "Introduced automated accessibility testing into the release pipeline"
+      ],
+      "stack": ["React", "TypeScript", ".NET"]
+    }
+  ],
+  "skills": [
+    { "group": "Languages", "items": ["TypeScript", "JavaScript", "HTML", "CSS", "SQL"] },
+    { "group": "Frameworks", "items": ["React", "Vue", "Svelte", "Astro", "Node.js"] },
+    { "group": "Practices", "items": ["Accessibility (WCAG)", "CI/CD", "TDD", "Mentoring", "Architecture"] }
+  ],
+  "education": [
+    { "degree": "BSc Computer Science (PLACEHOLDER)", "school": "University of Somewhere", "year": "2008" }
+  ]
+}

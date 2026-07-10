@@ -1,0 +1,46 @@
+{
+  "basics": {
+    "name": "Jeroen Wever",
+    "title": "Freelance staff engineer",
+    "tagline": "Ik bouw producten die live gaan.",
+    "summary": "Staff-level engineer met 15+ jaar ervaring in het bouwen van webproducten — van jQuery en Knockout tot React, Vue en Svelte. Ik kies het juiste gereedschap voor het product, til de kwaliteit omhoog en help teams leveren.",
+    "location": "Nederland",
+    "email": "jeroen@jeroenwever.com",
+    "linkedin": "https://www.linkedin.com/in/jeroenwever"
+  },
+  "experience": [
+    {
+      "role": "Staff Engineer (PLACEHOLDER)",
+      "company": "Acme Corp",
+      "start": "2022-03",
+      "end": null,
+      "summary": "Leidde de platform-rebuild van Acme's klantgerichte productsuite.",
+      "highlights": [
+        "Verkortte de deployment-doorlooptijd van dagen naar minuten door CI/CD opnieuw op te zetten",
+        "Mentorde een team van 8 engineers verdeeld over drie product-squads",
+        "Trok de migratie van een legacy-monoliet naar een modulaire architectuur"
+      ],
+      "stack": ["TypeScript", "Vue", "Node.js", "PostgreSQL"]
+    },
+    {
+      "role": "Lead Developer (PLACEHOLDER)",
+      "company": "Example B.V.",
+      "start": "2019-01",
+      "end": "2022-02",
+      "summary": "Leverde v2 van het klantportaal met 200k+ gebruikers op.",
+      "highlights": [
+        "Herbouwde de front-end van Knockout naar React zonder downtime",
+        "Introduceerde geautomatiseerde toegankelijkheidstests in de release-pipeline"
+      ],
+      "stack": ["React", "TypeScript", ".NET"]
+    }
+  ],
+  "skills": [
+    { "group": "Talen", "items": ["TypeScript", "JavaScript", "HTML", "CSS", "SQL"] },
+    { "group": "Frameworks", "items": ["React", "Vue", "Svelte", "Astro", "Node.js"] },
+    { "group": "Werkwijze", "items": ["Toegankelijkheid (WCAG)", "CI/CD", "TDD", "Mentoring", "Architectuur"] }
+  ],
+  "education": [
+    { "degree": "BSc Informatica (PLACEHOLDER)", "school": "Universiteit van Ergens", "year": "2008" }
+  ]
+}
