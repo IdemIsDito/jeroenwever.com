@@ -1,0 +1,10 @@
+# build & deps
+node_modules/
+dist/
+.astro/
+
+# brainstorm artifacts
+.superpowers/
+
+# misc
+.DS_Store
