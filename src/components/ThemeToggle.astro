@@ -1,0 +1,75 @@
+---
+import { useTranslations, type Locale } from '../i18n';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+---
+
+<button
+  id="theme-toggle"
+  type="button"
+  data-label-legend={t('theme.legend')}
+  data-label-system={t('theme.system')}
+  data-label-light={t('theme.light')}
+  data-label-dark={t('theme.dark')}
+>
+  <span aria-hidden="true">◐</span>
+  <span class="label"></span>
+</button>
+
+<script>
+  type Mode = 'system' | 'light' | 'dark';
+  const order: Mode[] = ['system', 'light', 'dark'];
+  const btn = document.getElementById('theme-toggle') as HTMLButtonElement;
+  const labelEl = btn.querySelector('.label') as HTMLSpanElement;
+
+  const stored = localStorage.getItem('theme');
+  let mode: Mode = stored === 'light' || stored === 'dark' ? stored : 'system';
+
+  function labelFor(m: Mode): string {
+    return btn.dataset[`label${m[0]!.toUpperCase()}${m.slice(1)}` as 'labelSystem'] ?? m;
+  }
+
+  function apply(next: Mode): void {
+    mode = next;
+    if (next === 'system') {
+      delete document.documentElement.dataset.theme;
+      localStorage.removeItem('theme');
+    } else {
+      document.documentElement.dataset.theme = next;
+      localStorage.setItem('theme', next);
+    }
+    labelEl.textContent = labelFor(next);
+    btn.setAttribute('aria-label', `${btn.dataset.labelLegend}: ${labelFor(next)}`);
+  }
+
+  apply(mode);
+  btn.addEventListener('click', () => {
+    apply(order[(order.indexOf(mode) + 1) % order.length]!);
+  });
+</script>
+
+<style>
+  button {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    min-height: 24px;
+    padding: var(--space-1) var(--space-2);
+    font: inherit;
+    font-size: var(--text-sm);
+    color: var(--color-text);
+    background: transparent;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    cursor: pointer;
+
+    &:hover {
+      border-color: var(--color-accent);
+    }
+  }
+</style>

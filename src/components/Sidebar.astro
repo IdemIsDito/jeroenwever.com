@@ -1,5 +1,6 @@
 ---
 import LocaleToggle from './LocaleToggle.astro';
+import ThemeToggle from './ThemeToggle.astro';
 import { useTranslations, type Locale } from '../i18n';
 import type { Resume } from '../content/schema';
 
@@ -30,6 +31,7 @@ const t = useTranslations(locale);
 
   <div class="meta">
     <LocaleToggle locale={locale} />
+    <ThemeToggle locale={locale} />
   </div>
 </header>
 
