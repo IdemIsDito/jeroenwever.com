@@ -35,5 +35,7 @@ describe('document head', () => {
   test('open graph tags', () => {
     expect(en).toContain('property="og:title"');
     expect(en).toContain('og-en.png');
+    expect(en).toContain('name="twitter:card"');
+    expect(en).toContain('favicon.svg');
   });
 });

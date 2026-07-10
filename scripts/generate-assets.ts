@@ -10,7 +10,12 @@ try {
     const page = await browser.newPage();
 
     await page.goto(`${origin}/cv/${locale}/`, { waitUntil: 'networkidle' });
-    await page.pdf({ path: `${dist}cv-${locale}.pdf`, format: 'A4', printBackground: true });
+    await page.pdf({
+      path: `${dist}cv-${locale}.pdf`,
+      format: 'A4',
+      printBackground: true,
+      tagged: true,
+    });
 
     await page.setViewportSize({ width: 1200, height: 630 });
     await page.goto(`${origin}/og/${locale}/`, { waitUntil: 'networkidle' });

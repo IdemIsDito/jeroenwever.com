@@ -14,6 +14,12 @@ describe('generated assets', () => {
       expect(new TextDecoder().decode(head)).toBe('%PDF-');
     });
 
+    test(`cv-${locale}.pdf is tagged with a structure tree (accessible/language metadata)`, async () => {
+      const file = Bun.file(`${dist}cv-${locale}.pdf`);
+      const text = await file.text();
+      expect(text).toContain('StructTreeRoot');
+    });
+
     test(`og-${locale}.png exists and is non-trivial`, async () => {
       const file = Bun.file(`${dist}og-${locale}.png`);
       expect(await file.exists()).toBe(true);
@@ -21,10 +27,14 @@ describe('generated assets', () => {
     });
   }
 
-  test('cv and og source routes are noindex', async () => {
-    const cv = await Bun.file(`${dist}cv/en/index.html`).text();
-    expect(cv).toContain('noindex');
-  });
+  for (const locale of ['en', 'nl'] as const) {
+    for (const route of ['cv', 'og'] as const) {
+      test(`${route}/${locale} source route is noindex`, async () => {
+        const html = await Bun.file(`${dist}${route}/${locale}/index.html`).text();
+        expect(html).toContain('noindex');
+      });
+    }
+  }
 
   test('sitemap excludes cv and og routes', async () => {
     const sitemapIndex = await Bun.file(`${dist}sitemap-index.xml`).text();

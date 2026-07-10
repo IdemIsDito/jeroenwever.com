@@ -34,18 +34,20 @@ for (const path of ['/', '/nl/'] as const) {
   }
 }
 
-test('CTA links resolve to real targets', async () => {
-  const page = await browser.newPage();
-  await page.goto(origin + '/');
+for (const path of ['/', '/nl/'] as const) {
+  test(`CTA links resolve to real targets (${path})`, async () => {
+    const page = await browser.newPage();
+    await page.goto(origin + path);
 
-  const hrefs = await page.$$eval('a[href]', (els) => els.map((a) => a.getAttribute('href')!));
-  expect(hrefs.some((h) => h.startsWith('mailto:jeroen@'))).toBe(true);
-  expect(hrefs.some((h) => h.includes('linkedin.com'))).toBe(true);
+    const hrefs = await page.$$eval('a[href]', (els) => els.map((a) => a.getAttribute('href')!));
+    expect(hrefs.some((h) => h.startsWith('mailto:jeroen@'))).toBe(true);
+    expect(hrefs.some((h) => h.includes('linkedin.com'))).toBe(true);
 
-  // internal targets must exist on the server
-  for (const href of hrefs.filter((h) => h.startsWith('/'))) {
-    const res = await fetch(origin + href);
-    expect(res.status, `broken link: ${href}`).toBe(200);
-  }
-  await page.close();
-});
+    // internal targets must exist on the server
+    for (const href of hrefs.filter((h) => h.startsWith('/'))) {
+      const res = await fetch(origin + href);
+      expect(res.status, `broken link: ${href}`).toBe(200);
+    }
+    await page.close();
+  });
+}

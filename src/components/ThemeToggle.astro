@@ -16,9 +16,10 @@ const t = useTranslations(locale);
   data-label-system={t('theme.system')}
   data-label-light={t('theme.light')}
   data-label-dark={t('theme.dark')}
+  aria-label={`${t('theme.legend')}: ${t('theme.system')}`}
 >
   <span aria-hidden="true">◐</span>
-  <span class="label"></span>
+  <span class="label">{t('theme.system')}</span>
 </button>
 
 <script>
