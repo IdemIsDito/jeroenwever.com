@@ -3,6 +3,7 @@ export default {
   'sidebar.contactNav': 'Contact',
   'sidebar.email': 'Email me',
   'sidebar.linkedin': 'LinkedIn',
+  'sidebar.github': 'GitHub',
   'sidebar.downloadCv': 'Download CV (PDF)',
   'mobile.contactNav': 'Quick contact',
   'section.about': 'About',
@@ -17,5 +18,5 @@ export default {
   'theme.light': 'Light',
   'theme.dark': 'Dark',
   'meta.description':
-    'Jeroen Wever — freelance staff engineer. 15+ years shipping web products. Available for assignments.',
+    'Jeroen Wever — freelance staff engineer. 15+ years building web products that ship, from high-traffic media platforms to real-time betting. Available for assignments.',
 } as const;

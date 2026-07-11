@@ -2,45 +2,91 @@
   "basics": {
     "name": "Jeroen Wever",
     "title": "Freelance staff engineer",
-    "tagline": "Ik bouw producten die live gaan.",
-    "summary": "Staff-level engineer met 15+ jaar ervaring in het bouwen van webproducten — van jQuery en Knockout tot React, Vue en Svelte. Ik kies het juiste gereedschap voor het product, til de kwaliteit omhoog en help teams leveren.",
+    "tagline": "Ik bouw producten die gebruikt worden.",
+    "summary": "Nieuwsgierige, autodidactische engineer met 15+ jaar ervaring in het bouwen van webproducten die écht gebruikt worden — van drukbezochte nieuws- en entertainmentplatformen tot real-time sports betting. Ik vertaal abstracte ideeën naar gestructureerde processen en UX, stel kwaliteit voorop en heb een duidelijke visie op hoe een developmentteam zou moeten werken — en wat ervoor nodig is om dat voor elkaar te krijgen.",
     "location": "Nederland",
     "email": "jeroen@jeroenwever.com",
-    "linkedin": "https://www.linkedin.com/in/jeroenwever"
+    "linkedin": "https://www.linkedin.com/in/jeroenwever/",
+    "github": "https://github.com/idemisdito"
   },
   "experience": [
     {
-      "role": "Staff Engineer (PLACEHOLDER)",
-      "company": "Acme Corp",
-      "start": "2022-03",
+      "role": "Freelance Full Stack Developer",
+      "company": "Nederlandse Loterij (TOTO)",
+      "start": "2023-01",
       "end": null,
-      "summary": "Leidde de platform-rebuild van Acme's klantgerichte productsuite.",
+      "summary": "Productontwikkeling aan de casino- en sportsbetting-platformen van TOTO: hoge beschikbaarheid, enorme verkeerspieken en strikte naleving van de kansspelwetgeving.",
       "highlights": [
-        "Verkortte de deployment-doorlooptijd van dagen naar minuten door CI/CD opnieuw op te zetten",
-        "Mentorde een team van 8 engineers verdeeld over drie product-squads",
-        "Trok de migratie van een legacy-monoliet naar een modulaire architectuur"
+        "Onderdeel van het team dat het volledige casinoplatform opnieuw bouwde op Vue 3, een custom Node.js/Express-SSR-oplossing en een .NET-backend, gehost in Azure",
+        "Bouwde mee aan TOTO Sport, een real-time sportsbetting-platform, met hergebruik van de casino-stack om sneller te leveren zonder in te boeten op performance of compliance",
+        "Maakte herbruikbare front-end-componenten voor meerdere producten, richtte monitoring en alerting in en integreerde user tracking via Google Tag Manager",
+        "Integreerde het nieuwe merk Winn-It in het legacy casinoplatform en koppelde third-party API's"
       ],
-      "stack": ["TypeScript", "Vue", "Node.js", "PostgreSQL"]
+      "stack": ["TypeScript", "Vue 3", "Pinia", "Node.js", "Express", ".NET (C#)", "Azure", "GTM"]
     },
     {
-      "role": "Lead Developer (PLACEHOLDER)",
-      "company": "Example B.V.",
-      "start": "2019-01",
-      "end": "2022-02",
-      "summary": "Leverde v2 van het klantportaal met 200k+ gebruikers op.",
+      "role": "Freelance Full Stack Developer",
+      "company": "DPG Media",
+      "start": "2018-03",
+      "end": "2022-06",
+      "summary": "Bouwde en beheerde drukbezochte entertainmentproducten — video, puzzels, casual games, quizzen en podcasts — gebruikt door grote Nederlandse mediamerken als AD, HLN en de Volkskrant.",
       "highlights": [
-        "Herbouwde de front-end van Knockout naar React zonder downtime",
-        "Introduceerde geautomatiseerde toegankelijkheidstests in de release-pipeline"
+        "Bouwde front-ends vanaf nul voor producten die zowel als zelfstandige bestemming draaiden als embedded in nieuwsartikelen",
+        "Implementeerde advertenties, user tracking, paywalls en custom A/B-testoplossingen voor embeddable producten",
+        "Verantwoordelijk voor operations volgens het \"you build it, you run it\"-principe: gecontaineriseerde hosting in AWS, monitoring en alerting"
       ],
-      "stack": ["React", "TypeScript", ".NET"]
+      "stack": ["TypeScript", "React", "Node.js", "Elixir", "PostgreSQL", "AWS", "Snowplow", "Google IMA"]
+    },
+    {
+      "role": "Team Lead Front-End",
+      "company": "DigitasLBi",
+      "start": "2016-05",
+      "end": "2017-12",
+      "summary": "Leidde front-end development (75% hands-on, 25% leidinggevend) in een snelle B2C-campagneomgeving, voor klanten als Audi, Renault, NS en het ministerie van VWS.",
+      "highlights": [
+        "Definieerde de gezamenlijke front-end-stack en codestandaarden voor alle projecten en teams",
+        "Coachte junior en medior developers in hun projecten en loopbaan; bracht structuur aan die teamworkflows verbeterde",
+        "Leverde onder harde campagnedeadlines — waaronder een meertalige Audi-site die binnen vier weken live stond"
+      ],
+      "stack": ["JavaScript", "React", "Vue", "Nuxt", "Node.js", "Azure", "AWS"]
+    },
+    {
+      "role": "Full-Stack Web Developer",
+      "company": "Hot ITem",
+      "start": "2008-09",
+      "end": "2016-04",
+      "summary": "Allround webdevelopment met een sterke UX-focus: het ontwerpen, presenteren en bouwen van zakelijke webapplicaties voor klanten als PostNL, ING, Rijkswaterstaat, KPN, Ziggo en de Persgroep.",
+      "highlights": [
+        "Groeide van front-end-specialist naar full-stack developer en UX-designer in tientallen klantprojecten — van nieuwsplatformen met 35 miljoen pageviews per maand tot interne portalen"
+      ],
+      "stack": ["JavaScript", "C#/.NET", "PHP", "Java", "SQL"]
     }
   ],
   "skills": [
-    { "group": "Talen", "items": ["TypeScript", "JavaScript", "HTML", "CSS", "SQL"] },
-    { "group": "Frameworks", "items": ["React", "Vue", "Svelte", "Astro", "Node.js"] },
-    { "group": "Werkwijze", "items": ["Toegankelijkheid (WCAG)", "CI/CD", "TDD", "Mentoring", "Architectuur"] }
+    { "group": "Expert", "items": ["TypeScript / JavaScript", "HTML", "CSS", "Node.js"] },
+    { "group": "Vertrouwd", "items": [".NET (C#)", "Elixir", "PHP", "SQL", "OAuth", "Datamodellering"] },
+    { "group": "Frameworks & platformen", "items": ["React", "Vue", "Next.js", "Nuxt", "Phoenix", "Azure", "AWS"] },
+    {
+      "group": "Meer dan code",
+      "items": [
+        "Technologie uitleggen aan niet-technische mensen",
+        "Abstracte ideeën vertalen naar gestructureerde processen en UX",
+        "Requirements verfijnen",
+        "Mentoring",
+        "Werken in agile teams"
+      ]
+    }
   ],
   "education": [
-    { "degree": "BSc Informatica (PLACEHOLDER)", "school": "Universiteit van Ergens", "year": "2008" }
+    {
+      "degree": "MSc Informatiewetenschap — Human Centered Multimedia",
+      "school": "Universiteit van Amsterdam",
+      "year": "2015"
+    },
+    {
+      "degree": "BEng Business Engineering",
+      "school": "Hogeschool Inholland",
+      "year": "2007"
+    }
   ]
 }

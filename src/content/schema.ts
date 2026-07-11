@@ -12,6 +12,7 @@ export const resumeSchema = z.object({
     location: z.string().min(1),
     email: z.email(),
     linkedin: z.url(),
+    github: z.url(),
   }),
   experience: z
     .array(
