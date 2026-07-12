@@ -10,13 +10,29 @@ const t = useTranslations(locale);
 const other = altLocale(locale);
 ---
 
-<a href={localePath(other)} hreflang={other} lang={other}>{t('locale.switch')}</a>
+<a
+  href={localePath(other)}
+  hreflang={other}
+  lang={other}
+  aria-label={`${t('locale.switch')} (${other.toUpperCase()})`}
+>
+  {other.toUpperCase()}
+</a>
 
 <style>
   a {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     min-height: 24px;
+    min-width: 24px;
     font-size: var(--text-sm);
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--color-muted);
+
+    &:hover {
+      color: var(--color-accent);
+    }
   }
 </style>

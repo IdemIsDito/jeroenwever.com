@@ -72,5 +72,12 @@ const t = useTranslations(locale);
     &:hover {
       border-color: var(--color-accent);
     }
+
+    /* On narrow screens the icon (plus aria-label) is enough. */
+    @media (max-width: 40rem) {
+      & .label {
+        display: none;
+      }
+    }
   }
 </style>
