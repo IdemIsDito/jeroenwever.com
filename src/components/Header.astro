@@ -148,22 +148,47 @@ const links = [
     letter-spacing: -0.02em;
   }
 
-  /* Gentle "collapse into the bar" feel where scroll-driven animations exist. */
+  /*
+   * "Collapse into the bar": where scroll-driven animations exist (and motion
+   * is welcome), the bar starts as a quiet strip holding only the toggles;
+   * scrolling fades the hero identity out while the bar identity fades in.
+   * Fallback (no support / reduced motion): bar is simply always populated.
+   */
   @supports (animation-timeline: scroll()) {
     @media (prefers-reduced-motion: no-preference) {
       .hero-mark {
         animation: hero-shrink linear both;
         animation-timeline: scroll();
-        animation-range: 0 20rem;
+        animation-range: 0 16rem;
+      }
+
+      .topbar .mark,
+      .topbar-right nav {
+        animation: bar-reveal linear both;
+        animation-timeline: scroll();
+        animation-range: 5rem 15rem;
       }
     }
   }
 
   @keyframes hero-shrink {
     to {
-      opacity: 0.3;
-      scale: 0.97;
-      translate: 0 -0.25rem;
+      opacity: 0.15;
+      scale: 0.96;
+      translate: 0 -0.3rem;
+    }
+  }
+
+  @keyframes bar-reveal {
+    from {
+      opacity: 0;
+      visibility: hidden;
+      translate: 0 0.4rem;
+    }
+    to {
+      opacity: 1;
+      visibility: visible;
+      translate: 0 0;
     }
   }
 
