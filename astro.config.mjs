@@ -9,7 +9,9 @@ export default defineConfig({
     routing: { prefixDefaultLocale: false },
   },
   integrations: [
-    // /cv/ and /og/ are print/OG source routes, not destination pages
-    sitemap({ filter: (page) => !page.includes('/cv/') && !page.includes('/og/') }),
+    // /cv/ and /og/ are print/OG source routes, not destination pages; 404 is not a destination either
+    sitemap({
+      filter: (page) => !page.includes('/cv/') && !page.includes('/og/') && !page.includes('/404'),
+    }),
   ],
 });

@@ -1,0 +1,64 @@
+---
+import Base from '../layouts/Base.astro';
+
+const title = '404 — Jeroen Wever';
+---
+
+<Base locale="en" title={title} description="Page not found">
+  <meta slot="head" name="robots" content="noindex" />
+  <main id="main">
+    <p class="code">
+      <span aria-hidden="true">4<span class="zero"></span>4</span>
+      <span class="visually-hidden">404</span>
+    </p>
+    <h1>This page melted.</h1>
+    <p>
+      The page you're looking for doesn't exist (anymore).
+      <span lang="nl">Deze pagina bestaat niet (meer).</span>
+    </p>
+    <p class="links">
+      <a href="/">Back to the resume</a>
+      <span aria-hidden="true">·</span>
+      <a href="/nl/" hreflang="nl" lang="nl">Naar het Nederlandse cv</a>
+    </p>
+  </main>
+</Base>
+
+<style>
+  main {
+    max-width: 44rem;
+    margin-inline: auto;
+    padding: var(--space-6) var(--space-4);
+  }
+
+  .code {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: var(--text-2xl);
+    line-height: 1;
+    margin: 0;
+  }
+
+  .zero {
+    display: inline-block;
+    width: 0.62em;
+    height: 0.62em;
+    border-radius: 50%;
+    background: var(--color-dot-raspberry);
+    margin-inline: 0.06em;
+  }
+
+  h1 {
+    font-size: var(--text-xl);
+    margin-top: var(--space-3);
+  }
+
+  main > p:not(.code) {
+    margin-top: var(--space-3);
+    color: var(--color-muted);
+  }
+
+  .links a {
+    color: var(--color-accent);
+  }
+</style>
