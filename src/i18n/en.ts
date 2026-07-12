@@ -12,6 +12,7 @@ export default {
   'section.education': 'Education',
   'experience.present': 'present',
   'outro.line': 'Interested in working together? Reach me at',
+  'footer.operatesAs': 'operates as',
   'locale.switch': 'Nederlands',
   'theme.legend': 'Theme',
   'theme.system': 'System',

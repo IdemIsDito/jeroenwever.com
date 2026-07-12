@@ -1,4 +1,6 @@
 ---
+import '@fontsource-variable/bricolage-grotesque';
+import '@fontsource-variable/inter';
 import { getResume } from '../../content';
 import { locales, type Locale } from '../../i18n';
 
@@ -8,6 +10,7 @@ export function getStaticPaths() {
 
 const locale = Astro.params.locale as Locale;
 const { basics } = getResume(locale);
+const mark = basics.name.toLowerCase().replace(/\s+/g, '');
 ---
 
 <!doctype html>
@@ -24,37 +27,69 @@ const { basics } = getResume(locale);
       body {
         width: 1200px;
         height: 630px;
-        background: #faf9f6;
-        color: #1c1917;
-        font-family: Georgia, 'Times New Roman', serif;
+        background: #fffdfa;
+        color: #241d21;
+        font-family: 'Inter Variable', Helvetica, Arial, sans-serif;
         display: flex;
         flex-direction: column;
         justify-content: center;
         padding: 80px;
-        border-bottom: 24px solid #a34e06;
+        position: relative;
       }
       h1 {
-        font-size: 96px;
-        font-weight: 700;
-        line-height: 1.05;
+        font-family: 'Bricolage Grotesque Variable', 'Arial Black', sans-serif;
+        font-size: 110px;
+        font-weight: 800;
+        line-height: 1;
+        letter-spacing: -0.02em;
+      }
+      h1 .dot {
+        color: #e0186c;
       }
       .title {
-        font-family: Helvetica, Arial, sans-serif;
-        font-size: 36px;
-        color: #a34e06;
-        margin-top: 24px;
+        font-size: 38px;
+        font-weight: 600;
+        margin-top: 28px;
       }
       .tagline {
         font-style: italic;
         font-size: 32px;
-        color: #5f5a53;
-        margin-top: 16px;
+        color: #6b6065;
+        margin-top: 12px;
+      }
+      .sprinkles {
+        position: absolute;
+        bottom: 64px;
+        left: 80px;
+        display: flex;
+        gap: 14px;
+        align-items: center;
+      }
+      .sprinkles span {
+        border-radius: 50%;
+        display: inline-block;
+      }
+      .s1 {
+        width: 26px;
+        height: 26px;
+        background: #e0186c;
+      }
+      .s2 {
+        width: 20px;
+        height: 20px;
+        background: #7c3aed;
+      }
+      .s3 {
+        width: 14px;
+        height: 14px;
+        background: #2f6bff;
       }
     </style>
   </head>
   <body>
-    <h1>{basics.name}</h1>
+    <h1>{mark}<span class="dot">.</span></h1>
     <p class="title">{basics.title}</p>
     <p class="tagline">{basics.tagline}</p>
+    <div class="sprinkles"><span class="s1"></span><span class="s2"></span><span class="s3"></span></div>
   </body>
 </html>

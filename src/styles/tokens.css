@@ -1,26 +1,35 @@
 /*
- * Design tokens. light-dark() picks per color-scheme; the data-theme
- * attribute (set by the theme toggle) forces a scheme, overriding system.
- * Accent values are AA-checked per mode (≥4.5:1 on --color-bg).
+ * Design tokens — "Candy shop precision" (2026-07-12 redesign spec).
+ * light-dark() picks per color-scheme; the data-theme attribute (set by the
+ * theme toggle) forces a scheme, overriding system.
+ * Text-role accent values are AA-checked (≥4.5:1 on --color-bg) per mode;
+ * the -dot variants are brighter and reserved for non-text sprinkles.
  */
 :root {
   color-scheme: light dark;
 
-  --color-bg: light-dark(#faf9f6, #171411);
-  --color-surface: light-dark(#f2efe9, #211d18);
-  --color-text: light-dark(#1c1917, #e8e3dc);
-  --color-muted: light-dark(#5f5a53, #a8a199);
-  --color-accent: light-dark(#a34e06, #e5963f);
-  --color-border: light-dark(#e7e1d7, #35302a);
+  --color-bg: light-dark(#fffdfa, #1c1517);
+  --color-surface: light-dark(#f6ebe0, #251c1f);
+  --color-text: light-dark(#241d21, #efe6e0);
+  --color-muted: light-dark(#6b6065, #a89ba0);
+  --color-border: light-dark(#eee2d9, #372b2e);
 
-  --font-serif: 'Fraunces Variable', Georgia, 'Times New Roman', serif;
-  --font-sans: system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --color-accent: light-dark(#c2145c, #ff4f96);
+  --color-accent-2: light-dark(#6d28d9, #b794ff);
+  --color-accent-3: light-dark(#2456d6, #7ea6ff);
+
+  --color-dot-raspberry: light-dark(#e0186c, #ff4f96);
+  --color-dot-grape: light-dark(#7c3aed, #b794ff);
+  --color-dot-blueberry: light-dark(#2f6bff, #7ea6ff);
+
+  --font-display: 'Bricolage Grotesque Variable', 'Arial Black', sans-serif;
+  --font-sans: 'Inter Variable', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
 
   --text-sm: 0.875rem;
   --text-base: 1rem;
   --text-lg: 1.25rem;
   --text-xl: 1.75rem;
-  --text-2xl: clamp(2.25rem, 5vw, 3rem);
+  --text-2xl: clamp(2.5rem, 7vw, 4.25rem);
 
   --space-1: 0.25rem;
   --space-2: 0.5rem;
@@ -28,6 +37,8 @@
   --space-4: 1.5rem;
   --space-5: 2.5rem;
   --space-6: 4rem;
+
+  --topbar-height: 3rem;
 }
 
 :root[data-theme='light'] {

@@ -2,13 +2,23 @@
 interface Props {
   id: string;
   title: string;
+  /** Sprinkle color for this section's label dot. */
+  dot?: 'raspberry' | 'grape' | 'blueberry';
 }
 
-const { id, title } = Astro.props;
+const { id, title, dot = 'raspberry' } = Astro.props;
+const accentVar: Record<NonNullable<Props['dot']>, string> = {
+  raspberry: 'var(--color-accent)',
+  grape: 'var(--color-accent-2)',
+  blueberry: 'var(--color-accent-3)',
+};
 ---
 
-<section id={id} aria-labelledby={`${id}-heading`}>
-  <h2 id={`${id}-heading`}>{title}</h2>
+<section id={id} aria-labelledby={`${id}-heading`} style={`--section-accent: ${accentVar[dot]}; --section-dot: var(--color-dot-${dot})`}>
+  <h2 id={`${id}-heading`}>
+    <span class="dot" style="--dot: var(--section-dot)" aria-hidden="true"></span>
+    {title}
+  </h2>
   <slot />
 </section>
 
@@ -20,12 +30,15 @@ const { id, title } = Astro.props;
   }
 
   h2 {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
     font-family: var(--font-sans);
     font-size: var(--text-sm);
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--color-accent);
+    color: var(--section-accent, var(--color-accent));
     margin-bottom: var(--space-4);
   }
 </style>

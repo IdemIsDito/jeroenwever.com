@@ -1,0 +1,207 @@
+---
+import Icon from './Icon.astro';
+import LocaleToggle from './LocaleToggle.astro';
+import ThemeToggle from './ThemeToggle.astro';
+import { useTranslations, type Locale } from '../i18n';
+import type { Resume } from '../content/schema';
+
+interface Props {
+  locale: Locale;
+  basics: Resume['basics'];
+}
+
+const { locale, basics } = Astro.props;
+const t = useTranslations(locale);
+const mark = basics.name.toLowerCase().replace(/\s+/g, '');
+
+const links = [
+  { href: `mailto:${basics.email}`, icon: 'mail', label: t('sidebar.email'), download: false },
+  { href: basics.linkedin, icon: 'linkedin', label: t('sidebar.linkedin'), download: false },
+  { href: basics.github, icon: 'github', label: t('sidebar.github'), download: false },
+  { href: `/cv-${locale}.pdf`, icon: 'download', label: t('sidebar.downloadCv'), download: true },
+] as const;
+---
+
+<div class="topbar">
+  <a class="mark" href="#main" aria-label={basics.name}>{mark}<span class="mark-dot" aria-hidden="true">.</span></a>
+  <div class="topbar-right">
+    <nav aria-label={t('mobile.contactNav')}>
+      <ul>
+        {
+          links.map((l) => (
+            <li>
+              <a href={l.href} aria-label={l.label} download={l.download || undefined}>
+                <Icon name={l.icon} size={16} />
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+    <div class="toggles">
+      <LocaleToggle locale={locale} />
+      <ThemeToggle locale={locale} />
+    </div>
+  </div>
+</div>
+
+<header class="hero">
+  <h1 class="hero-mark">{mark}<span class="mark-dot" aria-hidden="true">.</span><span class="visually-hidden">{basics.name}</span></h1>
+  <p class="title">{basics.title}</p>
+  <p class="tagline">{basics.tagline}</p>
+  <nav aria-label={t('sidebar.contactNav')}>
+    <ul>
+      {
+        links.map((l) => (
+          <li>
+            <a href={l.href} download={l.download || undefined}>
+              <Icon name={l.icon} size={15} />
+              <span>{l.label}</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</header>
+
+<style>
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-3);
+    min-height: var(--topbar-height);
+    padding: var(--space-1) var(--space-4);
+    background: var(--color-bg);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .mark,
+  .hero-mark {
+    font-family: var(--font-display);
+    font-weight: 800;
+    color: var(--color-text);
+    text-decoration: none;
+
+    & .mark-dot {
+      color: var(--color-dot-raspberry);
+    }
+  }
+
+  .mark {
+    font-size: var(--text-lg);
+  }
+
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+
+    & nav ul {
+      display: flex;
+      gap: var(--space-1);
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    & nav a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      color: var(--color-muted);
+
+      &:hover {
+        color: var(--color-accent);
+        background: var(--color-surface);
+      }
+    }
+  }
+
+  .toggles {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    border-left: 1px solid var(--color-border);
+    padding-left: var(--space-3);
+  }
+
+  .hero {
+    max-width: 44rem;
+    margin-inline: auto;
+    padding: var(--space-6) var(--space-4) var(--space-5);
+
+    @media (max-width: 40rem) {
+      padding-top: var(--space-5);
+    }
+  }
+
+  .hero-mark {
+    font-size: var(--text-2xl);
+    letter-spacing: -0.02em;
+  }
+
+  /* Gentle "collapse into the bar" feel where scroll-driven animations exist. */
+  @supports (animation-timeline: scroll()) {
+    @media (prefers-reduced-motion: no-preference) {
+      .hero-mark {
+        animation: hero-shrink linear both;
+        animation-timeline: scroll();
+        animation-range: 0 20rem;
+      }
+    }
+  }
+
+  @keyframes hero-shrink {
+    to {
+      opacity: 0.3;
+      scale: 0.97;
+      translate: 0 -0.25rem;
+    }
+  }
+
+  .title {
+    font-weight: 600;
+    margin: var(--space-3) 0 0;
+  }
+
+  .tagline {
+    font-style: italic;
+    color: var(--color-muted);
+    margin: var(--space-1) 0 0;
+  }
+
+  .hero nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2) var(--space-4);
+    list-style: none;
+    margin: var(--space-4) 0 0;
+    padding: 0;
+  }
+
+  .hero nav a {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    min-height: 24px;
+    font-size: var(--text-sm);
+    color: var(--color-text);
+    text-decoration-color: var(--color-border);
+
+    & svg {
+      color: var(--color-accent);
+    }
+
+    &:hover {
+      color: var(--color-accent);
+    }
+  }
+</style>

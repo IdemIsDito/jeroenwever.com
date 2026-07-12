@@ -14,6 +14,7 @@ export default {
   'section.education': 'Opleiding',
   'experience.present': 'heden',
   'outro.line': 'Interesse om samen te werken? Bereik me via',
+  'footer.operatesAs': 'werkt als',
   'locale.switch': 'English',
   'theme.legend': 'Thema',
   'theme.system': 'Systeem',

@@ -1,10 +1,10 @@
 ---
 import Base from '../layouts/Base.astro';
-import Sidebar from './Sidebar.astro';
+import Header from './Header.astro';
+import Footer from './Footer.astro';
 import Section from './Section.astro';
 import ExperienceItem from './ExperienceItem.astro';
 import SkillsList from './SkillsList.astro';
-import MobileActions from './MobileActions.astro';
 import { getResume } from '../content';
 import { useTranslations, type Locale } from '../i18n';
 
@@ -29,59 +29,43 @@ const jsonLd = {
 ---
 
 <Base locale={locale} title={`${basics.name} — ${basics.title}`} description={t('meta.description')}>
-  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
-  <div class="page">
-    <Sidebar locale={locale} basics={basics} />
-    <main id="main">
-      <Section id="about" title={t('section.about')}>
-        <p class="summary">{basics.summary}</p>
-      </Section>
+  <script slot="head" is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  <Header locale={locale} basics={basics} />
+  <main id="main">
+    <Section id="about" title={t('section.about')} dot="raspberry">
+      <p class="summary">{basics.summary}</p>
+    </Section>
 
-      <Section id="experience" title={t('section.experience')}>
-        {resume.experience.map((job) => <ExperienceItem job={job} locale={locale} />)}
-      </Section>
+    <Section id="experience" title={t('section.experience')} dot="grape">
+      {resume.experience.map((job) => <ExperienceItem job={job} locale={locale} />)}
+    </Section>
 
-      <Section id="skills" title={t('section.skills')}>
-        <SkillsList groups={resume.skills} />
-      </Section>
+    <Section id="skills" title={t('section.skills')} dot="blueberry">
+      <SkillsList groups={resume.skills} />
+    </Section>
 
-      {
-        resume.education.length > 0 && (
-          <Section id="education" title={t('section.education')}>
-            <ul class="education">
-              {resume.education.map((e) => (
-                <li>
-                  <strong>{e.degree}</strong>, {e.school} · {e.year}
-                </li>
-              ))}
-            </ul>
-          </Section>
-        )
-      }
-
-      <p class="outro">
-        {t('outro.line')} <a href={`mailto:${basics.email}`}>{basics.email}</a>
-      </p>
-    </main>
-  </div>
-  <MobileActions locale={locale} basics={basics} />
+    {
+      resume.education.length > 0 && (
+        <Section id="education" title={t('section.education')} dot="raspberry">
+          <ul class="education">
+            {resume.education.map((e) => (
+              <li>
+                <strong>{e.degree}</strong>, {e.school} · {e.year}
+              </li>
+            ))}
+          </ul>
+        </Section>
+      )
+    }
+  </main>
+  <Footer locale={locale} basics={basics} />
 </Base>
 
 <style>
-  .page {
-    max-width: 72rem;
+  main {
+    max-width: 44rem;
     margin-inline: auto;
-    padding: var(--space-6) var(--space-4);
-    display: grid;
-    gap: var(--space-6);
-
-    @media (min-width: 56rem) {
-      grid-template-columns: minmax(16rem, 20rem) 1fr;
-    }
-
-    @media (max-width: 55.99rem) {
-      padding-bottom: calc(var(--space-6) + 3rem); /* room for mobile actions bar */
-    }
+    padding: 0 var(--space-4);
   }
 
   .summary {
@@ -98,12 +82,5 @@ const jsonLd = {
     & li {
       margin-bottom: var(--space-2);
     }
-  }
-
-  .outro {
-    border-top: 1px solid var(--color-border);
-    padding-top: var(--space-4);
-    color: var(--color-muted);
-    margin: 0;
   }
 </style>

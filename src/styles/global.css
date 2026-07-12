@@ -17,8 +17,8 @@ body {
 h1,
 h2,
 h3 {
-  font-family: var(--font-serif);
-  line-height: 1.15;
+  font-family: var(--font-display);
+  line-height: 1.1;
   margin: 0;
 
   & a {
@@ -70,6 +70,15 @@ a {
   overflow: hidden;
   clip-path: inset(50%);
   white-space: nowrap;
+}
+
+/* Candy sprinkle: a non-text dot, colored via --dot on the element. */
+.dot {
+  display: inline-block;
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 50%;
+  background: var(--dot, var(--color-dot-raspberry));
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -1,4 +1,5 @@
 ---
+import '@fontsource-variable/bricolage-grotesque';
 import { getResume } from '../../content';
 import { useTranslations, locales, type Locale } from '../../i18n';
 
@@ -43,6 +44,8 @@ function fmt(ym: string): string {
         background: #fff;
       }
       h1 {
+        font-family: 'Bricolage Grotesque Variable', Helvetica, Arial, sans-serif;
+        font-weight: 800;
         font-size: 22pt;
         margin: 0;
       }
@@ -50,17 +53,17 @@ function fmt(ym: string): string {
         display: flex;
         justify-content: space-between;
         align-items: baseline;
-        border-bottom: 2px solid #a34e06;
+        border-bottom: 2px solid #c2145c;
         padding-bottom: 4mm;
         margin-bottom: 6mm;
       }
       .contact {
         text-align: right;
         font-size: 9pt;
-        color: #5f5a53;
+        color: #6b6065;
       }
       .title {
-        color: #a34e06;
+        color: #c2145c;
         font-weight: 600;
         margin: 1mm 0 0;
       }
@@ -69,7 +72,7 @@ function fmt(ym: string): string {
         font-size: 8.5pt;
         letter-spacing: 0.12em;
         text-transform: uppercase;
-        color: #a34e06;
+        color: #c2145c;
         margin: 6mm 0 2mm;
       }
       article {
@@ -82,7 +85,7 @@ function fmt(ym: string): string {
       }
       .period {
         font-size: 9pt;
-        color: #5f5a53;
+        color: #6b6065;
         margin: 0 0 1mm;
       }
       p {
@@ -95,7 +98,7 @@ function fmt(ym: string): string {
       .stack,
       dd {
         font-size: 9pt;
-        color: #5f5a53;
+        color: #6b6065;
       }
       dl {
         margin: 0;
