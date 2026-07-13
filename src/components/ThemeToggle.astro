@@ -9,74 +9,77 @@ const { locale } = Astro.props;
 const t = useTranslations(locale);
 ---
 
-<button
-  id="theme-toggle"
-  type="button"
-  data-label-legend={t('theme.legend')}
-  data-label-system={t('theme.system')}
-  data-label-light={t('theme.light')}
-  data-label-dark={t('theme.dark')}
-  aria-label={`${t('theme.legend')}: ${t('theme.system')}`}
->
-  <span aria-hidden="true">◐</span>
-  <span class="label">{t('theme.system')}</span>
-</button>
+<label class="theme">
+  <span class="visually-hidden">{t('theme.legend')}</span>
+  <select id="theme-select">
+    <option value="system" selected>{t('theme.system')}</option>
+    <option value="light">{t('theme.light')}</option>
+    <option value="dark">{t('theme.dark')}</option>
+  </select>
+</label>
 
 <script>
-  type Mode = 'system' | 'light' | 'dark';
-  const order: Mode[] = ['system', 'light', 'dark'];
-  const btn = document.getElementById('theme-toggle') as HTMLButtonElement;
-  const labelEl = btn.querySelector('.label') as HTMLSpanElement;
+  const select = document.getElementById('theme-select') as HTMLSelectElement;
 
   const stored = localStorage.getItem('theme');
-  let mode: Mode = stored === 'light' || stored === 'dark' ? stored : 'system';
+  select.value = stored === 'light' || stored === 'dark' ? stored : 'system';
 
-  function labelFor(m: Mode): string {
-    return btn.dataset[`label${m[0]!.toUpperCase()}${m.slice(1)}` as 'labelSystem'] ?? m;
-  }
-
-  function apply(next: Mode): void {
-    mode = next;
-    if (next === 'system') {
+  select.addEventListener('change', () => {
+    const mode = select.value;
+    if (mode === 'light' || mode === 'dark') {
+      document.documentElement.dataset.theme = mode;
+      localStorage.setItem('theme', mode);
+    } else {
       delete document.documentElement.dataset.theme;
       localStorage.removeItem('theme');
-    } else {
-      document.documentElement.dataset.theme = next;
-      localStorage.setItem('theme', next);
     }
-    labelEl.textContent = labelFor(next);
-    btn.setAttribute('aria-label', `${btn.dataset.labelLegend}: ${labelFor(next)}`);
-  }
-
-  apply(mode);
-  btn.addEventListener('click', () => {
-    apply(order[(order.indexOf(mode) + 1) % order.length]!);
   });
 </script>
 
 <style>
-  button {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-1);
-    min-height: 24px;
-    padding: var(--space-1) var(--space-2);
+  select {
     font: inherit;
     font-size: var(--text-sm);
     color: var(--color-text);
     background: transparent;
     border: 1px solid var(--color-border);
     border-radius: 999px;
+    padding: var(--space-1) var(--space-2);
+    min-height: 24px;
     cursor: pointer;
 
     &:hover {
       border-color: var(--color-accent);
     }
+  }
 
-    /* On narrow screens the icon (plus aria-label) is enough. */
-    @media (max-width: 40rem) {
-      & .label {
-        display: none;
+  /* Customizable select where supported; native (still accessible) elsewhere. */
+  @supports (appearance: base-select) {
+    select,
+    select::picker(select) {
+      appearance: base-select;
+    }
+
+    select::picker(select) {
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      padding: var(--space-1);
+      box-shadow: 0 6px 24px rgb(0 0 0 / 0.12);
+    }
+
+    option {
+      padding: var(--space-1) var(--space-3);
+      border-radius: 7px;
+
+      &:hover,
+      &:focus {
+        background: var(--color-surface);
+      }
+
+      &:checked {
+        color: var(--color-accent);
+        font-weight: 600;
       }
     }
   }

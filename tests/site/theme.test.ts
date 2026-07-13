@@ -10,43 +10,44 @@ afterAll(async () => {
   server.stop();
 });
 
-test('toggle cycles system → light → dark and persists override', async () => {
+test('theme select applies, persists and clears overrides', async () => {
   const page = await browser.newPage();
   await page.goto(origin + '/');
 
-  const toggle = page.locator('#theme-toggle');
-  expect(await toggle.count()).toBe(1);
+  const select = page.locator('#theme-select');
+  expect(await select.count()).toBe(1);
 
-  // default: system — no data-theme attribute, nothing stored
+  // default: system — select reflects it, no data-theme attribute, nothing stored
+  expect(await select.inputValue()).toBe('system');
   expect(await page.evaluate(() => document.documentElement.dataset.theme)).toBeUndefined();
 
-  // first click → light override
-  await toggle.click();
-  expect(await page.evaluate(() => document.documentElement.dataset.theme)).toBe('light');
-  expect(await page.evaluate(() => localStorage.getItem('theme'))).toBe('light');
-
-  // second click → dark override
-  await toggle.click();
+  // pick dark directly (no cycling needed)
+  await select.selectOption('dark');
   expect(await page.evaluate(() => document.documentElement.dataset.theme)).toBe('dark');
   expect(await page.evaluate(() => localStorage.getItem('theme'))).toBe('dark');
 
-  // reload → override re-applied before interaction
+  // reload → override re-applied before interaction, select shows stored value
   await page.reload();
   expect(await page.evaluate(() => document.documentElement.dataset.theme)).toBe('dark');
+  expect(await page.locator('#theme-select').inputValue()).toBe('dark');
 
-  // third click → back to system, override cleared
-  await page.locator('#theme-toggle').click();
+  // pick light directly from dark (any state reachable from any state)
+  await page.locator('#theme-select').selectOption('light');
+  expect(await page.evaluate(() => document.documentElement.dataset.theme)).toBe('light');
+  expect(await page.evaluate(() => localStorage.getItem('theme'))).toBe('light');
+
+  // back to system → override cleared
+  await page.locator('#theme-select').selectOption('system');
   expect(await page.evaluate(() => document.documentElement.dataset.theme)).toBeUndefined();
   expect(await page.evaluate(() => localStorage.getItem('theme'))).toBeNull();
 
   await page.close();
 });
 
-test('toggle has an accessible name reflecting current state', async () => {
+test('theme select has an accessible name', async () => {
   const page = await browser.newPage();
   await page.goto(origin + '/');
-  const label = await page.locator('#theme-toggle').getAttribute('aria-label');
-  expect(label).toContain('Theme');
-  expect(label).toContain('System');
+  // the wrapping <label> gives the select its accessible name
+  expect(await page.getByLabel('Theme').count()).toBe(1);
   await page.close();
 });
