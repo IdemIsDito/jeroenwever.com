@@ -6,7 +6,7 @@ export default {
   'sidebar.email': 'Mail mij',
   'sidebar.linkedin': 'LinkedIn',
   'sidebar.github': 'GitHub',
-  'sidebar.downloadCv': 'Download cv (PDF)',
+  'sidebar.downloadCv': 'Download CV (PDF)',
   'cv.docTitle': 'CV',
   'mobile.contactNav': 'Snel contact',
   'section.about': 'Over mij',

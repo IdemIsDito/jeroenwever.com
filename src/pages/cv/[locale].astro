@@ -78,10 +78,21 @@ function fmt(ym: string): string {
         letter-spacing: 0.12em;
         text-transform: uppercase;
         color: #c2145c;
-        margin: 6mm 0 2mm;
+        margin: 5mm 0 2mm;
       }
       article {
-        margin-bottom: 4mm;
+        margin-bottom: 3mm;
+      }
+      .keep {
+        break-inside: avoid;
+      }
+      /* Entries may break across pages, but never right after their heading lines. */
+      h2,
+      h3,
+      .period {
+        break-after: avoid;
+      }
+      li {
         break-inside: avoid;
       }
       h3 {
@@ -182,10 +193,10 @@ function fmt(ym: string): string {
 
     {
       resume.personal && (
-        <>
+        <section class="keep">
           <h2>{t('section.personal')}</h2>
           <p>{resume.personal}</p>
-        </>
+        </section>
       )
     }
   </body>
