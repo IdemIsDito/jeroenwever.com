@@ -1,5 +1,5 @@
 import { chromium } from 'playwright';
-import { locales } from '../src/i18n';
+import { locales, cvFileName } from '../src/i18n';
 import { serveDist } from './serve-dist';
 
 const { server, origin, dist } = serveDist();
@@ -11,10 +11,12 @@ try {
 
     await page.goto(`${origin}/cv/${locale}/`, { waitUntil: 'networkidle' });
     await page.pdf({
-      path: `${dist}cv-${locale}.pdf`,
+      path: `${dist}${cvFileName(locale)}`,
       format: 'A4',
       printBackground: true,
       tagged: true,
+      // Renderer margins apply to every page, unlike body padding.
+      margin: { top: '14mm', right: '16mm', bottom: '14mm', left: '16mm' },
     });
 
     await page.setViewportSize({ width: 1200, height: 630 });
@@ -22,7 +24,7 @@ try {
     await page.screenshot({ path: `${dist}og-${locale}.png` });
 
     await page.close();
-    console.log(`✓ cv-${locale}.pdf + og-${locale}.png`);
+    console.log(`✓ ${cvFileName(locale)} + og-${locale}.png`);
   }
 } finally {
   await browser.close();
@@ -31,9 +33,9 @@ try {
 
 // Fail the build loudly if anything is missing or suspiciously small.
 for (const locale of locales) {
-  const pdf = Bun.file(`${dist}cv-${locale}.pdf`);
+  const pdf = Bun.file(`${dist}${cvFileName(locale)}`);
   if (!(await pdf.exists()) || pdf.size < 10_000) {
-    console.error(`cv-${locale}.pdf missing or too small (${pdf.size} bytes)`);
+    console.error(`${cvFileName(locale)} missing or too small (${pdf.size} bytes)`);
     process.exit(1);
   }
 }

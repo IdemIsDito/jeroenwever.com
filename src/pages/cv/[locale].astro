@@ -11,6 +11,9 @@ const locale = Astro.params.locale as Locale;
 const resume = getResume(locale);
 const t = useTranslations(locale);
 const { basics } = resume;
+// Composed here, not inline in <title> — parentheses around a template
+// expression inside <title> corrupted the compiled document structure.
+const docTitle = `${basics.name} — ${t('cv.docTitle')}`;
 
 function fmt(ym: string): string {
   const [y, m] = ym.split('-');
@@ -25,7 +28,7 @@ function fmt(ym: string): string {
 <html lang={locale}>
   <head>
     <meta charset="utf-8" />
-    <title>{basics.name} — CV ({locale.toUpperCase()})</title>
+    <title>{docTitle}</title>
     <meta name="robots" content="noindex" />
     <style>
       :root {
@@ -36,7 +39,9 @@ function fmt(ym: string): string {
       }
       body {
         margin: 0;
-        padding: 14mm 16mm;
+        /* Page margins come from the PDF renderer (per page); body padding
+           would only inset the first page and leave later pages cramped. */
+        padding: 0;
         font-family: Georgia, 'Times New Roman', serif;
         font-size: 10.5pt;
         line-height: 1.5;

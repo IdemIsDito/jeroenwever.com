@@ -21,14 +21,15 @@ describe('resume pages', () => {
     expect(nl).toContain('Vaardigheden');
   });
 
-  test('all three CTAs present in both locales', () => {
+  test('all CTAs present in both locales', () => {
+    const pdfName = { en: 'resume_jeroenwever.pdf', nl: 'cv_jeroenwever.pdf' } as const;
     for (const [html, locale] of [
       [en, 'en'],
       [nl, 'nl'],
     ] as const) {
       expect(html).toContain('mailto:jeroen@jeroenwever.com');
       expect(html).toContain('linkedin.com');
-      expect(html).toContain(`/cv-${locale}.pdf`);
+      expect(html).toContain(`/${pdfName[locale]}`);
     }
   });
 

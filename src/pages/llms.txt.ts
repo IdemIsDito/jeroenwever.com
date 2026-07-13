@@ -1,5 +1,6 @@
 import type { APIRoute } from 'astro';
 import { getResume } from '../content';
+import { cvFileName } from '../i18n';
 
 export const GET: APIRoute = ({ site }) => {
   const resume = getResume('en');
@@ -16,8 +17,8 @@ export const GET: APIRoute = ({ site }) => {
     '',
     `- [Resume (English)](${new URL('/', site)})`,
     `- [Resume (Dutch)](${new URL('/nl/', site)})`,
-    `- [CV as PDF, English](${new URL('/cv-en.pdf', site)})`,
-    `- [CV as PDF, Dutch](${new URL('/cv-nl.pdf', site)})`,
+    `- [Resume as PDF, English](${new URL(`/${cvFileName('en')}`, site)})`,
+    `- [CV as PDF, Dutch](${new URL(`/${cvFileName('nl')}`, site)})`,
     '',
     '## Experience',
     '',

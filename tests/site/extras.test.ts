@@ -9,7 +9,8 @@ describe('llms.txt', () => {
     const txt = await Bun.file(dist + 'llms.txt').text();
     expect(txt).toContain('# Jeroen Wever');
     expect(txt).toContain('Freelance staff engineer');
-    expect(txt).toContain('/cv-en.pdf');
+    expect(txt).toContain('/resume_jeroenwever.pdf');
+    expect(txt).toContain('/cv_jeroenwever.pdf');
     expect(txt).toContain('Sugar Rush Development');
     expect(txt).toContain('jeroen@jeroenwever.com');
   });

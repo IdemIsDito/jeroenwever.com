@@ -4,18 +4,20 @@ import { existsSync } from 'node:fs';
 const dist = new URL('../../dist/', import.meta.url).pathname;
 if (!existsSync(dist)) throw new Error('dist/ missing — run `bun run build` before test:site');
 
+const pdfName = { en: 'resume_jeroenwever.pdf', nl: 'cv_jeroenwever.pdf' } as const;
+
 describe('generated assets', () => {
   for (const locale of ['en', 'nl'] as const) {
-    test(`cv-${locale}.pdf exists, is a PDF, and is non-trivial`, async () => {
-      const file = Bun.file(`${dist}cv-${locale}.pdf`);
+    test(`${pdfName[locale]} exists, is a PDF, and is non-trivial`, async () => {
+      const file = Bun.file(`${dist}${pdfName[locale]}`);
       expect(await file.exists()).toBe(true);
       expect(file.size).toBeGreaterThan(10_000);
       const head = new Uint8Array((await file.arrayBuffer()).slice(0, 5));
       expect(new TextDecoder().decode(head)).toBe('%PDF-');
     });
 
-    test(`cv-${locale}.pdf is tagged with a structure tree (accessible/language metadata)`, async () => {
-      const file = Bun.file(`${dist}cv-${locale}.pdf`);
+    test(`${pdfName[locale]} is tagged with a structure tree (accessible/language metadata)`, async () => {
+      const file = Bun.file(`${dist}${pdfName[locale]}`);
       const text = await file.text();
       expect(text).toContain('StructTreeRoot');
     });

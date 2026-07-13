@@ -18,3 +18,8 @@ export function altLocale(locale: Locale): Locale {
 export function localePath(locale: Locale): string {
   return locale === 'en' ? '/' : '/nl/';
 }
+
+/** Downloadable PDF filename per locale: "resume" for EN (US convention), "cv" for NL. */
+export function cvFileName(locale: Locale): string {
+  return locale === 'en' ? 'resume_jeroenwever.pdf' : 'cv_jeroenwever.pdf';
+}

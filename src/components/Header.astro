@@ -2,7 +2,7 @@
 import Icon from './Icon.astro';
 import LocaleToggle from './LocaleToggle.astro';
 import ThemeToggle from './ThemeToggle.astro';
-import { useTranslations, type Locale } from '../i18n';
+import { useTranslations, cvFileName, type Locale } from '../i18n';
 import type { Resume } from '../content/schema';
 
 interface Props {
@@ -18,7 +18,7 @@ const links = [
   { href: `mailto:${basics.email}`, icon: 'mail', label: t('sidebar.email'), download: false },
   { href: basics.linkedin, icon: 'linkedin', label: t('sidebar.linkedin'), download: false },
   { href: basics.github, icon: 'github', label: t('sidebar.github'), download: false },
-  { href: `/cv-${locale}.pdf`, icon: 'download', label: t('sidebar.downloadCv'), download: true },
+  { href: `/${cvFileName(locale)}`, icon: 'download', label: t('sidebar.downloadCv'), download: true },
 ] as const;
 ---
 
