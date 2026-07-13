@@ -179,5 +179,14 @@ function fmt(ym: string): string {
         </>
       )
     }
+
+    {
+      resume.personal && (
+        <>
+          <h2>{t('section.personal')}</h2>
+          <p>{resume.personal}</p>
+        </>
+      )
+    }
   </body>
 </html>

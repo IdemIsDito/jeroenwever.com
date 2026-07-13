@@ -3,7 +3,7 @@
     "name": "Jeroen Wever",
     "title": "Freelance staff engineer",
     "tagline": "I build products that ship.",
-    "summary": "Curious, autodidactic engineer with 15+ years of building web products people actually use — from the Benelux's biggest news and entertainment brands to real-time sports betting. I go deep where it matters most: server-side rendering at scale, analytics and experimentation that turn opinions into decisions, and mentoring engineers into people who no longer need me.",
+    "summary": "Curious, autodidactic engineer with almost 20 years of building web products people actually use — from the Benelux's biggest news and entertainment brands to real-time sports betting. I go deep where it matters most: server-side rendering at scale, analytics and experimentation that turn opinions into decisions, and mentoring engineers into people who no longer need me.",
     "location": "The Netherlands",
     "email": "jeroen@jeroenwever.com",
     "linkedin": "https://www.linkedin.com/in/jeroenwever/",
@@ -108,5 +108,6 @@
       "school": "Inholland University of Applied Sciences",
       "year": "2007"
     }
-  ]
+  ],
+  "personal": "Right now I'm building a log cabin in the backyard, my team of three kids and I report to my wife, and I'm over-engineering a meal planner — because deciding at 17:00 what's for dinner is the mental equivalent of driving your car into a ditch."
 }

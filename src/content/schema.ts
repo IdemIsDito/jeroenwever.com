@@ -44,6 +44,7 @@ export const resumeSchema = z.object({
       })
     )
     .default([]),
+  personal: z.string().min(1).optional(),
 });
 
 export type Resume = z.infer<typeof resumeSchema>;

@@ -3,7 +3,7 @@
     "name": "Jeroen Wever",
     "title": "Freelance staff engineer",
     "tagline": "Ik bouw producten die gebruikt worden.",
-    "summary": "Nieuwsgierige, autodidactische engineer met 15+ jaar ervaring in het bouwen van webproducten die écht gebruikt worden — van de grootste nieuws- en entertainmentmerken van de Benelux tot real-time sports betting. Ik ga diep waar het er het meest toe doet: server-side rendering op schaal, analytics en experimenten die meningen omzetten in beslissingen, en engineers begeleiden tot ze mij niet meer nodig hebben.",
+    "summary": "Nieuwsgierige, autodidactische engineer met bijna 20 jaar ervaring in het bouwen van webproducten die écht gebruikt worden — van de grootste nieuws- en entertainmentmerken van de Benelux tot real-time sports betting. Ik ga diep waar het er het meest toe doet: server-side rendering op schaal, analytics en experimenten die meningen omzetten in beslissingen, en engineers begeleiden tot ze mij niet meer nodig hebben.",
     "location": "Nederland",
     "email": "jeroen@jeroenwever.com",
     "linkedin": "https://www.linkedin.com/in/jeroenwever/",
@@ -108,5 +108,6 @@
       "school": "Hogeschool Inholland",
       "year": "2007"
     }
-  ]
+  ],
+  "personal": "Momenteel bouw ik een blokhut in de achtertuin, worden mijn team van drie kids en ik aangestuurd door mijn vrouw, en ben ik een maaltijdplanner aan het over-engineeren — want om 17:00 bedenken wat je gaat eten is hetzelfde als je auto de sloot in rijden."
 }

@@ -57,6 +57,14 @@ const jsonLd = {
         </Section>
       )
     }
+
+    {
+      resume.personal && (
+        <Section id="personal" title={t('section.personal')} dot="grape">
+          <p class="personal">{resume.personal}</p>
+        </Section>
+      )
+    }
   </main>
   <Footer locale={locale} basics={basics} />
 </Base>

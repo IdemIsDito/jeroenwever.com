@@ -13,6 +13,7 @@ export default {
   'section.experience': 'Werkervaring',
   'section.skills': 'Vaardigheden',
   'section.education': 'Opleiding',
+  'section.personal': 'Na vijven',
   'experience.present': 'heden',
   'outro.line': 'Interesse om samen te werken? Bereik me via',
   'footer.operatesAs': 'werkt als',
@@ -22,5 +23,5 @@ export default {
   'theme.light': 'Licht',
   'theme.dark': 'Donker',
   'meta.description':
-    'Jeroen Wever — freelance staff engineer. Bouwt al 15+ jaar webproducten: custom SSR op schaal, analytics & experimenten, en het begeleiden van engineers. Beschikbaar voor opdrachten.',
+    'Jeroen Wever — freelance staff engineer. Bouwt al bijna 20 jaar webproducten: custom SSR op schaal, analytics & experimenten, en het begeleiden van engineers. Beschikbaar voor opdrachten.',
 } satisfies Record<keyof typeof en, string>;

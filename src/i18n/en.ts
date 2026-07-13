@@ -11,6 +11,7 @@ export default {
   'section.experience': 'Experience',
   'section.skills': 'Skills',
   'section.education': 'Education',
+  'section.personal': 'Off the clock',
   'experience.present': 'present',
   'outro.line': 'Interested in working together? Reach me at',
   'footer.operatesAs': 'operates as',
@@ -20,5 +21,5 @@ export default {
   'theme.light': 'Light',
   'theme.dark': 'Dark',
   'meta.description':
-    'Jeroen Wever — freelance staff engineer. 15+ years shipping web products: custom SSR at scale, analytics & experimentation, and mentoring engineers. Available for assignments.',
+    'Jeroen Wever — freelance staff engineer. Almost 20 years shipping web products: custom SSR at scale, analytics & experimentation, and mentoring engineers. Available for assignments.',
 } as const;
