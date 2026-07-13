@@ -3,7 +3,7 @@
     "name": "Jeroen Wever",
     "title": "Freelance staff engineer",
     "tagline": "I build products that ship.",
-    "summary": "Curious, autodidactic engineer with 15+ years of building web products people actually use — from high-traffic news and entertainment platforms to real-time sports betting. I translate abstract ideas into structured processes and UX, take quality as a top priority, and have a clear vision of how a development team should work — and what it takes to make that happen.",
+    "summary": "Curious, autodidactic engineer with 15+ years of building web products people actually use — from the Benelux's biggest news and entertainment brands to real-time sports betting. I go deep where it matters most: server-side rendering at scale, analytics and experimentation that turn opinions into decisions, and mentoring engineers into people who no longer need me.",
     "location": "The Netherlands",
     "email": "jeroen@jeroenwever.com",
     "linkedin": "https://www.linkedin.com/in/jeroenwever/",
@@ -15,37 +15,43 @@
       "company": "Nederlandse Loterij (TOTO)",
       "start": "2023-01",
       "end": null,
-      "summary": "Product development on TOTO's casino and sports-betting platforms: high availability, huge traffic spikes, and strict compliance with online gambling legislation.",
+      "summary": "Three engagements on TOTO's gambling platforms — a brand integration into the legacy casino, a ground-up casino rebuild, and the new TOTO Sport sportsbook — all real-time products under strict gambling regulation, peaking at 100,000 active users a night.",
       "highlights": [
-        "Part of the team that rebuilt the entire casino platform on Vue 3, a custom Node.js/Express SSR solution and a .NET backend, hosted in Azure",
-        "Helped build TOTO Sport, a real-time sports betting platform, reusing the casino stack to ship faster without sacrificing performance or compliance",
-        "Created reusable front-end components across products, set up monitoring and alerting, and integrated user tracking via Google Tag Manager",
-        "Integrated the new Winn-It brand into the legacy casino platform and connected third-party APIs"
+        "Shipped the Winn-It brand into the legacy casino platform in six weeks — with six months budgeted",
+        "Rebuilt the casino from scratch on Vue 3 and .NET, then handed it over to newly hired in-house developers; the team chose a custom SSR stack over Nuxt — no vendor lock-in, and every dev learns what a meta-framework does under the hood",
+        "Owned the initial SSR implementation for both casino and sportsbook; researched the hard parts — memory leaks and state leaking across requests — and coached the team on preventing both",
+        "Turned a three-month sportsbook proof-of-concept into a green light at the halfway demo; with four devs, reached closed beta in a year and replaced the legacy product six months later — handling peaks of 4,000 logins and 2,000 bets per minute",
+        "Built the custom Google Analytics enhanced-ecommerce funnel for betting — a betslip is not a shopping cart — plus the sportsbook's custom A/B-testing setup",
+        "Made both products webview-ready for the iOS/Android apps, debugging the not-quite-a-browser quirks side by side with the app developers"
       ],
-      "stack": ["TypeScript", "Vue 3", "Pinia", "Node.js", "Express", ".NET (C#)", "Azure", "GTM"]
+      "stack": ["TypeScript", "Vue 3", "Pinia", "Node.js", "Express", ".NET (C#)", "Azure", "Cloudflare", "GTM", "Google Analytics"]
     },
     {
       "role": "Freelance Full Stack Developer",
       "company": "DPG Media",
       "start": "2018-03",
       "end": "2022-06",
-      "summary": "Built and ran high-traffic entertainment products — video, puzzles, casual games, quizzes and podcasts — used across major Dutch media brands such as AD, HLN and de Volkskrant.",
+      "summary": "Built and ran entertainment products — video, puzzles, casual games, quizzes and podcasts — serving roughly 1.5 billion views a year across DPG's biggest brands (AD, HLN, de Volkskrant), with advertising, paywalls and tracking built in, under a \"you build it, you run it\" principle.",
       "highlights": [
-        "Created front-ends from scratch for products that ran both as standalone destinations and as embeds inside news articles",
-        "Implemented advertising, user tracking, paywalls and custom A/B-testing solutions for embeddable products",
-        "Owned operations under a \"you build it, you run it\" principle: containerized hosting in AWS, monitoring and alerting"
+        "Built the embed system end to end — the loader script, the data-attribute element API, and the embeds themselves in vanilla JavaScript, CSS and HTML — nearly all of it mine, with the team as sparring partners; carried video from 4 to 20+ titles, then puzzles, games, quizzes and podcasts",
+        "Implemented the complete Snowplow analytics integration on the front-end: plays and playthrough, profile-based recommendations, and daily-puzzle notifications that knew whether you'd already played",
+        "Built the web side of the \"wall\" product: a brand sets up one route with its own header and footer, and we render everything in between — one lightweight integration per label",
+        "Worked in continuous back-and-forth with the app teams on webview integration; later ported the products to React alongside the React Native apps",
+        "Ran what we built: containerized hosting in AWS, caching and WAF in Akamai, monitoring and alerting"
       ],
-      "stack": ["TypeScript", "React", "Node.js", "Elixir", "PostgreSQL", "AWS", "Snowplow", "Google IMA"]
+      "stack": ["TypeScript", "React", "Node.js", "Elixir", "PostgreSQL", "AWS", "Akamai", "Snowplow", "Google IMA"]
     },
     {
       "role": "Team Lead Front-End",
       "company": "DigitasLBi",
       "start": "2016-05",
       "end": "2017-12",
-      "summary": "Led front-end development (75% hands-on, 25% leading) in a fast-paced B2C campaign environment, for clients such as Audi, Renault, Dutch Railways (NS) and the Ministry of Health.",
+      "summary": "Led front-end development (75% hands-on, 25% leading) for a team of about 8 front-end developers in a fast-paced B2C campaign environment, for clients such as Audi, Renault, Dutch Railways (NS) and the Ministry of Health.",
       "highlights": [
+        "Stepped into the front-end-lead gap from day one — the sitting lead announced his departure the day I started — and in practice took on the estimations and the back-and-forth with PMs and traffic",
         "Defined the common front-end stack and coding standards used across projects and teams",
-        "Coached junior and medior developers on their projects and career growth; introduced structure that improved team workflows",
+        "Gave a trainee his first production project — trainbooking.com, direct client contact included — and guided him through it",
+        "Encouraged a developer to take campaign sites to React, then guided him in building our reusable campaign tooling — in effect our own meta-framework, before Next.js existed",
         "Delivered under hard campaign deadlines — including a multilingual Audi site live within four weeks"
       ],
       "stack": ["JavaScript", "React", "Vue", "Nuxt", "Node.js", "Azure", "AWS"]
@@ -55,24 +61,38 @@
       "company": "Hot ITem",
       "start": "2008-09",
       "end": "2016-04",
-      "summary": "All-round web development with a strong UX focus: designing, presenting and building business web applications for clients including PostNL, ING, Rijkswaterstaat, KPN, Ziggo and de Persgroep.",
+      "summary": "Started full-stack in the ASP.NET and jQuery era, building business web applications for clients including PostNL, ING, Rijkswaterstaat, KPN, Ziggo and de Persgroep.",
       "highlights": [
-        "Grew from front-end specialist to full-stack developer and UX designer across dozens of client projects — from news platforms serving 35M pageviews a month to internal portals"
+        "Claimed the front-end spot nobody wanted and grew it into a UX practice — user sessions, client presentations, and sparkling interfaces on top of server-rendered pages",
+        "Kept de Persgroep's news platforms running at 35M pageviews a month — a big number in 2010"
       ],
       "stack": ["JavaScript", "C#/.NET", "PHP", "Java", "SQL"]
     }
   ],
   "skills": [
     { "group": "Expert", "items": ["TypeScript / JavaScript", "HTML", "CSS", "Node.js"] },
+    {
+      "group": "Specialties",
+      "items": [
+        "Server-side rendering (custom-built, at scale)",
+        "Analytics & experimentation (GA, GTM, Snowplow, A/B testing)",
+        "Embeds & webviews",
+        "Monitoring & alerting",
+        "Accessibility (WCAG)"
+      ]
+    },
     { "group": "Comfortable", "items": [".NET (C#)", "Elixir", "PHP", "SQL", "OAuth", "Data modeling"] },
-    { "group": "Frameworks & platforms", "items": ["React", "Vue", "Next.js", "Nuxt", "Phoenix", "Azure", "AWS"] },
+    {
+      "group": "Frameworks & platforms",
+      "items": ["React", "Vue", "Next.js", "Nuxt", "Phoenix", "Azure", "AWS", "Cloudflare", "Akamai"]
+    },
     {
       "group": "Beyond code",
       "items": [
         "Explaining technology to non-technical people",
         "Translating abstract ideas into structured processes and UX",
         "Refining requirements",
-        "Mentoring",
+        "Mentoring & sponsoring engineers",
         "Working in agile teams"
       ]
     }

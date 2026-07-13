@@ -3,7 +3,7 @@
     "name": "Jeroen Wever",
     "title": "Freelance staff engineer",
     "tagline": "Ik bouw producten die gebruikt worden.",
-    "summary": "Nieuwsgierige, autodidactische engineer met 15+ jaar ervaring in het bouwen van webproducten die écht gebruikt worden — van drukbezochte nieuws- en entertainmentplatformen tot real-time sports betting. Ik vertaal abstracte ideeën naar gestructureerde processen en UX, stel kwaliteit voorop en heb een duidelijke visie op hoe een developmentteam zou moeten werken — en wat ervoor nodig is om dat voor elkaar te krijgen.",
+    "summary": "Nieuwsgierige, autodidactische engineer met 15+ jaar ervaring in het bouwen van webproducten die écht gebruikt worden — van de grootste nieuws- en entertainmentmerken van de Benelux tot real-time sports betting. Ik ga diep waar het er het meest toe doet: server-side rendering op schaal, analytics en experimenten die meningen omzetten in beslissingen, en engineers begeleiden tot ze mij niet meer nodig hebben.",
     "location": "Nederland",
     "email": "jeroen@jeroenwever.com",
     "linkedin": "https://www.linkedin.com/in/jeroenwever/",
@@ -15,37 +15,43 @@
       "company": "Nederlandse Loterij (TOTO)",
       "start": "2023-01",
       "end": null,
-      "summary": "Productontwikkeling aan de casino- en sportsbetting-platformen van TOTO: hoge beschikbaarheid, enorme verkeerspieken en strikte naleving van de kansspelwetgeving.",
+      "summary": "Drie opdrachten op de kansspelplatformen van TOTO — een merkintegratie in het legacy casino, een volledige rebuild van het casino en het nieuwe TOTO Sport sportsbook — allemaal real-time producten onder strikte kansspelwetgeving, met pieken van 100.000 actieve gebruikers per avond.",
       "highlights": [
-        "Onderdeel van het team dat het volledige casinoplatform opnieuw bouwde op Vue 3, een custom Node.js/Express-SSR-oplossing en een .NET-backend, gehost in Azure",
-        "Bouwde mee aan TOTO Sport, een real-time sportsbetting-platform, met hergebruik van de casino-stack om sneller te leveren zonder in te boeten op performance of compliance",
-        "Maakte herbruikbare front-end-componenten voor meerdere producten, richtte monitoring en alerting in en integreerde user tracking via Google Tag Manager",
-        "Integreerde het nieuwe merk Winn-It in het legacy casinoplatform en koppelde third-party API's"
+        "Leverde het merk Winn-It in zes weken op in het legacy casinoplatform — waar zes maanden voor was begroot",
+        "Herbouwde het casino vanaf nul op Vue 3 en .NET en droeg het daarna over aan nieuw aangenomen interne developers; het team koos een custom SSR-stack boven Nuxt — geen vendor lock-in, en elke developer leert wat een meta-framework onder de motorkap doet",
+        "Verantwoordelijk voor de initiële SSR-implementatie van casino én sportsbook; onderzocht de lastige kanten — memory leaks en state die over requests heen lekt — en coachte het team in het voorkomen daarvan",
+        "Kreeg, bij een proof-of-concept van drie maanden, bij de tussentijdse demo al een akkoord om dit te realiseren; bereikte met vier developers in een jaar de closed beta en verving zes maanden later het oude product — met pieken van 4.000 logins en 2.000 weddenschappen per minuut",
+        "Bouwde de custom Google Analytics enhanced-ecommerce-funnel voor betting — een betslip is geen winkelwagen — plus de custom A/B-test-opzet van het sportsbook",
+        "Maakte beide producten geschikt voor de iOS- en Android-webview-apps en debugde de webview-eigenaardigheden samen met de app-developers"
       ],
-      "stack": ["TypeScript", "Vue 3", "Pinia", "Node.js", "Express", ".NET (C#)", "Azure", "GTM"]
+      "stack": ["TypeScript", "Vue 3", "Pinia", "Node.js", "Express", ".NET (C#)", "Azure", "Cloudflare", "GTM", "Google Analytics"]
     },
     {
       "role": "Freelance Full Stack Developer",
       "company": "DPG Media",
       "start": "2018-03",
       "end": "2022-06",
-      "summary": "Bouwde en beheerde drukbezochte entertainmentproducten — video, puzzels, casual games, quizzen en podcasts — gebruikt door grote Nederlandse mediamerken als AD, HLN en de Volkskrant.",
+      "summary": "Bouwde en beheerde entertainmentproducten — video, puzzels, casual games, quizzen en podcasts — goed voor zo'n 1,5 miljard views per jaar bij de grootste merken van DPG (AD, HLN, de Volkskrant), inclusief advertenties, paywalls en tracking, volgens het \"you build it, you run it\"-principe.",
       "highlights": [
-        "Bouwde front-ends vanaf nul voor producten die zowel als zelfstandige bestemming draaiden als embedded in nieuwsartikelen",
-        "Implementeerde advertenties, user tracking, paywalls en custom A/B-testoplossingen voor embeddable producten",
-        "Verantwoordelijk voor operations volgens het \"you build it, you run it\"-principe: gecontaineriseerde hosting in AWS, monitoring en alerting"
+        "Bouwde het embed-systeem van begin tot eind — het loader-script, de element-API met data-attributen en de embeds zelf in vanilla JavaScript, CSS en HTML — vrijwel volledig van mijn hand, met het team als sparringpartner; zag video groeien van 4 naar 20+ titels, gevolgd door puzzels, games, quizzen en podcasts",
+        "Implementeerde de volledige Snowplow-analytics-integratie in de front-end: plays en playthrough, aanbevelingen op basis van gebruikersprofielen, en dagelijkse-puzzelnotificaties die wisten of je al gespeeld had",
+        "Bouwde de webkant van het \"wall\"-product: een merk richt één route in met eigen header en footer, en wij renderen alles daartussen — één lichte integratie per titel",
+        "Werkte in voortdurende afstemming met de app-teams aan webview-integratie; portte de producten later naar React, naast de React Native-apps",
+        "Beheerde wat we bouwden: gecontaineriseerde hosting in AWS, caching en WAF in Akamai, monitoring en alerting"
       ],
-      "stack": ["TypeScript", "React", "Node.js", "Elixir", "PostgreSQL", "AWS", "Snowplow", "Google IMA"]
+      "stack": ["TypeScript", "React", "Node.js", "Elixir", "PostgreSQL", "AWS", "Akamai", "Snowplow", "Google IMA"]
     },
     {
       "role": "Team Lead Front-End",
       "company": "DigitasLBi",
       "start": "2016-05",
       "end": "2017-12",
-      "summary": "Leidde front-end development (75% hands-on, 25% leidinggevend) in een snelle B2C-campagneomgeving, voor klanten als Audi, Renault, NS en het ministerie van VWS.",
+      "summary": "Leidde front-end development (75% hands-on, 25% leidinggevend) voor een team van zo'n 8 front-end developers in een snelle B2C-campagneomgeving, voor klanten als Audi, Renault, NS en het ministerie van VWS.",
       "highlights": [
+        "Stapte vanaf dag één in het gat van de front-end lead — de zittende lead kondigde zijn vertrek aan op de dag dat ik begon — en deed in de praktijk de estimaties en de afstemming met PM's en traffic",
         "Definieerde de gezamenlijke front-end-stack en codestandaarden voor alle projecten en teams",
-        "Coachte junior en medior developers in hun projecten en loopbaan; bracht structuur aan die teamworkflows verbeterde",
+        "Gaf een trainee zijn eerste productieproject — trainbooking.com, inclusief direct klantcontact — en begeleidde hem daarin",
+        "Moedigde een developer aan om campagnesites in React te bouwen en begeleidde hem bij het maken van onze herbruikbare campagnetooling — feitelijk ons eigen meta-framework, voordat Next.js bestond",
         "Leverde onder harde campagnedeadlines — waaronder een meertalige Audi-site die binnen vier weken live stond"
       ],
       "stack": ["JavaScript", "React", "Vue", "Nuxt", "Node.js", "Azure", "AWS"]
@@ -55,24 +61,38 @@
       "company": "Hot ITem",
       "start": "2008-09",
       "end": "2016-04",
-      "summary": "Allround webdevelopment met een sterke UX-focus: het ontwerpen, presenteren en bouwen van zakelijke webapplicaties voor klanten als PostNL, ING, Rijkswaterstaat, KPN, Ziggo en de Persgroep.",
+      "summary": "Begon full-stack in het ASP.NET- en jQuery-tijdperk, met zakelijke webapplicaties voor klanten als PostNL, ING, Rijkswaterstaat, KPN, Ziggo en de Persgroep.",
       "highlights": [
-        "Groeide van front-end-specialist naar full-stack developer en UX-designer in tientallen klantprojecten — van nieuwsplatformen met 35 miljoen pageviews per maand tot interne portalen"
+        "Claimde de front-end-rol die niemand wilde en bouwde die uit tot een UX-praktijk — gebruikerssessies, klantpresentaties en sprankelende interfaces bovenop server-gerenderde pagina's",
+        "Hield de nieuwsplatformen van de Persgroep draaiend op 35 miljoen pageviews per maand — destijds, in 2010, een groot getal"
       ],
       "stack": ["JavaScript", "C#/.NET", "PHP", "Java", "SQL"]
     }
   ],
   "skills": [
     { "group": "Expert", "items": ["TypeScript / JavaScript", "HTML", "CSS", "Node.js"] },
+    {
+      "group": "Specialiteiten",
+      "items": [
+        "Server-side rendering (custom, op schaal)",
+        "Analytics & experimenten (GA, GTM, Snowplow, A/B-testen)",
+        "Embeds & webviews",
+        "Monitoring & alerting",
+        "Toegankelijkheid (WCAG)"
+      ]
+    },
     { "group": "Vertrouwd", "items": [".NET (C#)", "Elixir", "PHP", "SQL", "OAuth", "Datamodellering"] },
-    { "group": "Frameworks & platformen", "items": ["React", "Vue", "Next.js", "Nuxt", "Phoenix", "Azure", "AWS"] },
+    {
+      "group": "Frameworks & platformen",
+      "items": ["React", "Vue", "Next.js", "Nuxt", "Phoenix", "Azure", "AWS", "Cloudflare", "Akamai"]
+    },
     {
       "group": "Meer dan code",
       "items": [
         "Technologie uitleggen aan niet-technische mensen",
         "Abstracte ideeën vertalen naar gestructureerde processen en UX",
         "Requirements verfijnen",
-        "Mentoring",
+        "Mentoring & sponsoring van engineers",
         "Werken in agile teams"
       ]
     }
