@@ -1,0 +1,4 @@
+# Playwright-driven site tests launch real Chromium; CI runners need more
+# headroom than bun's 5s default test timeout.
+[test]
+timeout = 30000
