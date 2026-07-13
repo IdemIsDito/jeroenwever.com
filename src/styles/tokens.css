@@ -39,6 +39,15 @@
   --space-6: 4rem;
 
   --topbar-height: 3rem;
+
+  /* One inline page padding for topbar, hero, main and footer so they always align. */
+  --page-pad: var(--space-4);
+}
+
+@media (max-width: 40rem) {
+  :root {
+    --page-pad: var(--space-3);
+  }
 }
 
 :root[data-theme='light'] {

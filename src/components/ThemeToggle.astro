@@ -12,6 +12,10 @@ const t = useTranslations(locale);
 <label class="theme">
   <span class="visually-hidden">{t('theme.legend')}</span>
   <select id="theme-select">
+    <button>
+      <span class="icon" aria-hidden="true">◐</span>
+      <selectedcontent></selectedcontent>
+    </button>
     <option value="system" selected>{t('theme.system')}</option>
     <option value="light">{t('theme.light')}</option>
     <option value="dark">{t('theme.dark')}</option>
@@ -60,7 +64,36 @@ const t = useTranslations(locale);
       appearance: base-select;
     }
 
+    select button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-1);
+      min-width: 24px;
+      min-height: 24px;
+
+      & .icon {
+        color: var(--color-accent);
+      }
+    }
+
+    /* Fixed trigger width so switching between values never shifts the topbar. */
+    select selectedcontent {
+      display: inline-block;
+      min-inline-size: 4rem;
+      text-align: start;
+    }
+
+    /* On narrow screens the trigger is icon-only; the open list still shows full labels. */
+    @media (max-width: 40rem) {
+      select selectedcontent {
+        display: none;
+      }
+    }
+
     select::picker(select) {
+      margin-block-start: var(--space-1);
+      position-area: block-end span-inline-start;
       background: var(--color-bg);
       border: 1px solid var(--color-border);
       border-radius: 10px;
@@ -68,9 +101,23 @@ const t = useTranslations(locale);
       box-shadow: 0 6px 24px rgb(0 0 0 / 0.12);
     }
 
+    /* Layout only while open — an unconditional display would override the
+       popover's closed state and render the list expanded on page load. */
+    select:open::picker(select) {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
     option {
       padding: var(--space-1) var(--space-3);
       border-radius: 7px;
+
+      /* Selected state is color + weight; the default checkmark forces uneven
+         left alignment between selected and unselected options. */
+      &::checkmark {
+        display: none;
+      }
 
       &:hover,
       &:focus {
