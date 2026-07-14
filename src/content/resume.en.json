@@ -81,10 +81,10 @@
         "Accessibility (WCAG)"
       ]
     },
-    { "group": "Comfortable", "items": [".NET (C#)", "Elixir", "PHP", "SQL", "OAuth", "Data modeling"] },
+    { "group": "Comfortable", "items": ["C#", "Elixir", "PHP", "SQL", "OAuth", "Data modeling"] },
     {
       "group": "Frameworks & platforms",
-      "items": ["React", "Vue", "Next.js", "Nuxt", "Phoenix", "Azure", "AWS", "Cloudflare", "Akamai"]
+      "items": ["React", "Vue", "Next.js", "Nuxt", ".NET", "Phoenix", "Azure", "AWS", "Cloudflare", "Akamai"]
     },
     {
       "group": "Beyond code",

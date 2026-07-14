@@ -81,10 +81,10 @@
         "Toegankelijkheid (WCAG)"
       ]
     },
-    { "group": "Vertrouwd", "items": [".NET (C#)", "Elixir", "PHP", "SQL", "OAuth", "Datamodellering"] },
+    { "group": "Vertrouwd", "items": ["C#", "Elixir", "PHP", "SQL", "OAuth", "Datamodellering"] },
     {
       "group": "Frameworks & platformen",
-      "items": ["React", "Vue", "Next.js", "Nuxt", "Phoenix", "Azure", "AWS", "Cloudflare", "Akamai"]
+      "items": ["React", "Vue", "Next.js", "Nuxt", ".NET", "Phoenix", "Azure", "AWS", "Cloudflare", "Akamai"]
     },
     {
       "group": "Meer dan code",
