@@ -21,5 +21,5 @@ export default {
   'theme.light': 'Light',
   'theme.dark': 'Dark',
   'meta.description':
-    'Jeroen Wever — freelance staff engineer. Almost 20 years shipping web products: custom SSR at scale, analytics & experimentation, and mentoring engineers. Available for assignments.',
+    'Jeroen Wever — freelance staff-level engineer. Almost 20 years shipping web products: custom SSR at scale, analytics & experimentation, and mentoring engineers. Available for assignments.',
 } as const;
