@@ -24,7 +24,18 @@
         "Built the custom Google Analytics enhanced-ecommerce funnel for betting — a betslip is not a shopping cart — plus the sportsbook's custom A/B-testing setup",
         "Made both products webview-ready for the iOS/Android apps, debugging the not-quite-a-browser quirks side by side with the app developers"
       ],
-      "stack": ["TypeScript", "Vue 3", "Pinia", "Node.js", "Express", ".NET (C#)", "Azure", "Cloudflare", "GTM", "Google Analytics"]
+      "stack": [
+        "TypeScript",
+        "Vue 3",
+        "Pinia",
+        "Node.js",
+        "Express",
+        ".NET (C#)",
+        "Azure",
+        "Cloudflare",
+        "GTM",
+        "Google Analytics"
+      ]
     },
     {
       "role": "Freelance Full Stack Developer",
@@ -39,7 +50,17 @@
         "Worked in continuous back-and-forth with the app teams on webview integration; later ported the products to React alongside the React Native apps",
         "Ran what we built: containerized hosting in AWS, caching and WAF in Akamai, monitoring and alerting"
       ],
-      "stack": ["TypeScript", "React", "Node.js", "Elixir", "PostgreSQL", "AWS", "Akamai", "Snowplow", "Google IMA"]
+      "stack": [
+        "TypeScript",
+        "React",
+        "Node.js",
+        "Elixir",
+        "PostgreSQL",
+        "AWS",
+        "Akamai",
+        "Snowplow",
+        "Google IMA"
+      ]
     },
     {
       "role": "Team Lead Front-End",
@@ -54,7 +75,15 @@
         "Encouraged a developer to take campaign sites to React, then guided him in building our reusable campaign tooling — in effect our own meta-framework, before Next.js existed",
         "Delivered under hard campaign deadlines — including a multilingual Audi site live within four weeks"
       ],
-      "stack": ["JavaScript", "React", "Vue", "Nuxt", "Node.js", "Azure", "AWS"]
+      "stack": [
+        "JavaScript",
+        "React",
+        "Vue",
+        "Nuxt",
+        "Node.js",
+        "Azure",
+        "AWS"
+      ]
     },
     {
       "role": "Full-Stack Web Developer",
@@ -66,11 +95,25 @@
         "Claimed the front-end spot nobody wanted and grew it into a UX practice — user sessions, client presentations, and sparkling interfaces on top of server-rendered pages",
         "Kept de Persgroep's news platforms running at 35M pageviews a month — a big number in 2010"
       ],
-      "stack": ["JavaScript", "C#/.NET", "PHP", "Java", "SQL"]
+      "stack": [
+        "JavaScript",
+        "C#/.NET",
+        "PHP",
+        "Java",
+        "SQL"
+      ]
     }
   ],
   "skills": [
-    { "group": "Expert", "items": ["TypeScript / JavaScript", "HTML", "CSS", "Node.js"] },
+    {
+      "group": "Expert",
+      "items": [
+        "TypeScript / JavaScript",
+        "HTML",
+        "CSS",
+        "Node.js"
+      ]
+    },
     {
       "group": "Specialties",
       "items": [
@@ -81,16 +124,36 @@
         "Accessibility (WCAG)"
       ]
     },
-    { "group": "Comfortable", "items": ["C#", "Elixir", "PHP", "SQL", "OAuth", "Data modeling"] },
+    {
+      "group": "Comfortable",
+      "items": [
+        "C#",
+        "Elixir",
+        "SQL",
+        "Any language with an expert on the team — I ask, I learn"
+      ]
+    },
     {
       "group": "Frameworks & platforms",
-      "items": ["React", "Vue", "Next.js", "Nuxt", ".NET", "Phoenix", "Azure", "AWS", "Cloudflare", "Akamai"]
+      "items": [
+        "React",
+        "Vue",
+        "Next.js",
+        "Nuxt",
+        ".NET",
+        "Phoenix",
+        "Azure",
+        "AWS",
+        "Cloudflare",
+        "Akamai"
+      ]
     },
     {
       "group": "Beyond code",
       "items": [
         "Explaining technology to non-technical people",
         "Translating abstract ideas into structured processes and UX",
+        "Data modeling",
         "Refining requirements",
         "Mentoring & sponsoring engineers",
         "Working in agile teams"

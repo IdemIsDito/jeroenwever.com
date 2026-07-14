@@ -24,7 +24,18 @@
         "Bouwde de custom Google Analytics enhanced-ecommerce-funnel voor betting — een betslip is geen winkelwagen — plus de custom A/B-test-opzet van het sportsbook",
         "Maakte beide producten geschikt voor de iOS- en Android-webview-apps en debugde de webview-eigenaardigheden samen met de app-developers"
       ],
-      "stack": ["TypeScript", "Vue 3", "Pinia", "Node.js", "Express", ".NET (C#)", "Azure", "Cloudflare", "GTM", "Google Analytics"]
+      "stack": [
+        "TypeScript",
+        "Vue 3",
+        "Pinia",
+        "Node.js",
+        "Express",
+        ".NET (C#)",
+        "Azure",
+        "Cloudflare",
+        "GTM",
+        "Google Analytics"
+      ]
     },
     {
       "role": "Freelance Full Stack Developer",
@@ -39,7 +50,17 @@
         "Werkte in voortdurende afstemming met de app-teams aan webview-integratie; portte de producten later naar React, naast de React Native-apps",
         "Beheerde wat we bouwden: gecontaineriseerde hosting in AWS, caching en WAF in Akamai, monitoring en alerting"
       ],
-      "stack": ["TypeScript", "React", "Node.js", "Elixir", "PostgreSQL", "AWS", "Akamai", "Snowplow", "Google IMA"]
+      "stack": [
+        "TypeScript",
+        "React",
+        "Node.js",
+        "Elixir",
+        "PostgreSQL",
+        "AWS",
+        "Akamai",
+        "Snowplow",
+        "Google IMA"
+      ]
     },
     {
       "role": "Team Lead Front-End",
@@ -54,7 +75,15 @@
         "Moedigde een developer aan om campagnesites in React te bouwen en begeleidde hem bij het maken van onze herbruikbare campagnetooling — feitelijk ons eigen meta-framework, voordat Next.js bestond",
         "Leverde onder harde campagnedeadlines — waaronder een meertalige Audi-site die binnen vier weken live stond"
       ],
-      "stack": ["JavaScript", "React", "Vue", "Nuxt", "Node.js", "Azure", "AWS"]
+      "stack": [
+        "JavaScript",
+        "React",
+        "Vue",
+        "Nuxt",
+        "Node.js",
+        "Azure",
+        "AWS"
+      ]
     },
     {
       "role": "Full-Stack Web Developer",
@@ -66,11 +95,25 @@
         "Claimde de front-end-rol die niemand wilde en bouwde die uit tot een UX-praktijk — gebruikerssessies, klantpresentaties en sprankelende interfaces bovenop server-gerenderde pagina's",
         "Hield de nieuwsplatformen van de Persgroep draaiend op 35 miljoen pageviews per maand — destijds, in 2010, een groot getal"
       ],
-      "stack": ["JavaScript", "C#/.NET", "PHP", "Java", "SQL"]
+      "stack": [
+        "JavaScript",
+        "C#/.NET",
+        "PHP",
+        "Java",
+        "SQL"
+      ]
     }
   ],
   "skills": [
-    { "group": "Expert", "items": ["TypeScript / JavaScript", "HTML", "CSS", "Node.js"] },
+    {
+      "group": "Expert",
+      "items": [
+        "TypeScript / JavaScript",
+        "HTML",
+        "CSS",
+        "Node.js"
+      ]
+    },
     {
       "group": "Specialiteiten",
       "items": [
@@ -81,16 +124,36 @@
         "Toegankelijkheid (WCAG)"
       ]
     },
-    { "group": "Vertrouwd", "items": ["C#", "Elixir", "PHP", "SQL", "OAuth", "Datamodellering"] },
+    {
+      "group": "Vertrouwd",
+      "items": [
+        "C#",
+        "Elixir",
+        "SQL",
+        "Elke taal zolang er een expert in het team zit — ik vraag en ik leer"
+      ]
+    },
     {
       "group": "Frameworks & platformen",
-      "items": ["React", "Vue", "Next.js", "Nuxt", ".NET", "Phoenix", "Azure", "AWS", "Cloudflare", "Akamai"]
+      "items": [
+        "React",
+        "Vue",
+        "Next.js",
+        "Nuxt",
+        ".NET",
+        "Phoenix",
+        "Azure",
+        "AWS",
+        "Cloudflare",
+        "Akamai"
+      ]
     },
     {
       "group": "Meer dan code",
       "items": [
         "Technologie uitleggen aan niet-technische mensen",
         "Abstracte ideeën vertalen naar gestructureerde processen en UX",
+        "Datamodellering",
         "Requirements verfijnen",
         "Mentoring & sponsoring van engineers",
         "Werken in agile teams"
