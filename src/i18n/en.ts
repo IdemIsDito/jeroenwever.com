@@ -15,6 +15,8 @@ export default {
   'experience.present': 'present',
   'outro.line': 'Interested in working together? Reach me at',
   'footer.operatesAs': 'operates as',
+  'footer.builtWith': 'This site was built with agents',
+  'footer.source': 'source on GitHub',
   'locale.switch': 'Nederlands',
   'theme.legend': 'Theme',
   'theme.system': 'System',

@@ -17,6 +17,8 @@ export default {
   'experience.present': 'heden',
   'outro.line': 'Interesse om samen te werken? Bereik me via',
   'footer.operatesAs': 'werkt als',
+  'footer.builtWith': 'Deze site is gebouwd met agents',
+  'footer.source': 'broncode op GitHub',
   'locale.switch': 'English',
   'theme.legend': 'Thema',
   'theme.system': 'Systeem',
