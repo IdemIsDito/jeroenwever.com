@@ -7,6 +7,8 @@ export const resumeSchema = z.object({
   basics: z.object({
     name: z.string().min(1),
     title: z.string().min(1),
+    /* The hero's lead clause; the tagline closes it at full strength. */
+    intro: z.string().min(1),
     tagline: z.string().min(1),
     summary: z.string().min(1),
     location: z.string().min(1),

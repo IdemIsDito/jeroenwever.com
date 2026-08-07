@@ -1,50 +1,113 @@
 /*
- * Design tokens — "Candy shop precision" (2026-07-12 redesign spec).
- * light-dark() picks per color-scheme; the data-theme attribute (set by the
- * theme toggle) forces a scheme, overriding system.
- * Text-role accent values are AA-checked (≥4.5:1 on --color-bg) per mode;
- * the -dot variants are brighter and reserved for non-text sprinkles.
+ * Design tokens — Sugar Rush Development Brand System.
+ *
+ * One raspberry, dual theme, AA in both. light-dark() picks per color-scheme;
+ * the data-theme attribute (set from the sheet's theme pills) forces a scheme
+ * and so overrides the system preference.
+ *
+ * The raspberry rule: raspberry stays bright at oklch(0.68 0.21 20) on both
+ * themes. Text on raspberry is always Liquorice, never Icing. As *text* it
+ * only appears on dark surfaces (6.1:1); on Icing it is fill-only (2.9:1) and
+ * plum carries accent text instead. The wordmark is the single exception — a
+ * logotype carries no contrast requirement, so .dev keeps full-strength
+ * raspberry on both themes.
  */
 :root {
   color-scheme: light dark;
 
-  --color-bg: light-dark(#fffdfa, #1c1517);
-  --color-surface: light-dark(#f6ebe0, #251c1f);
-  --color-text: light-dark(#241d21, #efe6e0);
-  --color-muted: light-dark(#6b6065, #a89ba0);
-  --color-border: light-dark(#eee2d9, #372b2e);
+  /* ── Ground ─────────────────────────────────────────────────────────── */
+  /* Icing / Liquorice. */
+  --color-bg: light-dark(#fbf7f3, #120e13);
+  --color-surface: light-dark(#f1eae2, #1d1720);
+  --color-text: light-dark(#120e13, #fbf7f3);
+  /* muted: 6.2:1 on Icing, 6.6:1 on Liquorice. */
+  --color-muted: light-dark(#5c5259, rgb(255 255 255 / 0.66));
+  --color-border: light-dark(rgb(18 14 19 / 0.45), rgb(255 255 255 / 0.45));
 
-  --color-accent: light-dark(#c2145c, #ff4f96);
-  --color-accent-2: light-dark(#6d28d9, #b794ff);
-  --color-accent-3: light-dark(#2456d6, #7ea6ff);
+  /* ── The one raspberry ──────────────────────────────────────────────── */
+  /* Fill on both themes; accent *text* on Liquorice only. */
+  --color-raspberry: oklch(0.68 0.21 20);
+  --color-raspberry-hover: oklch(0.74 0.19 20);
+  /* Text on a raspberry fill is always Liquorice — 6.1:1, never Icing. */
+  --color-on-raspberry: #120e13;
 
-  --color-dot-raspberry: light-dark(#e0186c, #ff4f96);
-  --color-dot-grape: light-dark(#7c3aed, #b794ff);
-  --color-dot-blueberry: light-dark(#2f6bff, #7ea6ff);
+  /* ── Plum — the field ───────────────────────────────────────────────── */
+  /* Stripe tints, plus accent text and the status dot on Icing.
+     Never on anything interactive. */
+  --color-plum: oklch(0.52 0.08 320);
+  --band-1: light-dark(oklch(0.96 0.018 320), oklch(0.26 0.04 320));
+  --band-2: light-dark(oklch(0.94 0.025 320), oklch(0.3 0.05 320));
+  --band-3: light-dark(oklch(0.9 0.04 320), oklch(0.36 0.06 320));
 
-  --font-display: 'Bricolage Grotesque Variable', 'Arial Black', sans-serif;
-  --font-sans: 'Inter Variable', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+  /* ── Teal — the signal ──────────────────────────────────────────────── */
+  /* The only cool tone: anything set in it reads as interactive, which is why
+     it never appears as decoration. 5.0:1 on Icing; steps up for Liquorice. */
+  --color-signal: light-dark(oklch(0.51 0.1 205), oklch(0.72 0.09 200));
+  /* The mark's third bar holds one colour per element on both themes. */
+  --color-signal-mark: oklch(0.51 0.1 205);
 
+  /* ── Sherbet — kickers, status, focus ───────────────────────────────── */
+  --color-sherbet: oklch(0.88 0.13 85);
+
+  /* Accent text: plum on Icing (5.4:1), raspberry on Liquorice (6.1:1). */
+  --color-accent: light-dark(oklch(0.52 0.08 320), oklch(0.68 0.21 20));
+  /* Availability lives in content, never a header pill. */
+  --color-status: light-dark(oklch(0.52 0.08 320), oklch(0.88 0.13 85));
+
+  /* ── Type ───────────────────────────────────────────────────────────── */
+  --font-sans: 'Space Grotesk Variable', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial,
+    sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --text-kicker: 0.75rem;
+  --text-meta: 0.8125rem;
   --text-sm: 0.875rem;
   --text-base: 1rem;
-  --text-lg: 1.25rem;
-  --text-xl: 1.75rem;
-  --text-2xl: clamp(2.5rem, 7vw, 4.25rem);
+  --text-lg: 1.0625rem;
+  --text-xl: 1.375rem;
+  --text-2xl: 1.5rem;
+  /* Headlines cap at 16ch; NL runs ~20% longer, so the clamp floor matters. */
+  --text-display: clamp(2.875rem, 7.5vw, 5.5rem);
 
+  --track-kicker: 0.14em;
+  --track-label: 0.1em;
+  --track-display: -0.045em;
+  --track-tight: -0.02em;
+
+  /* ── Space ──────────────────────────────────────────────────────────── */
   --space-1: 0.25rem;
   --space-2: 0.5rem;
   --space-3: 1rem;
   --space-4: 1.5rem;
   --space-5: 2.5rem;
   --space-6: 4rem;
+  --space-7: 6rem;
 
-  --topbar-height: 3rem;
+  /* ── Radius ─────────────────────────────────────────────────────────── */
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 10px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
 
-  /* One inline page padding for topbar, hero, main and footer so they always align. */
+  /* ── Controls ───────────────────────────────────────────────────────── */
+  /* Every header control is 44px tall, border-box. */
+  --control-height: 44px;
+  --focus-width: 3px;
+  --focus-offset: 3px;
+  /* Hover/focus only; nothing loops. */
+  --motion: 160ms;
+
+  /* The band: three stripes at 16°, full height at every breakpoint. */
+  --band-skew: -16deg;
+
+  --topbar-height: 4.5rem;
   --page-pad: var(--space-4);
+  --measure: 44rem;
 }
 
-@media (max-width: 40rem) {
+/* Breakpoints — 390 / 768 / 1120 / 1440. */
+@media (max-width: 24.375rem) {
   :root {
     --page-pad: var(--space-3);
   }

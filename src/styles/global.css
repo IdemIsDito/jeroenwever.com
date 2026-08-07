@@ -10,15 +10,17 @@ body {
   color: var(--color-text);
   font-family: var(--font-sans);
   font-size: var(--text-base);
-  line-height: 1.65;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
 
 h1,
 h2,
 h3 {
-  font-family: var(--font-display);
-  line-height: 1.1;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: var(--track-tight);
   margin: 0;
 
   & a {
@@ -30,31 +32,103 @@ p {
   margin: 0 0 var(--space-3);
 }
 
+/*
+ * Links — one style only: muted text, 2px teal underline, arrow inside the
+ * link. Hover lifts the text to full strength. Teal is the only cool tone in
+ * the palette, so anything set in it reads as interactive.
+ */
 a {
-  color: var(--color-accent);
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.2em;
+  color: var(--color-muted);
+  text-decoration: underline;
+  text-decoration-color: var(--color-signal);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.25em;
+  transition: color var(--motion) ease;
 
   &:hover {
-    text-decoration-thickness: 2px;
+    color: var(--color-text);
   }
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 3px;
-  border-radius: 2px;
+  outline: var(--focus-width) solid var(--color-sherbet);
+  outline-offset: var(--focus-offset);
+  border-radius: var(--radius-sm);
+}
+
+/* Kickers, labels and meta are set in the mono face, uppercase and tracked. */
+.kicker {
+  font-family: var(--font-mono);
+  font-size: var(--text-kicker);
+  font-weight: 600;
+  letter-spacing: var(--track-kicker);
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.mono {
+  font-family: var(--font-mono);
+  font-size: var(--text-meta);
+  color: var(--color-muted);
+}
+
+/*
+ * The band — three stripes at 16°, in plum tints a few steps off the surface.
+ * Everything crosses them (text, buttons, header, footer) because at that
+ * distance Icing still measures 10.5:1 and Liquorice 14.0:1. No reserved
+ * column, so content keeps the full width at every breakpoint.
+ */
+.band {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Anchored to the right edge, widest outermost, skewed off the top and bottom
+   so the tilt never exposes a corner. */
+.band > span {
+  position: absolute;
+  top: -5rem;
+  bottom: -5rem;
+  transform: skewX(var(--band-skew));
+}
+
+.band > span:nth-child(1) {
+  right: -2.5rem;
+  width: clamp(5rem, 12vw, 10rem);
+  background: var(--band-2);
+}
+
+.band > span:nth-child(2) {
+  right: clamp(3.5rem, 13vw, 10.625rem);
+  width: clamp(1.25rem, 2.7vw, 2.125rem);
+  background: var(--band-3);
+}
+
+.band > span:nth-child(3) {
+  right: clamp(5.5rem, 16.7vw, 13.375rem);
+  width: clamp(0.5rem, 0.95vw, 0.75rem);
+  background: var(--band-1);
+}
+
+/* Content sits above the band without reserving space away from it. */
+.above-band {
+  position: relative;
+  z-index: 1;
 }
 
 .skip-link {
   position: absolute;
   left: -999px;
   top: var(--space-2);
-  background: var(--color-accent);
-  color: var(--color-bg);
-  padding: var(--space-2) var(--space-3);
-  border-radius: 4px;
   z-index: 10;
+  background: var(--color-raspberry);
+  color: var(--color-on-raspberry);
+  text-decoration: none;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-pill);
 
   &:focus {
     left: var(--space-2);
@@ -70,15 +144,6 @@ a {
   overflow: hidden;
   clip-path: inset(50%);
   white-space: nowrap;
-}
-
-/* Candy sprinkle: a non-text dot, colored via --dot on the element. */
-.dot {
-  display: inline-block;
-  width: 0.5em;
-  height: 0.5em;
-  border-radius: 50%;
-  background: var(--dot, var(--color-dot-raspberry));
 }
 
 @media (prefers-reduced-motion: reduce) {

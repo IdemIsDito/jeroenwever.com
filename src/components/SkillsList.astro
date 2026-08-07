@@ -11,9 +11,15 @@ const { groups } = Astro.props;
 <dl>
   {
     groups.map((g) => (
-      <div>
+      <div class="row">
         <dt>{g.group}</dt>
-        <dd>{g.items.join(' · ')}</dd>
+        <dd>
+          <ul>
+            {g.items.map((i) => (
+              <li>{i}</li>
+            ))}
+          </ul>
+        </dd>
       </div>
     ))
   }
@@ -21,18 +27,38 @@ const { groups } = Astro.props;
 
 <style>
   dl {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
     margin: 0;
-    display: grid;
-    gap: var(--space-3);
   }
 
   dt {
+    font-size: var(--text-lg);
     font-weight: 600;
-    font-size: var(--text-sm);
+    letter-spacing: var(--track-tight);
   }
 
   dd {
-    margin: var(--space-1) 0 0;
-    color: var(--color-muted);
+    margin: var(--space-2) 0 0;
+  }
+
+  /* Same chip vocabulary as the experience stack. */
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    font-family: var(--font-mono);
+    font-size: var(--text-kicker);
+    color: var(--color-text);
+    background: var(--color-surface);
+    padding: 7px 12px;
+    border-radius: var(--radius-md);
   }
 </style>

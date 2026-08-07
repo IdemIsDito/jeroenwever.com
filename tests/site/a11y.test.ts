@@ -11,6 +11,43 @@ afterAll(async () => {
   server.stop();
 });
 
+
+/*
+ * WCAG 1.4.3 exempts text that is part of a logo or brand name from the
+ * contrast minimum, and the brand system states the exception outright: the
+ * logotype keeps full-strength raspberry on both themes. Only logotype nodes
+ * are dropped — a color-contrast violation naming anything else still fails.
+ */
+type Violation = { id: string; impact?: string | null; nodes: { html: string }[] };
+
+function gated(violations: Violation[]) {
+  return violations
+    .map((v) =>
+      v.id === "color-contrast"
+        ? { ...v, nodes: v.nodes.filter((n) => !n.html.includes("data-logotype")) }
+        : v
+    )
+    .filter((v) => v.nodes.length > 0)
+    .map((v) => ({ id: v.id, nodes: v.nodes.map((n) => n.html) }));
+}
+
+// The sheet holds the only theme, language and section controls, so it has to pass too.
+for (const colorScheme of ["light", "dark"] as const) {
+  test(`the open menu sheet has zero WCAG 2.2 AA violations (${colorScheme})`, async () => {
+    const context = await browser.newContext({ colorScheme });
+    const page = await context.newPage();
+    await page.goto(origin + "/");
+    await page.click("[data-menu-open]");
+
+    const results = await new AxeBuilder({ page })
+      .withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"])
+      .analyze();
+
+    expect(gated(results.violations)).toEqual([]);
+    await context.close();
+  });
+}
+
 for (const path of ['/', '/nl/'] as const) {
   for (const colorScheme of ['light', 'dark'] as const) {
     test(`${path} (${colorScheme}) has zero WCAG 2.2 AA violations`, async () => {
@@ -22,12 +59,7 @@ for (const path of ['/', '/nl/'] as const) {
         .withTags(['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa'])
         .analyze();
 
-      const summary = results.violations.map((v) => ({
-        id: v.id,
-        impact: v.impact,
-        nodes: v.nodes.map((n) => n.html),
-      }));
-      expect(summary).toEqual([]);
+      expect(gated(results.violations)).toEqual([]);
 
       await context.close();
     });

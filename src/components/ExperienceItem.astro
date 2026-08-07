@@ -24,49 +24,94 @@ const period = `${fmt(job.start)} — ${job.end ? fmt(job.end) : t('experience.p
 <article>
   <header>
     <h3>{job.role} · {job.company}</h3>
-    <p class="period">{period}</p>
+    <span class="period mono">{period}</span>
   </header>
-  <p>{job.summary}</p>
-  <ul>
+  <p class="summary">{job.summary}</p>
+  <ul class="highlights">
     {job.highlights.map((h) => <li>{h}</li>)}
   </ul>
-  {job.stack.length > 0 && <p class="stack">{job.stack.join(' · ')}</p>}
+  {
+    job.stack.length > 0 && (
+      <ul class="stack">
+        {job.stack.map((s) => (
+          <li>{s}</li>
+        ))}
+      </ul>
+    )
+  }
 </article>
 
 <style>
   article {
-    margin-bottom: var(--space-5);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: var(--space-6);
 
     &:last-of-type {
       margin-bottom: 0;
     }
   }
 
-  h3 {
-    font-size: var(--text-lg);
-  }
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: var(--space-4);
 
-  .period {
-    font-size: var(--text-sm);
-    color: var(--color-muted);
-    margin: var(--space-1) 0 var(--space-3);
-  }
-
-  ul {
-    margin: 0 0 var(--space-3);
-    padding-left: 1.2em;
-
-    & li {
-      margin-bottom: var(--space-1);
-
-      &::marker {
-        color: var(--color-accent);
-      }
+    @media (max-width: 40rem) {
+      flex-direction: column;
+      gap: var(--space-1);
     }
   }
 
-  .stack {
-    font-size: var(--text-sm);
+  h3 {
+    margin: 0;
+    font-size: var(--text-2xl);
+    font-weight: 600;
+    letter-spacing: var(--track-tight);
+  }
+
+  .period {
+    white-space: nowrap;
+  }
+
+  .summary {
+    margin: 0;
+    max-width: 78ch;
     color: var(--color-muted);
+    text-wrap: pretty;
+  }
+
+  .highlights {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    margin: 0;
+    padding-left: 20px;
+    color: var(--color-muted);
+
+    & li::marker {
+      color: var(--color-accent);
+    }
+  }
+
+  /* Stack chips — mono on the surface tint, the one place a fill is neutral. */
+  .stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    list-style: none;
+    margin: 0;
+    padding: var(--space-1) 0 0;
+  }
+
+  .stack li {
+    font-family: var(--font-mono);
+    font-size: var(--text-kicker);
+    color: var(--color-text);
+    background: var(--color-surface);
+    padding: 7px 12px;
+    border-radius: var(--radius-md);
   }
 </style>

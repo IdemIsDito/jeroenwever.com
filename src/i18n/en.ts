@@ -1,5 +1,15 @@
 export default {
   'nav.skip': 'Skip to content',
+  'menu.open': 'Menu',
+  'menu.close': 'Close',
+  'menu.sections': 'Sections',
+  availability: 'Available for assignments',
+  operatingAs: 'Operating as',
+  'locale.legend': 'Language',
+  'locale.en': 'English',
+  'locale.nl': 'Nederlands',
+  /* Read from the *other* locale's dictionary, so the link speaks its target's language. */
+  'locale.altPage': 'This page is also available in English',
   'sidebar.contactNav': 'Contact',
   'sidebar.email': 'Email me',
   'sidebar.linkedin': 'LinkedIn',
