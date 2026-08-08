@@ -15,8 +15,13 @@ const { locale, basics, sections } = Astro.props;
 const t = useTranslations(locale);
 const other = altLocale(locale);
 const tOther = useTranslations(other);
-const mark = `${basics.name.toLowerCase().replace(/\s+/g, '')}.`;
 const cv = cvFileName(locale);
+
+/* The personal mark splits at the surname, so "wever." carries the raspberry. */
+const [lead = '', accent = ''] = (() => {
+  const [first, last] = basics.name.toLowerCase().split(/\s+/);
+  return [first ?? '', `${last ?? ''}.`];
+})();
 
 const contact = [
   { href: basics.linkedin, label: t('sidebar.linkedin') },
@@ -25,9 +30,9 @@ const contact = [
 ] as const;
 ---
 
-<div class="topbar">
-  <Wordmark wordmark={mark} href="#main" bars={false} />
-  <MenuSheet locale={locale} wordmark={mark} bars={false}>
+<div class="topbar shell">
+  <Wordmark lead={lead} accent={accent} href="#main" />
+  <MenuSheet locale={locale} lead={lead} accent={accent}>
     <nav slot="nav" class="group" aria-label={t('menu.sections')}>
       <p class="kicker">{t('menu.sections')}</p>
       <ul>
@@ -35,7 +40,7 @@ const contact = [
       </ul>
     </nav>
     <div class="sheet-links">
-      <a href={`/${cv}`} download>{cv} <span aria-hidden="true">↓</span></a>
+      <a href={`/${cv}`} download>{t('hero.download')} <span aria-hidden="true">↓</span></a>
       {contact.map((c) => <a href={c.href}>{c.label}</a>)}
       <a href={localePath(other)} hreflang={other} lang={other}>
         {tOther('locale.altPage')} <span aria-hidden="true">→</span>
@@ -44,7 +49,7 @@ const contact = [
   </MenuSheet>
 </div>
 
-<header class="hero">
+<header class="hero shell">
   <!-- Availability is a dot and a line of type in content, never a header pill. -->
   <p class="availability"><span class="status-dot" aria-hidden="true"></span>{t('availability')}</p>
 
@@ -53,7 +58,7 @@ const contact = [
   <p class="intro">{basics.intro} — <span class="emphasis">{basics.tagline}</span></p>
 
   <div class="actions">
-    <a class="btn" href={`/${cv}`} download>{cv} <span aria-hidden="true">↓</span></a>
+    <a class="btn" href={`/${cv}`} download>{t('hero.download')} <span aria-hidden="true">↓</span></a>
   </div>
 
   <nav class="contact" aria-label={t('sidebar.contactNav')}>
@@ -67,27 +72,17 @@ const contact = [
       {tOther('locale.altPage')} <span aria-hidden="true">→</span>
     </a>
   </p>
-
-  <p class="operating">
-    <span class="kicker">{t('operatingAs')}</span>
-    <span class="operating-name">Sugar Rush Development — coding with the speed of sweet</span>
-  </p>
 </header>
 
 <style>
-  /* The resume is long and the Menu button is its only navigation, so the bar
-     stays reachable. It carries the ground with it; the band runs on below. */
+  /* Matches sugarrush.dev: transparent, in flow, crossing the band. */
   .topbar {
-    position: sticky;
-    top: 0;
-    z-index: 5;
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: var(--space-3);
     min-height: var(--topbar-height);
-    padding: var(--space-2) var(--page-pad);
-    background: var(--color-bg);
+    padding: var(--space-4) var(--page-pad) 0;
   }
 
   .hero {
@@ -95,7 +90,7 @@ const contact = [
     flex-direction: column;
     align-items: flex-start;
     gap: var(--space-4);
-    padding: var(--space-6) var(--page-pad) var(--space-6);
+    padding: var(--space-6) var(--page-pad);
   }
 
   .availability {
@@ -148,7 +143,7 @@ const contact = [
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    min-height: 46px;
+    min-height: 48px;
     padding-inline: 23px;
     font-size: 0.9375rem;
     font-weight: 600;
@@ -174,24 +169,9 @@ const contact = [
     font-size: var(--text-sm);
   }
 
-  .alt-page,
-  .operating {
+  .alt-page {
     margin: 0;
     font-size: var(--text-sm);
-  }
-
-  .operating {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-1);
-    margin-top: var(--space-3);
-  }
-
-  .operating-name {
-    font-size: var(--text-xl);
-    font-weight: 700;
-    letter-spacing: -0.03em;
-    color: var(--color-text);
   }
 
   /* Sheet nav — the section list above the switch pills. */

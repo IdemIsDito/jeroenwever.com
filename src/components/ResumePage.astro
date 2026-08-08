@@ -40,7 +40,7 @@ const jsonLd = {
 <Base locale={locale} title={`${basics.name} — ${basics.title}`} description={t('meta.description')}>
   <script slot="head" is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   <Header locale={locale} basics={basics} sections={sections} />
-  <main id="main">
+  <main id="main" class="shell">
     <Section id="about" title={t('section.about')}>
       <p class="summary">{basics.summary}</p>
     </Section>
@@ -75,6 +75,15 @@ const jsonLd = {
       )
     }
   </main>
+
+  <!-- Closes the page: the company the work is invoiced under. -->
+  <aside class="operating shell">
+    <blockquote>
+      <p class="kicker">{t('operatingAs')}</p>
+      <p class="operating-name">Sugar Rush Development — coding with the speed of sweet</p>
+    </blockquote>
+  </aside>
+
   <Footer locale={locale} basics={basics} />
 </Base>
 
@@ -86,6 +95,29 @@ const jsonLd = {
     font-size: var(--text-lg);
     color: var(--color-muted);
     text-wrap: pretty;
+  }
+
+  .operating {
+    padding: var(--space-3) var(--page-pad) var(--space-5);
+  }
+
+  /* The rule on the left is the quote mark — teal, so it reads as the one
+     pointer off this site and onto the company's. */
+  blockquote {
+    margin: 0;
+    padding-left: var(--space-4);
+    border-left: 2px solid var(--color-signal);
+  }
+
+  blockquote p {
+    margin: 0;
+  }
+
+  .operating-name {
+    margin-top: var(--space-1);
+    font-size: var(--text-xl);
+    font-weight: 700;
+    letter-spacing: -0.03em;
   }
 
   .education {

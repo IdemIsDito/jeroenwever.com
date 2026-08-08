@@ -11,15 +11,15 @@ const { locale, basics } = Astro.props;
 const t = useTranslations(locale);
 ---
 
-<footer>
+<footer class="shell">
   <p class="outro">
     {t('outro.line')} <a href={`mailto:${basics.email}`}>{basics.email}</a>
   </p>
+  <!-- The company line lives in the closing blockquote above, not here. -->
   <p class="mono srd">
     {t('footer.builtWith')} — <a href="https://github.com/IdemIsDito/jeroenwever.com"
       >{t('footer.source')}</a
-    >. {basics.name} {t('footer.operatesAs')} <span class="op">Sugar Rush Development</span> — coding
-    with the speed of sweet
+    >.
   </p>
 </footer>
 
@@ -38,10 +38,5 @@ const t = useTranslations(locale);
 
   .srd {
     margin: 0;
-  }
-
-  /* Accent text: plum on Icing, raspberry on Liquorice. */
-  .op {
-    color: var(--color-accent);
   }
 </style>

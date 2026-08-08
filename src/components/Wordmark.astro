@@ -1,32 +1,27 @@
 ---
 /*
  * Three skewed bars plus the logotype. One colour per element on both themes —
- * raspberry, sherbet, teal third bar, and a raspberry .dev. A logotype carries
- * no contrast requirement, so none of them step between themes.
+ * raspberry, sherbet, teal third bar, and a raspberry tail on the type. A
+ * logotype carries no contrast requirement, so none of them step between
+ * themes, and the tail is marked so the axe gate can honour WCAG 1.4.3.
  */
 interface Props {
-  wordmark: string;
+  /** The part set in the text colour, e.g. "sugarrush" or "jeroen". */
+  lead: string;
+  /** The part set in raspberry, e.g. ".dev" or "wever.". */
+  accent: string;
   /** Renders the mark as a link back to the top of the page. */
   href?: string;
-  /** The three-bar glyph belongs to the .dev mark; the personal mark is type only. */
-  bars?: boolean;
 }
 
-const { wordmark, href, bars = true } = Astro.props;
-const [name, tld] = wordmark.split(/(?=\.)/); // "sugarrush" + ".dev"
+const { lead, accent, href } = Astro.props;
 const Tag = href ? 'a' : 'span';
-/*
- * The logotype is exposed as a single image with an accessible name, not as
- * live text: WCAG 1.4.3 exempts brand marks from the contrast minimum, and
- * raspberry .dev on Icing is 2.9:1 by design. As a link the element keeps its
- * link role and takes the name from aria-label instead.
- */
 const role = href ? undefined : 'img';
 ---
 
-<Tag class="mark" href={href} role={role} aria-label={wordmark}>
-  {bars && <span class="bars" aria-hidden="true"><i /><i /><i /></span>}
-  <span class="type" aria-hidden="true">{name}<span class="tld" data-logotype>{tld}</span></span>
+<Tag class="mark" href={href} role={role} aria-label={`${lead}${accent}`}>
+  <span class="bars" aria-hidden="true"><i></i><i></i><i></i></span>
+  <span class="type" aria-hidden="true">{lead}<span class="tail" data-logotype>{accent}</span></span>
 </Tag>
 
 <style>
@@ -70,7 +65,7 @@ const role = href ? undefined : 'img';
     letter-spacing: -0.03em;
   }
 
-  .tld {
+  .tail {
     color: var(--color-raspberry);
   }
 </style>

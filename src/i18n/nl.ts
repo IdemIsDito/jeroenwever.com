@@ -2,6 +2,7 @@ import type en from './en';
 
 export default {
   'nav.skip': 'Direct naar inhoud',
+  'hero.download': 'Download cv',
   'menu.open': 'Menu',
   'menu.close': 'Sluiten',
   'menu.sections': 'Secties',

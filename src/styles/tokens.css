@@ -48,6 +48,10 @@
 
   /* ── Sherbet — kickers, status, focus ───────────────────────────────── */
   --color-sherbet: oklch(0.88 0.13 85);
+  /* Sherbet reads at 13.2:1 on Liquorice but only 1.6:1 on Icing, so the light
+     ground takes a deep step of the same hue (4.6:1) — the ramp move the system
+     prescribes for accent text — and the kicker stays yellow on both themes. */
+  --color-kicker: light-dark(oklch(0.55 0.13 85), oklch(0.88 0.13 85));
 
   /* Accent text: plum on Icing (5.4:1), raspberry on Liquorice (6.1:1). */
   --color-accent: light-dark(oklch(0.52 0.08 320), oklch(0.68 0.21 20));
@@ -104,6 +108,9 @@
   --topbar-height: 4.5rem;
   --page-pad: var(--space-4);
   --measure: 44rem;
+  /* Boxed layout: content stops widening past this and centres. The band is
+     fixed to the viewport, so it still runs full-bleed behind the box. */
+  --page-max: 78rem;
 }
 
 /* Breakpoints — 390 / 768 / 1120 / 1440. */

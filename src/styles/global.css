@@ -66,10 +66,22 @@ a {
   color: var(--color-muted);
 }
 
+/* The hero kicker carries the brand yellow; section labels stay muted. */
+.kicker-brand {
+  color: var(--color-kicker);
+}
+
 .mono {
   font-family: var(--font-mono);
   font-size: var(--text-meta);
   color: var(--color-muted);
+}
+
+/* Boxed layout — every band of the page centres its content on one measure. */
+.shell {
+  width: 100%;
+  max-width: var(--page-max);
+  margin-inline: auto;
 }
 
 /*

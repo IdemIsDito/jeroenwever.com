@@ -9,23 +9,28 @@ import { useTranslations, localePath, locales, type Locale } from '../i18n';
 
 interface Props {
   locale: Locale;
-  wordmark: string;
-  /** The three-bar glyph belongs to the .dev mark; the personal mark is type only. */
-  bars?: boolean;
+  lead: string;
+  accent: string;
 }
 
-const { locale, wordmark, bars = true } = Astro.props;
+const { locale, lead, accent } = Astro.props;
 const t = useTranslations(locale);
 ---
 
-<button type="button" class="menu-open" data-menu-open aria-expanded="false" aria-controls="menu-sheet">
+<button
+  type="button"
+  class="menu-open"
+  data-menu-open
+  aria-expanded="false"
+  aria-controls="menu-sheet"
+>
   {t('menu.open')}
 </button>
 
 <dialog id="menu-sheet" class="sheet" aria-label={t('menu.open')}>
   <div class="sheet-inner">
     <div class="sheet-head">
-      <Wordmark wordmark={wordmark} bars={bars} />
+      <Wordmark lead={lead} accent={accent} />
       <button type="button" class="menu-close" data-menu-close>{t('menu.close')}</button>
     </div>
 
@@ -145,8 +150,40 @@ const t = useTranslations(locale);
     color: var(--color-text);
     background: var(--color-surface);
 
+    /* Slides in from the right edge it is docked to. `allow-discrete` is what
+       lets display and the top layer animate rather than snap. */
+    translate: 100% 0;
+    transition:
+      translate 240ms ease,
+      overlay 240ms allow-discrete,
+      display 240ms allow-discrete;
+
+    &[open] {
+      translate: 0 0;
+    }
+
     &::backdrop {
       background: rgb(18 14 19 / 0.5);
+      opacity: 0;
+      transition:
+        opacity 240ms ease,
+        overlay 240ms allow-discrete,
+        display 240ms allow-discrete;
+    }
+
+    &[open]::backdrop {
+      opacity: 1;
+    }
+  }
+
+  /* Entry needs a start value; without it the sheet is simply already open. */
+  @starting-style {
+    .sheet[open] {
+      translate: 100% 0;
+    }
+
+    .sheet[open]::backdrop {
+      opacity: 0;
     }
   }
 

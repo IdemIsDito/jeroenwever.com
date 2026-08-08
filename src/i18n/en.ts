@@ -1,5 +1,6 @@
 export default {
   'nav.skip': 'Skip to content',
+  'hero.download': 'Download resume',
   'menu.open': 'Menu',
   'menu.close': 'Close',
   'menu.sections': 'Sections',
