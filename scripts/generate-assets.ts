@@ -1,6 +1,7 @@
 import { chromium } from 'playwright';
 import { locales, cvFileName } from '../src/i18n';
 import { serveDist } from './serve-dist';
+import { generateIcons, ICON_SIZES } from './generate-icons';
 
 const { server, origin, dist } = serveDist();
 const browser = await chromium.launch();
@@ -26,6 +27,8 @@ try {
     await page.close();
     console.log(`✓ ${cvFileName(locale)} + og-${locale}.png`);
   }
+
+  await generateIcons(browser, dist);
 } finally {
   await browser.close();
   server.stop();
@@ -36,6 +39,14 @@ for (const locale of locales) {
   const pdf = Bun.file(`${dist}${cvFileName(locale)}`);
   if (!(await pdf.exists()) || pdf.size < 10_000) {
     console.error(`${cvFileName(locale)} missing or too small (${pdf.size} bytes)`);
+    process.exit(1);
+  }
+}
+
+for (const { file } of ICON_SIZES) {
+  const icon = Bun.file(`${dist}${file}`);
+  if (!(await icon.exists()) || icon.size < 500) {
+    console.error(`${file} missing or too small (${icon.size} bytes)`);
     process.exit(1);
   }
 }

@@ -1,6 +1,8 @@
 ---
-import '@fontsource-variable/bricolage-grotesque';
-import '@fontsource-variable/inter';
+import '@fontsource-variable/space-grotesk';
+import '@fontsource/ibm-plex-mono/400.css';
+import '@fontsource/ibm-plex-mono/500.css';
+import '@fontsource/ibm-plex-mono/600.css';
 import '../styles/tokens.css';
 import '../styles/global.css';
 import { useTranslations, altLocale, localePath, type Locale } from '../i18n';
@@ -36,6 +38,11 @@ const alternate = new URL(localePath(altLocale(locale)), site);
     <meta property="og:image" content={new URL(`/og-${locale}.png`, site)} />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <!-- Browser chrome follows the ground the page is actually painted on. -->
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fbf7f3" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#120e13" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <script is:inline>
       const stored = localStorage.getItem('theme');
@@ -47,6 +54,7 @@ const alternate = new URL(localePath(altLocale(locale)), site);
   </head>
   <body>
     <a class="skip-link" href="#main">{t('nav.skip')}</a>
-    <slot />
+    <div class="band" aria-hidden="true"><span></span><span></span><span></span></div>
+    <div class="above-band"><slot /></div>
   </body>
 </html>

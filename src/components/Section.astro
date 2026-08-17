@@ -2,43 +2,33 @@
 interface Props {
   id: string;
   title: string;
-  /** Sprinkle color for this section's label dot. */
-  dot?: 'raspberry' | 'grape' | 'blueberry';
 }
 
-const { id, title, dot = 'raspberry' } = Astro.props;
-const accentVar: Record<NonNullable<Props['dot']>, string> = {
-  raspberry: 'var(--color-accent)',
-  grape: 'var(--color-accent-2)',
-  blueberry: 'var(--color-accent-3)',
-};
+const { id, title } = Astro.props;
 ---
 
-<section id={id} aria-labelledby={`${id}-heading`} style={`--section-accent: ${accentVar[dot]}; --section-dot: var(--color-dot-${dot})`}>
-  <h2 id={`${id}-heading`}>
-    <span class="dot" style="--dot: var(--section-dot)" aria-hidden="true"></span>
-    {title}
-  </h2>
-  <slot />
+<section id={id} aria-labelledby={`${id}-heading`}>
+  <h2 id={`${id}-heading`} class="kicker">{title}</h2>
+  <div class="body"><slot /></div>
 </section>
 
 <style>
+  /*
+   * The label sits above its content at every width. A side-by-side label
+   * column reads poorly here — the eye has to travel back and forth across a
+   * gap that carries no information — so desktop keeps the mobile stacking.
+   */
   section {
-    border-top: 1px solid var(--color-border);
-    padding-top: var(--space-4);
-    margin-bottom: var(--space-5);
+    padding: var(--space-5) var(--page-pad);
+    scroll-margin-top: var(--space-3);
   }
 
   h2 {
-    display: flex;
-    align-items: center;
-    gap: var(--space-2);
-    font-family: var(--font-sans);
-    font-size: var(--text-sm);
-    font-weight: 700;
+    margin: 0 0 var(--space-3);
     letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--section-accent, var(--color-accent));
-    margin-bottom: var(--space-4);
+  }
+
+  .body {
+    min-width: 0;
   }
 </style>

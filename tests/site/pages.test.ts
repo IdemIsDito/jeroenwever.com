@@ -33,6 +33,14 @@ describe('resume pages', () => {
     }
   });
 
+  test('the closing block names the operator and links to the company site', () => {
+    expect(en).toContain('Jeroen Wever operates as');
+    expect(nl).toContain('Jeroen Wever werkt als');
+    // The company site carries the same locales, so the link stays in-language.
+    expect(en).toContain('href="https://sugarrush.dev/"');
+    expect(nl).toContain('href="https://sugarrush.dev/nl/"');
+  });
+
   test('language toggle links to the other locale', () => {
     expect(en).toContain('href="/nl/"');
     expect(nl).toContain('href="/"');

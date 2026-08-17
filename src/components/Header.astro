@@ -1,252 +1,201 @@
 ---
-import Icon from './Icon.astro';
-import LocaleToggle from './LocaleToggle.astro';
-import ThemeToggle from './ThemeToggle.astro';
-import { useTranslations, cvFileName, type Locale } from '../i18n';
+import Wordmark from './Wordmark.astro';
+import MenuSheet from './MenuSheet.astro';
+import { useTranslations, altLocale, localePath, cvFileName, type Locale } from '../i18n';
 import type { Resume } from '../content/schema';
 
 interface Props {
   locale: Locale;
   basics: Resume['basics'];
+  /** Section ids the sheet's nav jumps to, in page order. */
+  sections: { id: string; title: string }[];
 }
 
-const { locale, basics } = Astro.props;
+const { locale, basics, sections } = Astro.props;
 const t = useTranslations(locale);
-const mark = basics.name.toLowerCase().replace(/\s+/g, '');
+const other = altLocale(locale);
+const tOther = useTranslations(other);
+const cv = cvFileName(locale);
 
-const links = [
-  { href: `mailto:${basics.email}`, icon: 'mail', label: t('sidebar.email'), download: false },
-  { href: basics.linkedin, icon: 'linkedin', label: t('sidebar.linkedin'), download: false },
-  { href: basics.github, icon: 'github', label: t('sidebar.github'), download: false },
-  { href: `/${cvFileName(locale)}`, icon: 'download', label: t('sidebar.downloadCv'), download: true },
+/* The personal mark splits at the surname, so "wever." carries the raspberry. */
+const [lead = '', accent = ''] = (() => {
+  const [first, last] = basics.name.toLowerCase().split(/\s+/);
+  return [first ?? '', `${last ?? ''}.`];
+})();
+
+const contact = [
+  { href: basics.linkedin, label: t('sidebar.linkedin') },
+  { href: basics.github, label: t('sidebar.github') },
+  { href: `mailto:${basics.email}`, label: basics.email },
 ] as const;
 ---
 
-<div class="topbar">
-  <a class="mark" href="#main" aria-label={basics.name}>{mark}<span class="mark-dot" aria-hidden="true">.</span></a>
-  <div class="topbar-right">
-    <nav aria-label={t('mobile.contactNav')}>
+<div class="topbar shell">
+  <Wordmark lead={lead} accent={accent} href="#main" />
+  <MenuSheet locale={locale} lead={lead} accent={accent}>
+    <nav slot="nav" class="group" aria-label={t('menu.sections')}>
+      <p class="kicker">{t('menu.sections')}</p>
       <ul>
-        {
-          links.map((l) => (
-            <li>
-              <a href={l.href} aria-label={l.label} download={l.download || undefined}>
-                <Icon name={l.icon} size={16} />
-              </a>
-            </li>
-          ))
-        }
+        {sections.map((s) => <li><a href={`#${s.id}`}>{s.title}</a></li>)}
       </ul>
     </nav>
-    <div class="toggles">
-      <LocaleToggle locale={locale} />
-      <ThemeToggle locale={locale} />
+    <div class="sheet-links">
+      <a href={`/${cv}`} download>{t('hero.download')} <span aria-hidden="true">↓</span></a>
+      {contact.map((c) => <a href={c.href}>{c.label}</a>)}
+      <a href={localePath(other)} hreflang={other} lang={other}>
+        {tOther('locale.altPage')} <span aria-hidden="true">→</span>
+      </a>
     </div>
-  </div>
+  </MenuSheet>
 </div>
 
-<header class="hero">
-  <h1 class="hero-mark">{mark}<span class="mark-dot" aria-hidden="true">.</span><span class="visually-hidden">{basics.name}</span></h1>
-  <p class="title">{basics.title}</p>
-  <p class="tagline">{basics.tagline}</p>
-  <nav aria-label={t('sidebar.contactNav')}>
+<header class="hero shell">
+  <!-- Availability is a dot and a line of type in content, never a header pill. -->
+  <p class="availability"><span class="status-dot" aria-hidden="true"></span>{t('availability')}</p>
+
+  <h1>{basics.name}</h1>
+
+  <p class="intro">{basics.intro} — <span class="emphasis">{basics.tagline}</span></p>
+
+  <div class="actions">
+    <a class="btn" href={`/${cv}`} download>{t('hero.download')} <span aria-hidden="true">↓</span></a>
+  </div>
+
+  <nav class="contact" aria-label={t('sidebar.contactNav')}>
     <ul>
-      {
-        links.map((l) => (
-          <li>
-            <a href={l.href} download={l.download || undefined}>
-              <Icon name={l.icon} size={15} />
-              <span>{l.label}</span>
-            </a>
-          </li>
-        ))
-      }
+      {contact.map((c) => <li><a href={c.href}>{c.label}</a></li>)}
     </ul>
   </nav>
+
+  <p class="alt-page">
+    <a href={localePath(other)} hreflang={other} lang={other}>
+      {tOther('locale.altPage')} <span aria-hidden="true">→</span>
+    </a>
+  </p>
 </header>
 
 <style>
+  /* Matches sugarrush.dev: transparent, in flow, crossing the band. */
   .topbar {
-    position: sticky;
-    top: 0;
-    z-index: 5;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: var(--space-2);
-    min-height: var(--topbar-height);
-    padding: var(--space-1) var(--page-pad);
-    background: var(--color-bg);
-    border-bottom: 1px solid var(--color-border);
-  }
-
-  .mark,
-  .hero-mark {
-    font-family: var(--font-display);
-    font-weight: 800;
-    color: var(--color-text);
-    text-decoration: none;
-
-    & .mark-dot {
-      color: var(--color-dot-raspberry);
-    }
-  }
-
-  .mark {
-    font-size: var(--text-lg);
-    white-space: nowrap;
-
-    @media (max-width: 40rem) {
-      font-size: var(--text-base);
-    }
-
-    /* Tiny screens: the hero carries the identity; the bar keeps only actions. */
-    @media (max-width: 22.5rem) {
-      display: none;
-    }
-  }
-
-  .topbar-right {
-    display: flex;
-    align-items: center;
     gap: var(--space-3);
-
-    & nav ul {
-      display: flex;
-      gap: var(--space-1);
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    & nav a {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 2rem;
-      height: 2rem;
-      border-radius: 50%;
-      color: var(--color-muted);
-
-      &:hover {
-        color: var(--color-accent);
-        background: var(--color-surface);
-      }
-
-      @media (max-width: 40rem) {
-        width: 1.75rem;
-        height: 1.75rem;
-      }
-    }
-  }
-
-  .toggles {
-    display: flex;
-    align-items: center;
-    gap: var(--space-2);
-    border-left: 1px solid var(--color-border);
-    padding-left: var(--space-3);
-
-    @media (max-width: 40rem) {
-      padding-left: var(--space-2);
-      gap: var(--space-1);
-    }
+    min-height: var(--topbar-height);
+    padding: var(--space-4) var(--page-pad) 0;
   }
 
   .hero {
-    max-width: 44rem;
-    margin-inline: auto;
-    padding: var(--space-6) var(--page-pad) var(--space-5);
-
-    @media (max-width: 40rem) {
-      padding-top: var(--space-5);
-    }
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-4);
+    padding: var(--space-6) var(--page-pad);
   }
 
-  .hero-mark {
-    font-size: var(--text-2xl);
-    letter-spacing: -0.02em;
-  }
-
-  /*
-   * "Collapse into the bar": where scroll-driven animations exist (and motion
-   * is welcome), the bar starts as a quiet strip holding only the toggles;
-   * scrolling fades the hero identity out while the bar identity fades in.
-   * Fallback (no support / reduced motion): bar is simply always populated.
-   */
-  @supports (animation-timeline: scroll()) {
-    @media (prefers-reduced-motion: no-preference) {
-      .hero-mark {
-        animation: hero-shrink linear both;
-        animation-timeline: scroll();
-        animation-range: 0 16rem;
-      }
-
-      .topbar .mark,
-      .topbar-right nav {
-        animation: bar-reveal linear both;
-        animation-timeline: scroll();
-        animation-range: 5rem 15rem;
-      }
-    }
-  }
-
-  @keyframes hero-shrink {
-    to {
-      opacity: 0.15;
-      scale: 0.96;
-      translate: 0 -0.3rem;
-    }
-  }
-
-  @keyframes bar-reveal {
-    from {
-      opacity: 0;
-      visibility: hidden;
-      translate: 0 0.4rem;
-    }
-    to {
-      opacity: 1;
-      visibility: visible;
-      translate: 0 0;
-    }
-  }
-
-  .title {
-    font-weight: 600;
-    margin: var(--space-3) 0 0;
-  }
-
-  .tagline {
-    font-style: italic;
+  .availability {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: var(--text-kicker);
     color: var(--color-muted);
-    margin: var(--space-1) 0 0;
   }
 
-  .hero nav ul {
+  /* Sherbet on Liquorice, plum on Icing. */
+  .status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-status);
+  }
+
+  h1 {
+    margin: 0;
+    max-width: 16ch;
+    font-size: var(--text-display);
+    font-weight: 700;
+    line-height: 0.96;
+    letter-spacing: var(--track-display);
+  }
+
+  .intro {
+    margin: 0;
+    max-width: 40ch;
+    font-size: var(--text-xl);
+    line-height: 1.5;
+    color: var(--color-muted);
+    text-wrap: pretty;
+  }
+
+  .emphasis {
+    color: var(--color-text);
+  }
+
+  .actions {
+    display: flex;
+    gap: var(--space-3);
+  }
+
+  /* The primary action is the one raspberry fill; its text is always Liquorice. */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 48px;
+    padding-inline: 23px;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--color-on-raspberry);
+    background: var(--color-raspberry);
+    border-radius: var(--radius-pill);
+    text-decoration: none;
+    transition: background-color var(--motion) ease;
+
+    &:hover {
+      background: var(--color-raspberry-hover);
+      color: var(--color-on-raspberry);
+    }
+  }
+
+  .contact ul {
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-2) var(--space-4);
     list-style: none;
-    margin: var(--space-4) 0 0;
+    margin: 0;
     padding: 0;
+    font-size: var(--text-sm);
   }
 
-  .hero nav a {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-2);
-    min-height: 24px;
+  .alt-page {
+    margin: 0;
     font-size: var(--text-sm);
-    color: var(--color-text);
-    text-decoration-color: var(--color-border);
+  }
 
-    & svg {
-      color: var(--color-accent);
-    }
+  /* Sheet nav — the section list above the switch pills. */
+  .group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
 
-    &:hover {
-      color: var(--color-accent);
-    }
+  .group ul {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: var(--text-base);
+  }
+
+  .sheet-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3);
+    font-size: var(--text-sm);
   }
 </style>

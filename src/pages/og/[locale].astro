@@ -1,8 +1,8 @@
 ---
-import '@fontsource-variable/bricolage-grotesque';
-import '@fontsource-variable/inter';
+import '@fontsource-variable/space-grotesk';
+import '@fontsource/ibm-plex-mono/400.css';
 import { getResume } from '../../content';
-import { locales, type Locale } from '../../i18n';
+import { locales, useTranslations, type Locale } from '../../i18n';
 
 export function getStaticPaths() {
   return locales.map((locale) => ({ params: { locale } }));
@@ -10,6 +10,7 @@ export function getStaticPaths() {
 
 const locale = Astro.params.locale as Locale;
 const { basics } = getResume(locale);
+const t = useTranslations(locale);
 const mark = basics.name.toLowerCase().replace(/\s+/g, '');
 ---
 
@@ -24,27 +25,69 @@ const mark = basics.name.toLowerCase().replace(/\s+/g, '');
         margin: 0;
         box-sizing: border-box;
       }
+      /* Icing ground, Liquorice ink — the light theme, rendered flat. */
       body {
         width: 1200px;
         height: 630px;
-        background: #fffdfa;
-        color: #241d21;
-        font-family: 'Inter Variable', Helvetica, Arial, sans-serif;
+        background: #fbf7f3;
+        color: #120e13;
+        font-family: 'Space Grotesk Variable', Helvetica, Arial, sans-serif;
         display: flex;
         flex-direction: column;
         justify-content: center;
         padding: 80px;
         position: relative;
+        overflow: hidden;
+      }
+      /* The band: three stripes at 16°, right-anchored, widest outermost. */
+      .band span {
+        position: absolute;
+        top: -80px;
+        bottom: -80px;
+        transform: skewX(-16deg);
+      }
+      .b1 {
+        right: -40px;
+        width: 200px;
+        background: oklch(0.94 0.025 320);
+      }
+      .b2 {
+        right: 210px;
+        width: 44px;
+        background: oklch(0.9 0.04 320);
+      }
+      .b3 {
+        right: 266px;
+        width: 16px;
+        background: oklch(0.96 0.018 320);
+      }
+      .content {
+        position: relative;
+      }
+      .availability {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        font-family: 'IBM Plex Mono', monospace;
+        font-size: 24px;
+        color: #5c5259;
+        margin-bottom: 28px;
+      }
+      .status {
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: oklch(0.52 0.08 320);
       }
       h1 {
-        font-family: 'Bricolage Grotesque Variable', 'Arial Black', sans-serif;
         font-size: 110px;
-        font-weight: 800;
+        font-weight: 700;
         line-height: 1;
-        letter-spacing: -0.02em;
+        letter-spacing: -0.045em;
       }
+      /* The logotype keeps full-strength raspberry — brand text is exempt. */
       h1 .dot {
-        color: #e0186c;
+        color: oklch(0.68 0.21 20);
       }
       .title {
         font-size: 38px;
@@ -52,44 +95,21 @@ const mark = basics.name.toLowerCase().replace(/\s+/g, '');
         margin-top: 28px;
       }
       .tagline {
-        font-style: italic;
         font-size: 32px;
-        color: #6b6065;
+        color: #5c5259;
         margin-top: 12px;
-      }
-      .sprinkles {
-        position: absolute;
-        bottom: 64px;
-        left: 80px;
-        display: flex;
-        gap: 14px;
-        align-items: center;
-      }
-      .sprinkles span {
-        border-radius: 50%;
-        display: inline-block;
-      }
-      .s1 {
-        width: 26px;
-        height: 26px;
-        background: #e0186c;
-      }
-      .s2 {
-        width: 20px;
-        height: 20px;
-        background: #7c3aed;
-      }
-      .s3 {
-        width: 14px;
-        height: 14px;
-        background: #2f6bff;
       }
     </style>
   </head>
   <body>
-    <h1>{mark}<span class="dot">.</span></h1>
-    <p class="title">{basics.title}</p>
-    <p class="tagline">{basics.tagline}</p>
-    <div class="sprinkles"><span class="s1"></span><span class="s2"></span><span class="s3"></span></div>
+    <div class="band">
+      <span class="b1"></span><span class="b2"></span><span class="b3"></span>
+    </div>
+    <div class="content">
+      <p class="availability"><span class="status"></span>{t('availability')}</p>
+      <h1>{mark}<span class="dot">.</span></h1>
+      <p class="title">{basics.title}</p>
+      <p class="tagline">{basics.tagline}</p>
+    </div>
   </body>
 </html>

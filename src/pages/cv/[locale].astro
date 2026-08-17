@@ -1,5 +1,7 @@
 ---
-import '@fontsource-variable/bricolage-grotesque';
+import '@fontsource-variable/space-grotesk';
+import '@fontsource/ibm-plex-mono/400.css';
+import '@fontsource/ibm-plex-mono/600.css';
 import { getResume } from '../../content';
 import { useTranslations, locales, type Locale } from '../../i18n';
 
@@ -42,15 +44,15 @@ function fmt(ym: string): string {
         /* Page margins come from the PDF renderer (per page); body padding
            would only inset the first page and leave later pages cramped. */
         padding: 0;
-        font-family: Georgia, 'Times New Roman', serif;
+        font-family: 'Space Grotesk Variable', Helvetica, Arial, sans-serif;
         font-size: 10.5pt;
         line-height: 1.5;
-        color: #1c1917;
+        color: #120e13;
         background: #fff;
       }
       h1 {
-        font-family: 'Bricolage Grotesque Variable', Helvetica, Arial, sans-serif;
-        font-weight: 800;
+        font-weight: 700;
+        letter-spacing: -0.03em;
         font-size: 22pt;
         margin: 0;
       }
@@ -58,26 +60,26 @@ function fmt(ym: string): string {
         display: flex;
         justify-content: space-between;
         align-items: baseline;
-        border-bottom: 2px solid #c2145c;
+        border-bottom: 2px solid #7d5986;
         padding-bottom: 4mm;
         margin-bottom: 6mm;
       }
       .contact {
         text-align: right;
         font-size: 9pt;
-        color: #6b6065;
+        color: #5c5259;
       }
       .title {
-        color: #c2145c;
+        color: #7d5986;
         font-weight: 600;
         margin: 1mm 0 0;
       }
       h2 {
-        font-family: Helvetica, Arial, sans-serif;
+        font-family: 'IBM Plex Mono', monospace;
         font-size: 8.5pt;
         letter-spacing: 0.12em;
         text-transform: uppercase;
-        color: #c2145c;
+        color: #7d5986;
         margin: 5mm 0 2mm;
       }
       article {
@@ -101,7 +103,7 @@ function fmt(ym: string): string {
       }
       .period {
         font-size: 9pt;
-        color: #6b6065;
+        color: #5c5259;
         margin: 0 0 1mm;
       }
       p {
@@ -114,7 +116,7 @@ function fmt(ym: string): string {
       .stack,
       dd {
         font-size: 9pt;
-        color: #6b6065;
+        color: #5c5259;
       }
       dl {
         margin: 0;

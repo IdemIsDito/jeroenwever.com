@@ -2,6 +2,16 @@ import type en from './en';
 
 export default {
   'nav.skip': 'Direct naar inhoud',
+  'hero.download': 'Download cv',
+  'menu.open': 'Menu',
+  'menu.close': 'Sluiten',
+  'menu.sections': 'Secties',
+  availability: 'Beschikbaar voor opdrachten',
+  'locale.legend': 'Taal',
+  'locale.en': 'English',
+  'locale.nl': 'Nederlands',
+  /* Read from the *other* locale's dictionary, so the link speaks its target's language. */
+  'locale.altPage': 'Deze pagina is er ook in het Nederlands',
   'sidebar.contactNav': 'Contact',
   'sidebar.email': 'Mail mij',
   'sidebar.linkedin': 'LinkedIn',

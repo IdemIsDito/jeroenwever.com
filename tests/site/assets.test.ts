@@ -38,6 +38,30 @@ describe('generated assets', () => {
     }
   }
 
+  for (const icon of ['apple-touch-icon.png', 'icon-192.png', 'icon-512.png'] as const) {
+    test(`${icon} is rasterised from the brand mark and non-trivial`, async () => {
+      const file = Bun.file(`${dist}${icon}`);
+      expect(await file.exists()).toBe(true);
+      expect(file.size).toBeGreaterThan(500);
+      const magic = new Uint8Array((await file.arrayBuffer()).slice(1, 4));
+      expect(new TextDecoder().decode(magic)).toBe('PNG');
+    });
+  }
+
+  test('the favicon carries the brand mark, not the old candy jw', async () => {
+    const svg = await Bun.file(`${dist}favicon.svg`).text();
+    expect(svg).toContain('#ff5160'); // raspberry
+    expect(svg).toContain('#ffd16b'); // sherbet
+    expect(svg).toContain('#007681'); // teal
+    expect(svg).not.toContain('#e0186c'); // the retired candy pink
+  });
+
+  test('the web manifest points at the generated icons', async () => {
+    const manifest = await Bun.file(`${dist}site.webmanifest`).json();
+    expect(manifest.icons.map((i: { src: string }) => i.src)).toContain('/icon-512.png');
+    expect(manifest.theme_color).toBe('#120e13');
+  });
+
   test('sitemap excludes cv and og routes', async () => {
     const sitemapIndex = await Bun.file(`${dist}sitemap-index.xml`).text();
     const match = sitemapIndex.match(/<loc>([^<]+)<\/loc>/);

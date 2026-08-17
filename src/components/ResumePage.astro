@@ -17,6 +17,18 @@ const resume = getResume(locale);
 const t = useTranslations(locale);
 const { basics } = resume;
 
+/* The sheet's nav mirrors the sections actually rendered below. */
+const sections = [
+  { id: 'about', title: t('section.about') },
+  { id: 'experience', title: t('section.experience') },
+  { id: 'skills', title: t('section.skills') },
+  ...(resume.education.length > 0 ? [{ id: 'education', title: t('section.education') }] : []),
+  ...(resume.personal ? [{ id: 'personal', title: t('section.personal') }] : []),
+];
+
+/* The company site carries the same two locales, so the link stays in-language. */
+const srdHref = locale === 'en' ? 'https://sugarrush.dev/' : 'https://sugarrush.dev/nl/';
+
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Person',
@@ -30,23 +42,23 @@ const jsonLd = {
 
 <Base locale={locale} title={`${basics.name} — ${basics.title}`} description={t('meta.description')}>
   <script slot="head" is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
-  <Header locale={locale} basics={basics} />
-  <main id="main">
-    <Section id="about" title={t('section.about')} dot="raspberry">
+  <Header locale={locale} basics={basics} sections={sections} />
+  <main id="main" class="shell">
+    <Section id="about" title={t('section.about')}>
       <p class="summary">{basics.summary}</p>
     </Section>
 
-    <Section id="experience" title={t('section.experience')} dot="grape">
+    <Section id="experience" title={t('section.experience')}>
       {resume.experience.map((job) => <ExperienceItem job={job} locale={locale} />)}
     </Section>
 
-    <Section id="skills" title={t('section.skills')} dot="blueberry">
+    <Section id="skills" title={t('section.skills')}>
       <SkillsList groups={resume.skills} />
     </Section>
 
     {
       resume.education.length > 0 && (
-        <Section id="education" title={t('section.education')} dot="raspberry">
+        <Section id="education" title={t('section.education')}>
           <ul class="education">
             {resume.education.map((e) => (
               <li>
@@ -60,35 +72,73 @@ const jsonLd = {
 
     {
       resume.personal && (
-        <Section id="personal" title={t('section.personal')} dot="grape">
+        <Section id="personal" title={t('section.personal')}>
           <p class="personal">{resume.personal}</p>
         </Section>
       )
     }
   </main>
+
+  <!-- Closes the page: the company the work is invoiced under, linked to its
+       own site in the matching locale. -->
+  <aside class="operating shell">
+    <blockquote>
+      <p class="kicker">{basics.name} {t('footer.operatesAs')}</p>
+      <p class="operating-name">
+        <a href={srdHref}>
+          Sugar Rush Development — coding with the speed of sweet <span aria-hidden="true">→</span>
+        </a>
+      </p>
+    </blockquote>
+  </aside>
+
   <Footer locale={locale} basics={basics} />
 </Base>
 
 <style>
-  main {
-    max-width: 44rem;
-    margin-inline: auto;
-    padding: 0 var(--page-pad);
+  .summary,
+  .personal {
+    margin: 0;
+    font-size: var(--text-lg);
+    color: var(--color-muted);
+    text-wrap: pretty;
   }
 
-  .summary {
-    font-size: var(--text-lg);
-    line-height: 1.6;
+  .operating {
+    padding: var(--space-3) var(--page-pad) var(--space-5);
+  }
+
+  /* The rule on the left is the quote mark — teal, so it reads as the one
+     pointer off this site and onto the company's. */
+  blockquote {
     margin: 0;
+    padding-left: var(--space-4);
+    border-left: 2px solid var(--color-signal);
+  }
+
+  blockquote p {
+    margin: 0;
+  }
+
+  .operating-name {
+    margin-top: var(--space-1);
+    font-size: var(--text-xl);
+    font-weight: 700;
+    letter-spacing: -0.03em;
   }
 
   .education {
     list-style: none;
     margin: 0;
     padding: 0;
+    color: var(--color-muted);
 
     & li {
       margin-bottom: var(--space-2);
+    }
+
+    & strong {
+      color: var(--color-text);
     }
   }
 </style>

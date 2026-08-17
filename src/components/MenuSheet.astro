@@ -1,0 +1,268 @@
+---
+/*
+ * The one control in the header bar. Theme and language never sit in the bar
+ * itself — a single 44px Menu button at every width opens this sheet, and the
+ * switch pills live here (2px border + 2px padding, concentric radii).
+ */
+import Wordmark from './Wordmark.astro';
+import { useTranslations, localePath, locales, type Locale } from '../i18n';
+
+interface Props {
+  locale: Locale;
+  lead: string;
+  accent: string;
+}
+
+const { locale, lead, accent } = Astro.props;
+const t = useTranslations(locale);
+---
+
+<button
+  type="button"
+  class="menu-open"
+  data-menu-open
+  aria-expanded="false"
+  aria-controls="menu-sheet"
+>
+  {t('menu.open')}
+</button>
+
+<dialog id="menu-sheet" class="sheet" aria-label={t('menu.open')}>
+  <div class="sheet-inner">
+    <div class="sheet-head">
+      <Wordmark lead={lead} accent={accent} />
+      <button type="button" class="menu-close" data-menu-close>{t('menu.close')}</button>
+    </div>
+
+    <slot name="nav" />
+
+    <div class="group">
+      <p class="kicker group-legend" id="lang-legend">{t('locale.legend')}</p>
+      <div class="switch" role="group" aria-labelledby="lang-legend">
+        {
+          locales.map((l) => (
+            <a
+              class="opt"
+              href={localePath(l)}
+              hreflang={l}
+              lang={l}
+              aria-current={l === locale ? 'true' : undefined}
+            >
+              {t(`locale.${l}` as 'locale.en')}
+            </a>
+          ))
+        }
+      </div>
+    </div>
+
+    <fieldset class="group">
+      <legend class="kicker group-legend">{t('theme.legend')}</legend>
+      <div class="switch">
+        {
+          (['light', 'dark', 'system'] as const).map((mode) => (
+            <label class="opt" data-theme-opt={mode}>
+              <input
+                type="radio"
+                name="theme"
+                value={mode}
+                id={`theme-${mode}`}
+                checked={mode === 'system'}
+              />
+              {t(`theme.${mode}` as 'theme.light')}
+            </label>
+          ))
+        }
+      </div>
+    </fieldset>
+
+    <slot />
+  </div>
+</dialog>
+
+<script>
+  const sheet = document.getElementById('menu-sheet') as HTMLDialogElement;
+  const opener = document.querySelector('[data-menu-open]') as HTMLButtonElement;
+
+  opener.addEventListener('click', () => {
+    sheet.showModal();
+    opener.setAttribute('aria-expanded', 'true');
+  });
+
+  sheet.querySelector('[data-menu-close]')?.addEventListener('click', () => sheet.close());
+  sheet.addEventListener('close', () => opener.setAttribute('aria-expanded', 'false'));
+
+  // Clicking the backdrop (outside the sheet's own box) dismisses it.
+  sheet.addEventListener('click', (event) => {
+    if (event.target === sheet) sheet.close();
+  });
+
+  // Following any link from the sheet — a section jump, a download — closes it.
+  for (const link of sheet.querySelectorAll('a[href]')) {
+    link.addEventListener('click', () => sheet.close());
+  }
+
+  // Theme: reflect the stored override, then write changes through.
+  const stored = localStorage.getItem('theme');
+  const current = stored === 'light' || stored === 'dark' ? stored : 'system';
+  const checked = sheet.querySelector<HTMLInputElement>(`#theme-${current}`);
+  if (checked) checked.checked = true;
+
+  for (const input of sheet.querySelectorAll<HTMLInputElement>('input[name="theme"]')) {
+    input.addEventListener('change', () => {
+      const mode = input.value;
+      if (mode === 'light' || mode === 'dark') {
+        document.documentElement.dataset.theme = mode;
+        localStorage.setItem('theme', mode);
+      } else {
+        delete document.documentElement.dataset.theme;
+        localStorage.removeItem('theme');
+      }
+    });
+  }
+</script>
+
+<style>
+  .menu-open,
+  .menu-close {
+    min-height: var(--control-height);
+    padding-inline: 18px;
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+    color: var(--color-text);
+    background: transparent;
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-pill);
+    cursor: pointer;
+    transition: border-color var(--motion) ease;
+
+    &:hover {
+      border-color: var(--color-text);
+    }
+  }
+
+  .sheet {
+    width: min(28rem, 100%);
+    margin: 0 0 0 auto;
+    max-height: 100dvh;
+    height: 100dvh;
+    border: 0;
+    padding: 0;
+    color: var(--color-text);
+    background: var(--color-surface);
+
+    /* Slides in from the right edge it is docked to. `allow-discrete` is what
+       lets display and the top layer animate rather than snap. */
+    translate: 100% 0;
+    transition:
+      translate 240ms ease,
+      overlay 240ms allow-discrete,
+      display 240ms allow-discrete;
+
+    &[open] {
+      translate: 0 0;
+    }
+
+    &::backdrop {
+      background: rgb(18 14 19 / 0.5);
+      opacity: 0;
+      transition:
+        opacity 240ms ease,
+        overlay 240ms allow-discrete,
+        display 240ms allow-discrete;
+    }
+
+    &[open]::backdrop {
+      opacity: 1;
+    }
+  }
+
+  /* Entry needs a start value; without it the sheet is simply already open. */
+  @starting-style {
+    .sheet[open] {
+      translate: 100% 0;
+    }
+
+    .sheet[open]::backdrop {
+      opacity: 0;
+    }
+  }
+
+  .sheet-inner {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+    padding: var(--space-4) var(--page-pad);
+  }
+
+  .sheet-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+  }
+
+  .group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+
+  .group-legend {
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Switch pills — 2px border + 2px padding, concentric radii. */
+  .switch {
+    display: flex;
+    gap: 2px;
+    padding: 2px;
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-pill);
+  }
+
+  .opt {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: var(--control-height);
+    padding-inline: var(--space-3);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--color-muted);
+    text-decoration: none;
+    border-radius: var(--radius-pill);
+    cursor: pointer;
+    transition:
+      color var(--motion) ease,
+      background-color var(--motion) ease;
+
+    &:hover {
+      color: var(--color-text);
+    }
+  }
+
+  .opt input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+  }
+
+  /* Text on a raspberry fill is always Liquorice, never Icing. */
+  .opt[aria-current='true'],
+  .opt:has(input:checked) {
+    color: var(--color-on-raspberry);
+    background: var(--color-raspberry);
+  }
+
+  .opt:has(input:focus-visible) {
+    outline: var(--focus-width) solid var(--color-sherbet);
+    outline-offset: var(--focus-offset);
+  }
+</style>

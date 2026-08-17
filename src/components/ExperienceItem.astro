@@ -24,49 +24,91 @@ const period = `${fmt(job.start)} — ${job.end ? fmt(job.end) : t('experience.p
 <article>
   <header>
     <h3>{job.role} · {job.company}</h3>
-    <p class="period">{period}</p>
+    <span class="period mono">{period}</span>
   </header>
-  <p>{job.summary}</p>
-  <ul>
+  <p class="summary">{job.summary}</p>
+  <ul class="highlights">
     {job.highlights.map((h) => <li>{h}</li>)}
   </ul>
-  {job.stack.length > 0 && <p class="stack">{job.stack.join(' · ')}</p>}
+  {
+    job.stack.length > 0 && (
+      <ul class="stack">
+        {job.stack.map((s) => (
+          <li>{s}</li>
+        ))}
+      </ul>
+    )
+  }
 </article>
 
 <style>
   article {
-    margin-bottom: var(--space-5);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: var(--space-6);
 
     &:last-of-type {
       margin-bottom: 0;
     }
   }
 
+  /* Title then date, always. At this measure a long title would push the date
+     to its own line anyway, and having it land differently per entry reads as
+     an accident rather than a rule. */
+  header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-1);
+  }
+
   h3 {
-    font-size: var(--text-lg);
+    margin: 0;
+    font-size: var(--text-2xl);
+    font-weight: 600;
+    letter-spacing: var(--track-tight);
   }
 
   .period {
-    font-size: var(--text-sm);
-    color: var(--color-muted);
-    margin: var(--space-1) 0 var(--space-3);
+    white-space: nowrap;
   }
 
-  ul {
-    margin: 0 0 var(--space-3);
-    padding-left: 1.2em;
+  .summary {
+    margin: 0;
+    color: var(--color-muted);
+    text-wrap: pretty;
+  }
 
-    & li {
-      margin-bottom: var(--space-1);
+  .highlights {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    margin: 0;
+    padding-left: 20px;
+    color: var(--color-muted);
 
-      &::marker {
-        color: var(--color-accent);
-      }
+    & li::marker {
+      color: var(--color-accent);
     }
   }
 
+  /* Stack chips — mono on the surface tint, the one place a fill is neutral. */
   .stack {
-    font-size: var(--text-sm);
-    color: var(--color-muted);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    list-style: none;
+    margin: 0;
+    padding: var(--space-1) 0 0;
+  }
+
+  .stack li {
+    font-family: var(--font-mono);
+    font-size: var(--text-kicker);
+    color: var(--color-text);
+    background: var(--color-surface);
+    padding: 7px 12px;
+    border-radius: var(--radius-md);
   }
 </style>
