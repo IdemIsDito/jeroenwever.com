@@ -5,7 +5,6 @@ export default {
   'menu.close': 'Close',
   'menu.sections': 'Sections',
   availability: 'Available for assignments',
-  operatingAs: 'Operating as',
   'locale.legend': 'Language',
   'locale.en': 'English',
   'locale.nl': 'Nederlands',

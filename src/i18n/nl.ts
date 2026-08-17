@@ -7,7 +7,6 @@ export default {
   'menu.close': 'Sluiten',
   'menu.sections': 'Secties',
   availability: 'Beschikbaar voor opdrachten',
-  operatingAs: 'Werkt als',
   'locale.legend': 'Taal',
   'locale.en': 'English',
   'locale.nl': 'Nederlands',

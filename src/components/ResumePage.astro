@@ -26,6 +26,9 @@ const sections = [
   ...(resume.personal ? [{ id: 'personal', title: t('section.personal') }] : []),
 ];
 
+/* The company site carries the same two locales, so the link stays in-language. */
+const srdHref = locale === 'en' ? 'https://sugarrush.dev/' : 'https://sugarrush.dev/nl/';
+
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Person',
@@ -76,11 +79,16 @@ const jsonLd = {
     }
   </main>
 
-  <!-- Closes the page: the company the work is invoiced under. -->
+  <!-- Closes the page: the company the work is invoiced under, linked to its
+       own site in the matching locale. -->
   <aside class="operating shell">
     <blockquote>
-      <p class="kicker">{t('operatingAs')}</p>
-      <p class="operating-name">Sugar Rush Development — coding with the speed of sweet</p>
+      <p class="kicker">{basics.name} {t('footer.operatesAs')}</p>
+      <p class="operating-name">
+        <a href={srdHref}>
+          Sugar Rush Development — coding with the speed of sweet <span aria-hidden="true">→</span>
+        </a>
+      </p>
     </blockquote>
   </aside>
 
