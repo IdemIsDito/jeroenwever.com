@@ -1,5 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="7" fill="#e0186c"/>
-  <text x="15" y="22" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="800" fill="#fffdfa" text-anchor="middle">jw</text>
-  <circle cx="26" cy="21" r="2.2" fill="#fffdfa"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Sugar Rush Development">
+  <!--
+    The brand mark: three bars skewed -16deg, in raspberry, sherbet and teal on
+    Liquorice. Drawn as parallelograms rather than skewed rects so the geometry
+    survives rasterisation at 16px. Colours are literal because a favicon
+    resolves outside the document's custom properties.
+  -->
+  <rect width="32" height="32" rx="7" fill="#120e13"/>
+  <path d="M8.29 8h5l-4.58 16h-5z" fill="#ff5160"/>
+  <path d="M15.79 8h5l-4.58 16h-5z" fill="#ffd16b"/>
+  <path d="M23.29 8h5l-4.58 16h-5z" fill="#007681"/>
 </svg>

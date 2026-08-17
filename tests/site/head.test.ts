@@ -38,4 +38,11 @@ describe('document head', () => {
     expect(en).toContain('name="twitter:card"');
     expect(en).toContain('favicon.svg');
   });
+
+  test('icon, manifest and theme-color are declared', () => {
+    expect(en).toContain('rel="apple-touch-icon"');
+    expect(en).toContain('rel="manifest"');
+    expect(en).toContain('name="theme-color"');
+    expect(en).toContain('#120e13');
+  });
 });
