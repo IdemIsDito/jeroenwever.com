@@ -13,23 +13,18 @@ const { id, title } = Astro.props;
 </section>
 
 <style>
-  /* A label column beside the content, so the page reads as a set of rows. */
+  /*
+   * The label sits above its content at every width. A side-by-side label
+   * column reads poorly here — the eye has to travel back and forth across a
+   * gap that carries no information — so desktop keeps the mobile stacking.
+   */
   section {
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    gap: var(--space-6);
     padding: var(--space-5) var(--page-pad);
-    /* The sheet's nav jumps here; clear the sticky bar so the label lands visible. */
-    scroll-margin-top: var(--topbar-height);
-
-    @media (max-width: 48rem) {
-      grid-template-columns: 1fr;
-      gap: var(--space-3);
-    }
+    scroll-margin-top: var(--space-3);
   }
 
   h2 {
-    margin: 0;
+    margin: 0 0 var(--space-3);
     letter-spacing: 0.12em;
   }
 

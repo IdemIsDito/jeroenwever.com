@@ -78,12 +78,13 @@ const period = `${fmt(job.start)} — ${job.end ? fmt(job.end) : t('experience.p
 
   .summary {
     margin: 0;
-    max-width: 78ch;
+    max-width: var(--measure-prose);
     color: var(--color-muted);
     text-wrap: pretty;
   }
 
   .highlights {
+    max-width: var(--measure-prose);
     display: flex;
     flex-direction: column;
     gap: var(--space-2);
