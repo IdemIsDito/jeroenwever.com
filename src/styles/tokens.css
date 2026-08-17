@@ -109,14 +109,11 @@
   --page-pad: var(--space-4);
   --measure: 44rem;
   /* Boxed layout: content stops widening past this and centres. The band is
-     fixed to the viewport, so it still runs full-bleed behind the box. Sized
-     for the structure — a heading and its date on one line, chip rows intact. */
-  --page-max: 60rem;
-  /* Prose is capped independently of the box: at 60rem an uncapped paragraph
-     would run ~106 characters, well past the 45-75 that reads comfortably.
-     Set in rem, not ch — ch measures the "0" glyph, which is a good deal wider
-     than Space Grotesk average, so a ch cap overshoots by roughly a sixth. */
-  --measure-prose: 38rem;
+     fixed to the viewport, so it still runs full-bleed behind the box.
+     One measure governs everything — prose is NOT capped separately, so every
+     block shares the same right edge and the column reads as one column.
+     At this width body copy runs ~76 characters per line. */
+  --page-max: 44rem;
 }
 
 /* Breakpoints — 390 / 768 / 1120 / 1440. */
