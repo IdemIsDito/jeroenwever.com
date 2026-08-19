@@ -7,9 +7,13 @@ const { server, origin } = serveDist();
 const browser = await chromium.launch();
 
 afterAll(async () => {
+  // browser.newPage() opens a context that page.close() does not close; a leaked
+  // one makes browser.close() hang rather than merely run slow. And any fetch()
+  // against the server leaves a keep-alive socket, which an unforced stop()
+  // waits on forever — both only ever showed up on CI.
+  await Promise.all(browser.contexts().map((c) => c.close()));
   await browser.close();
-  server.stop();
-  // CI runners tear a browser down well past bun's 5s default hook timeout.
+  server.stop(true);
 }, 30_000);
 
 
