@@ -6,12 +6,22 @@ const { server, origin } = serveDist();
 const browser = await chromium.launch();
 
 afterAll(async () => {
-  // browser.newPage() opens a context that page.close() does not close; a leaked
-  // one makes browser.close() hang rather than merely run slow. And any fetch()
-  // against the server leaves a keep-alive socket, which an unforced stop()
-  // waits on forever — both only ever showed up on CI.
-  await Promise.all(browser.contexts().map((c) => c.close()));
-  await browser.close();
+  // Teardown only — every assertion has already run by this point.
+  //
+  // Three test files each hold a Chromium at module scope. That is fine on a
+  // dev machine and contended on a 2-core CI runner, where browser.close()
+  // wedges outright: it hangs rather than runs slow, so raising the timeout
+  // just moved the failure from 5001ms to 30001ms. Bound it and move on; the
+  // browser is reaped when the test process exits either way.
+  await Promise.race([
+    (async () => {
+      await Promise.all(browser.contexts().map((c) => c.close()));
+      await browser.close();
+    })(),
+    new Promise((resolve) => setTimeout(resolve, 8_000)),
+  ]);
+  // fetch() against the dist server leaves keep-alive sockets open, and an
+  // unforced stop() waits on them forever.
   server.stop(true);
 }, 30_000);
 
