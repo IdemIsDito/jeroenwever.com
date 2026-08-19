@@ -8,7 +8,8 @@ const browser = await chromium.launch();
 afterAll(async () => {
   await browser.close();
   server.stop();
-});
+  // CI runners tear a browser down well past bun's 5s default hook timeout.
+}, 30_000);
 
 for (const path of ['/', '/nl/'] as const) {
   test(`${path} has no horizontal overflow at 360px`, async () => {
