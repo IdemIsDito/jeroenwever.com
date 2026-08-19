@@ -30,12 +30,13 @@ const BASE = `
   .bars i:nth-child(3){background:oklch(0.51 0.10 205)}
   .tail{color:oklch(0.68 0.21 20)}`;
 
-/** Three stripes, right-anchored, widest outermost — as on the sites. */
-const band = (w: number, m: number, g: number) => `
+/** Three stripes, widest outermost. Right-anchored as on the sites, or
+ *  left-anchored on assets whose content has to sit right of an overlay. */
+const band = (w: number, m: number, g: number, side: 'right' | 'left' = 'right') => `
   <div class="band">
-    <span style="right:${-m}px;width:${w}px;background:oklch(0.30 0.05 320)"></span>
-    <span style="right:${w - m + g}px;width:${Math.round(w * 0.22)}px;background:oklch(0.36 0.06 320)"></span>
-    <span style="right:${w - m + g + Math.round(w * 0.22) + g}px;width:${Math.round(w * 0.08)}px;background:oklch(0.26 0.04 320)"></span>
+    <span style="${side}:${-m}px;width:${w}px;background:oklch(0.30 0.05 320)"></span>
+    <span style="${side}:${w - m + g}px;width:${Math.round(w * 0.22)}px;background:oklch(0.36 0.06 320)"></span>
+    <span style="${side}:${w - m + g + Math.round(w * 0.22) + g}px;width:${Math.round(w * 0.08)}px;background:oklch(0.26 0.04 320)"></span>
   </div>`;
 
 const mark = (barW: number, barH: number, gap: number, type: number) => `
@@ -50,13 +51,14 @@ const mark = (barW: number, barH: number, gap: number, type: number) => `
 
 const assets = [
   {
-    // LinkedIn crops this differently per breakpoint and the profile photo
-    // covers the lower left, so everything sits upper-left with the band right.
+    // The profile photo sits over the lower left and crops differently per
+    // breakpoint, so content is right-aligned and the band moves left.
     name: 'linkedin-banner',
     w: 1584,
     h: 396,
-    html: `${band(300, 60, 26)}
-      <div style="position:relative;padding:0 0 96px 96px;display:flex;flex-direction:column;gap:22px">
+    html: `${band(300, 60, 26, 'left')}
+      <div style="position:relative;margin-left:auto;padding-right:96px;display:flex;
+                  flex-direction:column;align-items:flex-end;gap:22px;text-align:right">
         ${mark(16, 54, 7, 44)}
         <p class="kicker" style="font-size:19px">Freelance staff-level engineer</p>
       </div>`,
