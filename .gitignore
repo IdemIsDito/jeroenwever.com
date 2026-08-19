@@ -11,3 +11,6 @@ dist/
 
 # Agent worktrees live here — never part of the repo.
 .claude/worktrees/
+
+# Scratch file used while rendering brand assets.
+.brand-render.html

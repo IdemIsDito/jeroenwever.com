@@ -9,7 +9,8 @@
     "preview": "astro preview",
     "check": "astro check",
     "test:unit": "bun test tests/unit",
-    "test:site": "bun test tests/site"
+    "test:site": "bun test tests/site",
+    "brand": "bun run scripts/generate-brand.ts"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.2.0",
