@@ -8,3 +8,6 @@ dist/
 
 # misc
 .DS_Store
+
+# Agent worktrees live here — never part of the repo.
+.claude/worktrees/
