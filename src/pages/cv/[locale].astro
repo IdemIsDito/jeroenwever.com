@@ -15,7 +15,7 @@ const t = useTranslations(locale);
 const { basics } = resume;
 // Composed here, not inline in <title> — parentheses around a template
 // expression inside <title> corrupted the compiled document structure.
-const docTitle = `${basics.name} — ${t('cv.docTitle')}`;
+const docTitle = `${basics.name} · ${t('cv.docTitle')}`;
 
 function fmt(ym: string): string {
   const [y, m] = ym.split('-');
@@ -155,7 +155,7 @@ function fmt(ym: string): string {
             {job.role} · {job.company}
           </h3>
           <p class="period">
-            {fmt(job.start)} — {job.end ? fmt(job.end) : t('experience.present')}
+            {fmt(job.start)} – {job.end ? fmt(job.end) : t('experience.present')}
           </p>
           <p>{job.summary}</p>
           <ul>

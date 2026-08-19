@@ -4,7 +4,7 @@
     "title": "Freelance staff-level engineer",
     "intro": "Freelance staff-level engineer. Almost 20 years of building web products people actually use",
     "tagline": "I build products that ship.",
-    "summary": "Curious, autodidactic engineer with almost 20 years of building web products people actually use — from the Benelux's biggest news and entertainment brands to real-time sports betting. I go deep where it matters most — server-side rendering at scale, analytics and experimentation that turn opinions into decisions — and everything I build, from casino platforms to engineers, is meant to stop needing me. It usually ships sooner than the budget assumed, too.",
+    "summary": "Curious, autodidactic engineer with almost 20 years of building web products people actually use, from the Benelux's biggest news and entertainment brands to real-time sports betting. I go deep where it matters most: server-side rendering at scale, analytics and experimentation that turn opinions into decisions. Everything I build is meant to stop needing me, whether that's a casino platform or an engineer. It usually ships sooner than the budget assumed.",
     "location": "The Netherlands",
     "email": "jeroen@jeroenwever.com",
     "linkedin": "https://www.linkedin.com/in/jeroenwever/",
@@ -16,13 +16,13 @@
       "company": "Nederlandse Loterij (TOTO)",
       "start": "2023-01",
       "end": null,
-      "summary": "Three engagements on TOTO's gambling platforms — a brand integration into the legacy casino, a ground-up casino rebuild, and the new TOTO Sport sportsbook — all real-time products under strict gambling regulation, peaking at 100,000 active users a night.",
+      "summary": "Three engagements on TOTO's gambling platforms: a brand integration into the legacy casino, a ground-up casino rebuild, and the new TOTO Sport sportsbook. All real-time, all under strict gambling regulation, peaking at 100,000 active users a night.",
       "highlights": [
-        "Shipped the Winn-It brand into the legacy casino platform in six weeks — with six months budgeted",
-        "Rebuilt the casino from scratch on Vue 3 and .NET, then handed it over to newly hired in-house developers; the team chose a custom SSR stack over Nuxt — no vendor lock-in, and every dev learns what a meta-framework does under the hood",
-        "Owned the initial SSR implementation for both casino and sportsbook; researched the hard parts — memory leaks and state leaking across requests — and coached the team on preventing both",
-        "Turned a three-month sportsbook proof-of-concept into a green light at the halfway demo; with four devs, reached closed beta in a year and replaced the legacy product six months later — handling peaks of 4,000 logins and 2,000 bets per minute",
-        "Built the custom Google Analytics enhanced-ecommerce funnel for betting — a betslip is not a shopping cart — plus the sportsbook's custom A/B-testing setup",
+        "Shipped the Winn-It brand into the legacy casino platform in six weeks, against a six-month budget",
+        "Rebuilt the casino from scratch on Vue 3 and .NET, then handed it over to newly hired in-house developers. The team chose a custom SSR stack over Nuxt: no vendor lock-in, and every dev learns what a meta-framework does under the hood",
+        "Owned the initial SSR implementation for both casino and sportsbook. Researched the hard parts (memory leaks and state leaking across requests) and coached the team on preventing both",
+        "Turned a three-month sportsbook proof-of-concept into a green light at the halfway demo. With four devs, reached closed beta in a year and replaced the legacy product six months later, handling peaks of 4,000 logins and 2,000 bets per minute",
+        "Built the custom Google Analytics enhanced-ecommerce funnel for betting, plus the sportsbook's custom A/B-testing setup. A betslip is not a shopping cart",
         "Made both products webview-ready for the iOS/Android apps, debugging the not-quite-a-browser quirks side by side with the app developers"
       ],
       "stack": [
@@ -43,11 +43,11 @@
       "company": "DPG Media",
       "start": "2018-03",
       "end": "2022-06",
-      "summary": "Built and ran entertainment products — video, puzzles, casual games, quizzes and podcasts — serving roughly 1.5 billion views a year across DPG's biggest brands (AD, HLN, de Volkskrant), with advertising, paywalls and tracking built in, under a \"you build it, you run it\" principle.",
+      "summary": "Built and ran entertainment products: video, puzzles, casual games, quizzes and podcasts. They served roughly 1.5 billion views a year across DPG's biggest brands (AD, HLN, de Volkskrant), with advertising, paywalls and tracking built in, under a \"you build it, you run it\" principle.",
       "highlights": [
-        "Built the embed system end to end — the loader script, the data-attribute element API, and the embeds themselves in vanilla JavaScript, CSS and HTML — nearly all of it mine, with the team as sparring partners; carried video from 4 to 20+ titles, then puzzles, games, quizzes and podcasts",
+        "Built the embed system end to end: the loader script, the data-attribute element API, and the embeds themselves in vanilla JavaScript, CSS and HTML. Nearly all of it mine, with the team as sparring partners. Carried video from 4 to 20+ titles, then puzzles, games, quizzes and podcasts",
         "Implemented the complete Snowplow analytics integration on the front-end: plays and playthrough, profile-based recommendations, and daily-puzzle notifications that knew whether you'd already played",
-        "Built the web side of the \"wall\" product: a brand sets up one route with its own header and footer, and we render everything in between — one lightweight integration per label",
+        "Built the web side of the \"wall\" product: a brand sets up one route with its own header and footer, and we render everything in between. One lightweight integration per label",
         "Worked in continuous back-and-forth with the app teams on webview integration; later ported the products to React alongside the React Native apps",
         "Ran what we built: containerized hosting in AWS, caching and WAF in Akamai, monitoring and alerting"
       ],
@@ -70,11 +70,11 @@
       "end": "2017-12",
       "summary": "Led front-end development (75% hands-on, 25% leading) for a team of about 8 front-end developers in a fast-paced B2C campaign environment, for clients such as Audi, Renault, Dutch Railways (NS) and the Ministry of Health.",
       "highlights": [
-        "Stepped into the front-end-lead gap from day one — the sitting lead announced his departure the day I started — and in practice took on the estimations and the back-and-forth with PMs and traffic",
+        "Stepped into the front-end-lead gap from day one. The sitting lead announced his departure the day I started, so in practice I took on the estimations and the back-and-forth with PMs and traffic",
         "Defined the common front-end stack and coding standards used across projects and teams",
-        "Gave a trainee his first production project — trainbooking.com, direct client contact included — and guided him through it",
-        "Encouraged a developer to take campaign sites to React, then guided him in building our reusable campaign tooling — in effect our own meta-framework, before Next.js existed",
-        "Delivered under hard campaign deadlines — including a multilingual Audi site live within four weeks"
+        "Gave a trainee his first production project, trainbooking.com, with direct client contact included, and guided him through it",
+        "Encouraged a developer to take campaign sites to React, then guided him in building our reusable campaign tooling. In effect our own meta-framework, before Next.js existed",
+        "Delivered under hard campaign deadlines, including a multilingual Audi site live within four weeks"
       ],
       "stack": [
         "JavaScript",
@@ -93,8 +93,8 @@
       "end": "2016-04",
       "summary": "Started full-stack in the ASP.NET and jQuery era, building business web applications for clients including PostNL, ING, Rijkswaterstaat, KPN, Ziggo and de Persgroep.",
       "highlights": [
-        "Claimed the front-end spot nobody wanted and grew it into a UX practice — user sessions, client presentations, and sparkling interfaces on top of server-rendered pages",
-        "Kept de Persgroep's news platforms running at 35M pageviews a month — a big number in 2010"
+        "Claimed the front-end spot nobody wanted and grew it into a UX practice: user sessions, client presentations, and sparkling interfaces on top of server-rendered pages",
+        "Kept de Persgroep's news platforms running at 35M pageviews a month, a big number in 2010"
       ],
       "stack": [
         "JavaScript",
@@ -131,7 +131,7 @@
         "C#",
         "Elixir",
         "SQL",
-        "Any language with an expert on the team — I ask, I learn"
+        "Any language with an expert on the team. I ask, I learn"
       ]
     },
     {
@@ -163,7 +163,7 @@
   ],
   "education": [
     {
-      "degree": "MSc Information Science — Human Centered Multimedia",
+      "degree": "MSc Information Science: Human Centered Multimedia",
       "school": "University of Amsterdam",
       "year": "2015"
     },
@@ -173,5 +173,5 @@
       "year": "2007"
     }
   ],
-  "personal": "Right now I'm building a log cabin in the backyard, my team of three kids and I report to my wife, and I'm over-engineering a meal planner — because deciding at 17:00 what's for dinner is the mental equivalent of driving your car into a ditch."
+  "personal": "Right now I'm building a log cabin in the backyard, my team of three kids and I report to my wife, and I'm over-engineering a meal planner, because deciding at 17:00 what's for dinner is the mental equivalent of driving your car into a ditch."
 }

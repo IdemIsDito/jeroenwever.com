@@ -40,7 +40,7 @@ const jsonLd = {
 };
 ---
 
-<Base locale={locale} title={`${basics.name} — ${basics.title}`} description={t('meta.description')}>
+<Base locale={locale} title={`${basics.name} · ${basics.title}`} description={t('meta.description')}>
   <script slot="head" is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   <Header locale={locale} basics={basics} sections={sections} />
   <main id="main" class="shell">
@@ -86,7 +86,7 @@ const jsonLd = {
       <p class="kicker">{basics.name} {t('footer.operatesAs')}</p>
       <p class="operating-name">
         <a href={srdHref}>
-          Sugar Rush Development — coding with the speed of sweet <span aria-hidden="true">→</span>
+          Sugar Rush Development, coding with the speed of sweet <span aria-hidden="true">→</span>
         </a>
       </p>
     </blockquote>

@@ -4,7 +4,7 @@
     "title": "Freelance staff-level engineer",
     "intro": "Freelance staff-level engineer. Bijna 20 jaar webproducten bouwen die mensen echt gebruiken",
     "tagline": "Ik bouw producten die gebruikt worden.",
-    "summary": "Nieuwsgierige, autodidactische engineer met bijna 20 jaar ervaring in het bouwen van webproducten die écht gebruikt worden — van de grootste nieuws- en entertainmentmerken van de Benelux tot real-time sports betting. Ik ga diep waar het er het meest toe doet — server-side rendering op schaal, analytics en experimenten die meningen omzetten in beslissingen — en alles wat ik bouw, van casinoplatformen tot engineers, is erop gebouwd om zonder mij verder te kunnen. En het gaat meestal eerder live dan er begroot was.",
+    "summary": "Nieuwsgierige, autodidactische engineer met bijna 20 jaar ervaring in het bouwen van webproducten die écht gebruikt worden, van de grootste nieuws- en entertainmentmerken van de Benelux tot real-time sports betting. Ik ga diep waar het er het meest toe doet: server-side rendering op schaal, analytics en experimenten die meningen omzetten in beslissingen. Alles wat ik bouw is erop gebouwd om zonder mij verder te kunnen, of dat nu een casinoplatform is of een engineer. Het gaat meestal eerder live dan er begroot was.",
     "location": "Nederland",
     "email": "jeroen@jeroenwever.com",
     "linkedin": "https://www.linkedin.com/in/jeroenwever/",
@@ -16,13 +16,13 @@
       "company": "Nederlandse Loterij (TOTO)",
       "start": "2023-01",
       "end": null,
-      "summary": "Drie opdrachten op de kansspelplatformen van TOTO — een merkintegratie in het legacy casino, een volledige rebuild van het casino en het nieuwe TOTO Sport sportsbook — allemaal real-time producten onder strikte kansspelwetgeving, met pieken van 100.000 actieve gebruikers per avond.",
+      "summary": "Drie opdrachten op de kansspelplatformen van TOTO: een merkintegratie in het legacy casino, een volledige rebuild van het casino en het nieuwe TOTO Sport sportsbook. Allemaal real-time producten onder strikte kansspelwetgeving, met pieken van 100.000 actieve gebruikers per avond.",
       "highlights": [
-        "Leverde het merk Winn-It in zes weken op in het legacy casinoplatform — waar zes maanden voor was begroot",
-        "Herbouwde het casino vanaf nul op Vue 3 en .NET en droeg het daarna over aan nieuw aangenomen interne developers; het team koos een custom SSR-stack boven Nuxt — geen vendor lock-in, en elke developer leert wat een meta-framework onder de motorkap doet",
-        "Verantwoordelijk voor de initiële SSR-implementatie van casino én sportsbook; onderzocht de lastige kanten — memory leaks en state die over requests heen lekt — en coachte het team in het voorkomen daarvan",
-        "Kreeg, bij een proof-of-concept van drie maanden, bij de tussentijdse demo al een akkoord om dit te realiseren; bereikte met vier developers in een jaar de closed beta en verving zes maanden later het oude product — met pieken van 4.000 logins en 2.000 weddenschappen per minuut",
-        "Bouwde de custom Google Analytics enhanced-ecommerce-funnel voor betting — een betslip is geen winkelwagen — plus de custom A/B-test-opzet van het sportsbook",
+        "Leverde het merk Winn-It in zes weken op in het legacy casinoplatform, waar zes maanden voor was begroot",
+        "Herbouwde het casino vanaf nul op Vue 3 en .NET en droeg het daarna over aan nieuw aangenomen interne developers. Het team koos een custom SSR-stack boven Nuxt: geen vendor lock-in, en elke developer leert wat een meta-framework onder de motorkap doet",
+        "Verantwoordelijk voor de initiële SSR-implementatie van casino én sportsbook. Onderzocht de lastige kanten (memory leaks en state die over requests heen lekt) en coachte het team in het voorkomen daarvan",
+        "Kreeg, bij een proof-of-concept van drie maanden, bij de tussentijdse demo al een akkoord om dit te realiseren. Bereikte met vier developers in een jaar de closed beta en verving zes maanden later het oude product, met pieken van 4.000 logins en 2.000 weddenschappen per minuut",
+        "Bouwde de custom Google Analytics enhanced-ecommerce-funnel voor betting, plus de custom A/B-test-opzet van het sportsbook. Een betslip is geen winkelwagen",
         "Maakte beide producten geschikt voor de iOS- en Android-webview-apps en debugde de webview-eigenaardigheden samen met de app-developers"
       ],
       "stack": [
@@ -43,11 +43,11 @@
       "company": "DPG Media",
       "start": "2018-03",
       "end": "2022-06",
-      "summary": "Bouwde en beheerde entertainmentproducten — video, puzzels, casual games, quizzen en podcasts — goed voor zo'n 1,5 miljard views per jaar bij de grootste merken van DPG (AD, HLN, de Volkskrant), inclusief advertenties, paywalls en tracking, volgens het \"you build it, you run it\"-principe.",
+      "summary": "Bouwde en beheerde entertainmentproducten: video, puzzels, casual games, quizzen en podcasts. Goed voor zo'n 1,5 miljard views per jaar bij de grootste merken van DPG (AD, HLN, de Volkskrant), inclusief advertenties, paywalls en tracking, volgens het \"you build it, you run it\"-principe.",
       "highlights": [
-        "Bouwde het embed-systeem van begin tot eind — het loader-script, de element-API met data-attributen en de embeds zelf in vanilla JavaScript, CSS en HTML — vrijwel volledig van mijn hand, met het team als sparringpartner; zag video groeien van 4 naar 20+ titels, gevolgd door puzzels, games, quizzen en podcasts",
+        "Bouwde het embed-systeem van begin tot eind: het loader-script, de element-API met data-attributen en de embeds zelf in vanilla JavaScript, CSS en HTML. Vrijwel volledig van mijn hand, met het team als sparringpartner. Zag video groeien van 4 naar 20+ titels, gevolgd door puzzels, games, quizzen en podcasts",
         "Implementeerde de volledige Snowplow-analytics-integratie in de front-end: plays en playthrough, aanbevelingen op basis van gebruikersprofielen, en dagelijkse-puzzelnotificaties die wisten of je al gespeeld had",
-        "Bouwde de webkant van het \"wall\"-product: een merk richt één route in met eigen header en footer, en wij renderen alles daartussen — één lichte integratie per titel",
+        "Bouwde de webkant van het \"wall\"-product: een merk richt één route in met eigen header en footer, en wij renderen alles daartussen. Één lichte integratie per titel",
         "Werkte in voortdurende afstemming met de app-teams aan webview-integratie; portte de producten later naar React, naast de React Native-apps",
         "Beheerde wat we bouwden: gecontaineriseerde hosting in AWS, caching en WAF in Akamai, monitoring en alerting"
       ],
@@ -70,11 +70,11 @@
       "end": "2017-12",
       "summary": "Leidde front-end development (75% hands-on, 25% leidinggevend) voor een team van zo'n 8 front-end developers in een snelle B2C-campagneomgeving, voor klanten als Audi, Renault, NS en het ministerie van VWS.",
       "highlights": [
-        "Stapte vanaf dag één in het gat van de front-end lead — de zittende lead kondigde zijn vertrek aan op de dag dat ik begon — en deed in de praktijk de estimaties en de afstemming met PM's en traffic",
+        "Stapte vanaf dag één in het gat van de front-end lead. De zittende lead kondigde zijn vertrek aan op de dag dat ik begon, dus deed ik in de praktijk de estimaties en de afstemming met PM's en traffic",
         "Definieerde de gezamenlijke front-end-stack en codestandaarden voor alle projecten en teams",
-        "Gaf een trainee zijn eerste productieproject — trainbooking.com, inclusief direct klantcontact — en begeleidde hem daarin",
-        "Moedigde een developer aan om campagnesites in React te bouwen en begeleidde hem bij het maken van onze herbruikbare campagnetooling — feitelijk ons eigen meta-framework, voordat Next.js bestond",
-        "Leverde onder harde campagnedeadlines — waaronder een meertalige Audi-site die binnen vier weken live stond"
+        "Gaf een trainee zijn eerste productieproject, trainbooking.com, inclusief direct klantcontact, en begeleidde hem daarin",
+        "Moedigde een developer aan om campagnesites in React te bouwen en begeleidde hem bij het maken van onze herbruikbare campagnetooling. Feitelijk ons eigen meta-framework, voordat Next.js bestond",
+        "Leverde onder harde campagnedeadlines, waaronder een meertalige Audi-site die binnen vier weken live stond"
       ],
       "stack": [
         "JavaScript",
@@ -93,8 +93,8 @@
       "end": "2016-04",
       "summary": "Begon full-stack in het ASP.NET- en jQuery-tijdperk, met zakelijke webapplicaties voor klanten als PostNL, ING, Rijkswaterstaat, KPN, Ziggo en de Persgroep.",
       "highlights": [
-        "Claimde de front-end-rol die niemand wilde en bouwde die uit tot een UX-praktijk — gebruikerssessies, klantpresentaties en sprankelende interfaces bovenop server-gerenderde pagina's",
-        "Hield de nieuwsplatformen van de Persgroep draaiend op 35 miljoen pageviews per maand — destijds, in 2010, een groot getal"
+        "Claimde de front-end-rol die niemand wilde en bouwde die uit tot een UX-praktijk: gebruikerssessies, klantpresentaties en sprankelende interfaces bovenop server-gerenderde pagina's",
+        "Hield de nieuwsplatformen van de Persgroep draaiend op 35 miljoen pageviews per maand, destijds in 2010 een groot getal"
       ],
       "stack": [
         "JavaScript",
@@ -131,7 +131,7 @@
         "C#",
         "Elixir",
         "SQL",
-        "Elke taal zolang er een expert in het team zit — ik vraag en ik leer"
+        "Elke taal zolang er een expert in het team zit. Ik vraag en ik leer"
       ]
     },
     {
@@ -163,7 +163,7 @@
   ],
   "education": [
     {
-      "degree": "MSc Informatiewetenschap — Human Centered Multimedia",
+      "degree": "MSc Informatiewetenschap: Human Centered Multimedia",
       "school": "Universiteit van Amsterdam",
       "year": "2015"
     },
@@ -173,5 +173,5 @@
       "year": "2007"
     }
   ],
-  "personal": "Momenteel bouw ik een blokhut in de achtertuin, worden mijn team van drie kids en ik aangestuurd door mijn vrouw, en ben ik een maaltijdplanner aan het over-engineeren — want om 17:00 bedenken wat je gaat eten is hetzelfde als je auto de sloot in rijden."
+  "personal": "Momenteel bouw ik een blokhut in de achtertuin, worden mijn team van drie kids en ik aangestuurd door mijn vrouw, en ben ik een maaltijdplanner aan het over-engineeren, want om 17:00 bedenken wat je gaat eten is hetzelfde als je auto de sloot in rijden."
 }

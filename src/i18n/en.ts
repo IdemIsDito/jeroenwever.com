@@ -26,12 +26,12 @@ export default {
   'outro.line': 'Interested in working together? Reach me at',
   'footer.operatesAs': 'operates as',
   'footer.builtWith': 'This site was built with agents',
-  'footer.source': 'source on GitHub',
+  'footer.source': 'Source on GitHub',
   'locale.switch': 'Nederlands',
   'theme.legend': 'Theme',
   'theme.system': 'System',
   'theme.light': 'Light',
   'theme.dark': 'Dark',
   'meta.description':
-    'Jeroen Wever — freelance staff-level engineer. Almost 20 years shipping web products: custom SSR at scale, analytics & experimentation, and mentoring engineers. Available for assignments.',
+    'Jeroen Wever, freelance staff-level engineer. Almost 20 years shipping web products: custom SSR at scale, analytics & experimentation, and mentoring engineers. Available for assignments.',
 } as const;
