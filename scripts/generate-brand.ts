@@ -60,7 +60,7 @@ const assets = [
       <div style="position:relative;margin-left:auto;padding-right:96px;display:flex;
                   flex-direction:column;align-items:flex-end;gap:22px;text-align:right">
         ${mark(16, 54, 7, 44)}
-        <p class="kicker" style="font-size:19px">Freelance staff-level engineer</p>
+        <p class="kicker" style="font-size:19px">Freelance staff-level front-end engineer</p>
       </div>`,
   },
   {
@@ -71,7 +71,7 @@ const assets = [
       <div style="position:relative;padding:0 96px;display:flex;flex-direction:column;gap:28px">
         <p class="kicker" style="font-size:20px">Available for assignments</p>
         <h1 style="font-size:96px;line-height:0.94;font-weight:700;letter-spacing:-0.045em;max-width:14ch">Jeroen Wever</h1>
-        <p style="font-size:26px;color:rgba(251,247,243,0.72);max-width:42ch">Freelance staff-level engineer. Almost 20 years of building web products people actually use.</p>
+        <p style="font-size:26px;color:rgba(251,247,243,0.72);max-width:42ch">Freelance staff-level front-end engineer. I've been building web products people actually use for almost 20 years.</p>
         ${mark(11, 36, 5, 28)}
       </div>`,
   },
