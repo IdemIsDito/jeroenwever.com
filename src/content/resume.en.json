@@ -1,12 +1,12 @@
 {
   "basics": {
     "name": "Jeroen Wever",
-    "title": "Freelance staff-level engineer",
-    "intro": "Freelance staff-level engineer. Almost 20 years of building web products people actually use",
-    "tagline": "I build products that ship.",
-    "summary": "Curious, autodidactic engineer with almost 20 years of building web products people actually use, from the Benelux's biggest news and entertainment brands to real-time sports betting. I go deep where it matters most: server-side rendering at scale, analytics and experimentation that turn opinions into decisions. Everything I build is meant to stop needing me, whether that's a casino platform or an engineer. It usually ships sooner than the budget assumed.",
+    "title": "Freelance staff-level front-end engineer",
+    "intro": "Freelance staff-level front-end engineer. I've been building web products people actually use for almost 20 years",
+    "tagline": "These days with AI agents, and I set the bar.",
+    "summary": "Curious, autodidactic engineer who built web products for the Benelux's biggest news and entertainment brands and for real-time sports betting. I work agentically: in my own products I write the tests and the quality bar first, an agent builds the feature on its own and a separate reviewer agent checks the work. Agents never commit: I decide what ships. I scale that human control to the risk: a marketing site needs less oversight than a medical advice tool. The next step: I write only tickets and agents pick them up. I go deep where it matters most: server-side rendering at scale, analytics and experimentation that turn opinions into decisions. Everything I build is meant to stop needing me, whether that's a casino platform or an engineer. It usually ships sooner than the budget assumed.",
     "location": "The Netherlands",
-    "email": "jeroen@jeroenwever.com",
+    "email": "jeroen@sugarrush.dev",
     "linkedin": "https://www.linkedin.com/in/jeroenwever/",
     "github": "https://github.com/idemisdito"
   },
@@ -15,15 +15,18 @@
       "role": "Freelance Full Stack Developer",
       "company": "Nederlandse Loterij (TOTO)",
       "start": "2023-01",
-      "end": null,
-      "summary": "Three engagements on TOTO's gambling platforms: a brand integration into the legacy casino, a ground-up casino rebuild, and the new TOTO Sport sportsbook. All real-time, all under strict gambling regulation, peaking at 100,000 active users a night.",
+      "end": "2026-08",
+      "summary": "Three engagements on TOTO's gambling platforms: a brand integration into the legacy casino, a ground-up rebuild of [the casino](https://casino.toto.nl), and the new [TOTO Sport](https://sport.toto.nl) sportsbook. All real-time, all under strict gambling regulation, peaking at 100,000 active users a night.",
       "highlights": [
         "Shipped the Winn-It brand into the legacy casino platform in six weeks, against a six-month budget",
         "Rebuilt the casino from scratch on Vue 3 and .NET, then handed it over to newly hired in-house developers. The team chose a custom SSR stack over Nuxt: no vendor lock-in, and every dev learns what a meta-framework does under the hood",
         "Owned the initial SSR implementation for both casino and sportsbook. Researched the hard parts (memory leaks and state leaking across requests) and coached the team on preventing both",
         "Turned a three-month sportsbook proof-of-concept into a green light at the halfway demo. With four devs, reached closed beta in a year and replaced the legacy product six months later, handling peaks of 4,000 logins and 2,000 bets per minute",
+        "Troubleshot the sportsbook's Kubernetes platform (separate node pools) with kubectl, mostly by digging through pod logs. Tuned autoscaling for the evening peaks and sparred on the manifests",
+        "Wrote C# in the .NET backend and built the Node and Vue layer that talks to it, so knows both sides of the line between C# and TypeScript",
         "Built the custom Google Analytics enhanced-ecommerce funnel for betting, plus the sportsbook's custom A/B-testing setup. A betslip is not a shopping cart",
-        "Made both products webview-ready for the iOS/Android apps, debugging the not-quite-a-browser quirks side by side with the app developers"
+        "Made both products webview-ready for the iOS/Android apps, debugging the not-quite-a-browser quirks side by side with the app developers",
+        "Worked with AI as a pair programmer within TOTO's AI policy: the AI implements, I steer and review"
       ],
       "stack": [
         "TypeScript",
@@ -32,6 +35,7 @@
         "Node.js",
         "Express",
         ".NET (C#)",
+        "Kubernetes",
         "Azure",
         "Cloudflare",
         "GTM",
@@ -126,6 +130,16 @@
       ]
     },
     {
+      "group": "Agentic engineering",
+      "items": [
+        "Reviewing AI-generated code",
+        "Specifying with tests before an agent starts",
+        "Quality gates in CI",
+        "Giving agents the right context",
+        "Splitting work across building and reviewing agents (Claude Code)"
+      ]
+    },
+    {
       "group": "Comfortable",
       "items": [
         "C#",
@@ -143,6 +157,7 @@
         "Nuxt",
         ".NET",
         "Phoenix",
+        "Kubernetes",
         "Azure",
         "AWS",
         "Cloudflare",
@@ -173,5 +188,5 @@
       "year": "2007"
     }
   ],
-  "personal": "Right now I'm building a log cabin in the backyard, my team of three kids and I report to my wife, and I'm over-engineering a meal planner, because deciding at 17:00 what's for dinner is the mental equivalent of driving your car into a ditch."
+  "personal": "Right now I'm building a log cabin in the backyard, my team of three kids and I report to my wife, and I'm over-engineering a meal planner, because deciding at 17:00 what's for dinner is the mental equivalent of driving your car into a ditch. On the side I make [a swipe game about the AI race](https://last-invention.sugarrush.dev) and a scheduling tool for daycare."
 }
