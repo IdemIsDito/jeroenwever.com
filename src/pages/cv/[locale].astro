@@ -17,7 +17,7 @@ const { basics } = resume;
 // Composed here, not inline in <title> — parentheses around a template
 // expression inside <title> corrupted the compiled document structure.
 /* The intro opens with the title, which the header already shows. */
-const lead = `${basics.intro.replace(`${basics.title}. `, '')}. ${basics.tagline}`;
+const lead = basics.intro.replace(`${basics.title}. `, '');
 const docTitle = `${basics.name} · ${t('cv.docTitle')}`;
 
 function fmt(ym: string): string {
@@ -79,8 +79,10 @@ function fmt(ym: string): string {
       .lead {
         font-size: 9.5pt;
         color: #5c5259;
-        max-width: 105mm;
         margin: 1.5mm 0 0;
+      }
+      .lead span {
+        display: block;
       }
       .title {
         color: #7d5986;
@@ -149,7 +151,7 @@ function fmt(ym: string): string {
       <div>
         <h1>{basics.name}</h1>
         <p class="title">{basics.title}</p>
-        <p class="lead">{lead}</p>
+        <p class="lead"><span>{lead}.</span> <span>{basics.tagline}</span></p>
       </div>
       <div class="contact">
         {basics.location}<br />
