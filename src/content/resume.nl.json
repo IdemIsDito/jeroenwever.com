@@ -22,7 +22,7 @@
         "Herbouwde het casino vanaf nul op Vue 3 en .NET en droeg het daarna over aan nieuw aangenomen interne developers. Het team koos een custom SSR-stack boven Nuxt: geen vendor lock-in, en elke developer leert wat een meta-framework onder de motorkap doet",
         "Verantwoordelijk voor de initiële SSR-implementatie van casino én sportsbook. Onderzocht de lastige kanten (memory leaks en state die over requests heen lekt) en coachte het team in het voorkomen daarvan",
         "Kreeg, bij een proof-of-concept van drie maanden, bij de tussentijdse demo al een akkoord om dit te realiseren. Bereikte met vier developers in een jaar de closed beta en verving zes maanden later het oude product, met pieken van 4.000 logins en 2.000 weddenschappen per minuut",
-        "Deed troubleshooting op het Kubernetes-platform van het sportsbook (aparte node pools) met kubectl, vooral door de logs van pods door te spitten. Tunede de autoscaling voor de avondpieken en sparde mee over de manifests",
+        "Deed troubleshooting in Kubernetes voor het sportsbook met kubectl, vooral door de logs van pods door te spitten. Tunede de autoscaling voor de avondpieken en sparde mee over de manifests",
         "Schreef C# in de .NET-backend en bouwde de Node- en Vue-laag die ertegen praat, dus kent beide kanten van de grens tussen C# en TypeScript",
         "Bouwde de custom Google Analytics enhanced-ecommerce-funnel voor betting, plus de custom A/B-test-opzet van het sportsbook. Een betslip is geen winkelwagen",
         "Maakte beide producten geschikt voor de iOS- en Android-webview-apps en debugde de webview-eigenaardigheden samen met de app-developers",

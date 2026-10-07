@@ -22,7 +22,7 @@
         "Rebuilt the casino from scratch on Vue 3 and .NET, then handed it over to newly hired in-house developers. The team chose a custom SSR stack over Nuxt: no vendor lock-in, and every dev learns what a meta-framework does under the hood",
         "Owned the initial SSR implementation for both casino and sportsbook. Researched the hard parts (memory leaks and state leaking across requests) and coached the team on preventing both",
         "Turned a three-month sportsbook proof-of-concept into a green light at the halfway demo. With four devs, reached closed beta in a year and replaced the legacy product six months later, handling peaks of 4,000 logins and 2,000 bets per minute",
-        "Troubleshot the sportsbook's Kubernetes platform (separate node pools) with kubectl, mostly by digging through pod logs. Tuned autoscaling for the evening peaks and sparred on the manifests",
+        "Troubleshot the sportsbook in Kubernetes with kubectl, mostly by digging through pod logs. Tuned autoscaling for the evening peaks and sparred on the manifests",
         "Wrote C# in the .NET backend and built the Node and Vue layer that talks to it, so knows both sides of the line between C# and TypeScript",
         "Built the custom Google Analytics enhanced-ecommerce funnel for betting, plus the sportsbook's custom A/B-testing setup. A betslip is not a shopping cart",
         "Made both products webview-ready for the iOS/Android apps, debugging the not-quite-a-browser quirks side by side with the app developers",
