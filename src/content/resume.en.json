@@ -3,7 +3,7 @@
     "name": "Jeroen Wever",
     "title": "Freelance staff-level front-end engineer",
     "intro": "Freelance staff-level front-end engineer. I've been building web products people actually use for almost 20 years",
-    "tagline": "These days with AI agents, where I decide how high the bar sits.",
+    "tagline": "These days with AI agents, while I decide where the bar sits.",
     "summary": "Curious, autodidactic engineer who built web products for the Benelux's biggest news and entertainment brands and for real-time sports betting. I work agentically: in my own products I write the tests and the quality bar first, an agent builds the feature on its own and a separate reviewer agent checks the work. Agents never commit: I decide what goes in. I scale that human control to the risk: a marketing site needs less oversight than a medical advice tool. The next step: I write only tickets and agents pick them up. I go deep where it matters most: server-side rendering at scale, analytics and experimentation that turn opinions into decisions. Everything I build is meant to stop needing me, whether that's a casino platform or an engineer. It usually ships sooner than the budget assumed.",
     "location": "The Netherlands",
     "email": "jeroen@sugarrush.dev",

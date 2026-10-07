@@ -71,7 +71,7 @@ describe('inline links in content', () => {
 describe('printable CV', () => {
   test('carries the hero lead without repeating the title', async () => {
     const cv = await Bun.file(dist + 'cv/nl/index.html').text();
-    expect(cv).toContain('Tegenwoordig met AI-agents, waarbij ik bepaal hoe hoog de lat ligt.');
+    expect(cv).toContain('Tegenwoordig met AI-agents, waarbij ik bepaal waar de lat ligt.');
     expect(cv).not.toContain('front-end engineer. Ik bouw');
   });
 });
