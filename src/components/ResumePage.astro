@@ -5,6 +5,7 @@ import Footer from './Footer.astro';
 import Section from './Section.astro';
 import ExperienceItem from './ExperienceItem.astro';
 import SkillsList from './SkillsList.astro';
+import Rich from './Rich.astro';
 import { getResume } from '../content';
 import { useTranslations, type Locale } from '../i18n';
 
@@ -45,7 +46,7 @@ const jsonLd = {
   <Header locale={locale} basics={basics} sections={sections} />
   <main id="main" class="shell">
     <Section id="about" title={t('section.about')}>
-      <p class="summary">{basics.summary}</p>
+      <p class="summary"><Rich text={basics.summary} /></p>
     </Section>
 
     <Section id="experience" title={t('section.experience')}>
@@ -73,7 +74,7 @@ const jsonLd = {
     {
       resume.personal && (
         <Section id="personal" title={t('section.personal')}>
-          <p class="personal">{resume.personal}</p>
+          <p class="personal"><Rich text={resume.personal} /></p>
         </Section>
       )
     }

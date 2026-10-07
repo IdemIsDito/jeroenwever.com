@@ -1,0 +1,10 @@
+---
+/* Content strings may carry [label](https://…) links; everything else renders as plain text. */
+interface Props {
+  text: string;
+}
+
+const parts = Astro.props.text.split(/\[([^\]]+)\]\((https:\/\/[^)\s]+)\)/);
+---
+
+{parts.map((part, i) => (i % 3 === 1 ? <a href={parts[i + 1]}>{part}</a> : i % 3 === 0 ? part : null))}

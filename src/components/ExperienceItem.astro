@@ -1,6 +1,7 @@
 ---
 import { useTranslations, type Locale } from '../i18n';
 import type { Resume } from '../content/schema';
+import Rich from './Rich.astro';
 
 interface Props {
   job: Resume['experience'][number];
@@ -26,7 +27,7 @@ const period = `${fmt(job.start)} – ${job.end ? fmt(job.end) : t('experience.p
     <h3>{job.role} · {job.company}</h3>
     <span class="period mono">{period}</span>
   </header>
-  <p class="summary">{job.summary}</p>
+  <p class="summary"><Rich text={job.summary} /></p>
   <ul class="highlights">
     {job.highlights.map((h) => <li>{h}</li>)}
   </ul>

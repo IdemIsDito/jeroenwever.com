@@ -27,7 +27,7 @@ describe('resume pages', () => {
       [en, 'en'],
       [nl, 'nl'],
     ] as const) {
-      expect(html).toContain('mailto:jeroen@jeroenwever.com');
+      expect(html).toContain('mailto:jeroen@sugarrush.dev');
       expect(html).toContain('linkedin.com');
       expect(html).toContain(`/${pdfName[locale]}`);
     }
@@ -54,5 +54,24 @@ describe('resume pages', () => {
   test('semantic landmarks and single h1', () => {
     expect(en).toContain('<main id="main"');
     expect((en.match(/<h1/g) ?? []).length).toBe(1);
+  });
+});
+
+describe('inline links in content', () => {
+  test('render as anchors with no markdown left over', () => {
+    for (const html of [en, nl]) {
+      for (const href of ['https://casino.toto.nl', 'https://sport.toto.nl', 'https://last-invention.sugarrush.dev']) {
+        expect(html).toContain(`href="${href}"`);
+      }
+      expect(html).not.toContain('](https://');
+    }
+  });
+});
+
+describe('printable CV', () => {
+  test('carries the hero lead without repeating the title', async () => {
+    const cv = await Bun.file(dist + 'cv/nl/index.html').text();
+    expect(cv).toContain('Tegenwoordig met AI-agents, en de lat leg ik.');
+    expect(cv).not.toContain('front-end engineer. Ik bouw');
   });
 });
