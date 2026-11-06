@@ -36,5 +36,5 @@ export default {
   'theme.light': 'Licht',
   'theme.dark': 'Donker',
   'meta.description':
-    'Jeroen Wever, freelance staff-level front-end engineer. Bouwt al bijna 20 jaar webproducten: custom SSR op schaal, analytics & experimenten, en het begeleiden van engineers. Beschikbaar voor opdrachten.',
+    'Jeroen Wever, freelance staff-level full-stack engineer. Bouwt al bijna 20 jaar webproducten: custom SSR op schaal, analytics & experimenten, en het begeleiden van engineers. Beschikbaar voor opdrachten.',
 } satisfies Record<keyof typeof en, string>;

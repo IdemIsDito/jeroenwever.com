@@ -1,8 +1,8 @@
 {
   "basics": {
     "name": "Jeroen Wever",
-    "title": "Freelance staff-level front-end engineer",
-    "intro": "Freelance staff-level front-end engineer. Ik bouw al bijna 20 jaar webproducten die mensen echt gebruiken",
+    "title": "Freelance staff-level full-stack engineer",
+    "intro": "Freelance staff-level full-stack engineer. Ik bouw al bijna 20 jaar webproducten die mensen echt gebruiken",
     "tagline": "Tegenwoordig met AI-agents, waarbij ik bepaal waar de lat ligt.",
     "summary": "Ik ben een techjunkie met een brein als een snelkookpan: nieuwsgierig, energiek, eerlijk, autodidact. Ik heb een drang om dingen te maken en heb webproducten voor de grootste nieuws- en entertainmentmerken van de Benelux en voor real-time sports betting gebouwd. Ik heb een sterke visie op hoe een developmentteam hoort samen te werken en weet welke rollen daarvoor nodig zijn. Alles wat ik bouw is erop gemaakt om zonder mij verder te kunnen.",
     "location": "Nederland",
@@ -16,20 +16,20 @@
   ],
   "experience": [
     {
-      "role": "Freelance Full Stack Developer",
+      "role": "Freelance Full Stack Engineer",
       "company": "Nederlandse Loterij (TOTO)",
       "start": "2023-01",
       "end": "2026-08",
       "summary": "Drie opdrachten op de kansspelplatformen van TOTO: een merkintegratie in het legacy casino, een volledige rebuild van [het casino](https://casino.toto.nl) en het nieuwe [TOTO Sport](https://sport.toto.nl) sportsbook. Allemaal real-time producten onder strikte kansspelwetgeving, met pieken van 100.000 actieve gebruikers per avond.",
       "highlights": [
         "Leverde het merk Winn-It in zes weken op in het legacy casinoplatform, waar zes maanden voor was begroot",
-        "Herbouwde het casino vanaf nul op Vue 3 en .NET en droeg het daarna over aan nieuw aangenomen interne developers. Het team koos een custom SSR-stack boven Nuxt: geen vendor lock-in, en elke developer leert wat een meta-framework onder de motorkap doet",
+        "Herbouwde het casino vanaf nul op Vue 3 en .NET en droeg het daarna over aan nieuw aangenomen interne engineers. Het team koos een custom SSR-stack boven Nuxt: geen vendor lock-in, en elke engineer leert wat een meta-framework onder de motorkap doet",
         "Verantwoordelijk voor de initiële SSR-implementatie van casino én sportsbook. Onderzocht de lastige kanten (memory leaks en state die over requests heen lekt) en coachte het team in het voorkomen daarvan",
-        "Kreeg, bij een proof-of-concept van drie maanden, bij de tussentijdse demo al een akkoord om dit te realiseren. Bereikte met vier developers in een jaar de closed beta en verving zes maanden later het oude product, met pieken van 4.000 logins en 2.000 weddenschappen per minuut",
+        "Kreeg, bij een proof-of-concept van drie maanden, bij de tussentijdse demo al een akkoord om dit te realiseren. Bereikte met vier engineers in een jaar de closed beta en verving zes maanden later het oude product, met pieken van 4.000 logins en 2.000 weddenschappen per minuut",
         "Deed troubleshooting in Kubernetes voor het sportsbook met kubectl, vooral door de logs van pods door te spitten. Tunede de autoscaling voor de avondpieken en sparde mee over de manifests",
         "Schreef C# in de .NET-backend en bouwde de Node- en Vue-laag die ertegen praat, dus kent beide kanten van de grens tussen C# en TypeScript",
         "Bouwde de custom Google Analytics enhanced-ecommerce-funnel voor betting, plus de custom A/B-test-opzet van het sportsbook. Een betslip is geen winkelwagen",
-        "Maakte beide producten geschikt voor de iOS- en Android-webview-apps en debugde de webview-eigenaardigheden samen met de app-developers",
+        "Maakte beide producten geschikt voor de iOS- en Android-webview-apps en debugde de webview-eigenaardigheden samen met de app-engineers",
         "Werkte met AI als pair programmer, binnen het AI-beleid van TOTO: de AI implementeert, ik stuur en review"
       ],
       "stack": [
@@ -47,7 +47,7 @@
       ]
     },
     {
-      "role": "Freelance Full Stack Developer",
+      "role": "Freelance Full Stack Engineer",
       "company": "DPG Media",
       "start": "2018-03",
       "end": "2022-06",
@@ -76,12 +76,12 @@
       "company": "DigitasLBi",
       "start": "2016-05",
       "end": "2017-12",
-      "summary": "Leidde front-end development (75% hands-on, 25% leidinggevend) voor een team van zo'n 8 front-end developers in een snelle B2C-campagneomgeving, voor klanten als Audi, Renault, NS en het ministerie van VWS.",
+      "summary": "Leidde front-end development (75% hands-on, 25% leidinggevend) voor een team van zo'n 8 front-end engineers in een snelle B2C-campagneomgeving, voor klanten als Audi, Renault, NS en het ministerie van VWS.",
       "highlights": [
         "Stapte vanaf dag één in het gat van de front-end lead. De zittende lead kondigde zijn vertrek aan op de dag dat ik begon, dus deed ik in de praktijk de estimaties en de afstemming met PM's en traffic",
         "Definieerde de gezamenlijke front-end-stack en codestandaarden voor alle projecten en teams",
         "Gaf een trainee zijn eerste productieproject, trainbooking.com, inclusief direct klantcontact, en begeleidde hem daarin",
-        "Moedigde een developer aan om campagnesites in React te bouwen en begeleidde hem bij het maken van onze herbruikbare campagnetooling. Feitelijk ons eigen meta-framework, voordat Next.js bestond",
+        "Moedigde een engineer aan om campagnesites in React te bouwen en begeleidde hem bij het maken van onze herbruikbare campagnetooling. Feitelijk ons eigen meta-framework, voordat Next.js bestond",
         "Leverde onder harde campagnedeadlines, waaronder een meertalige Audi-site die binnen vier weken live stond"
       ],
       "stack": [
@@ -95,7 +95,7 @@
       ]
     },
     {
-      "role": "Full-Stack Web Developer",
+      "role": "Full-Stack Web Engineer",
       "company": "Hot ITem",
       "start": "2008-09",
       "end": "2016-04",

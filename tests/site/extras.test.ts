@@ -8,7 +8,7 @@ describe('llms.txt', () => {
   test('exists and describes Jeroen from resume data', async () => {
     const txt = await Bun.file(dist + 'llms.txt').text();
     expect(txt).toContain('# Jeroen Wever');
-    expect(txt).toContain('Freelance staff-level front-end engineer');
+    expect(txt).toContain('Freelance staff-level full-stack engineer');
     expect(txt).toContain('/resume_jeroenwever.pdf');
     expect(txt).toContain('/cv_jeroenwever.pdf');
     expect(txt).toContain('Sugar Rush Development');
