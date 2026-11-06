@@ -16,6 +16,8 @@ export const resumeSchema = z.object({
     linkedin: z.url(),
     github: z.url(),
   }),
+  /* One <p> per entry, on the site and in the PDF. */
+  ai: z.array(z.string().min(1)).min(1),
   experience: z
     .array(
       z.object({

@@ -20,6 +20,7 @@ export default {
   'cv.docTitle': 'CV',
   'mobile.contactNav': 'Snel contact',
   'section.about': 'Over mij',
+  'section.ai': 'Hoe ik met AI werk',
   'section.experience': 'Werkervaring',
   'section.skills': 'Vaardigheden',
   'section.education': 'Opleiding',

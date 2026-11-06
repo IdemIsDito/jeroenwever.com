@@ -21,6 +21,7 @@ const { basics } = resume;
 /* The sheet's nav mirrors the sections actually rendered below. */
 const sections = [
   { id: 'about', title: t('section.about') },
+  { id: 'ai', title: t('section.ai') },
   { id: 'experience', title: t('section.experience') },
   { id: 'skills', title: t('section.skills') },
   ...(resume.education.length > 0 ? [{ id: 'education', title: t('section.education') }] : []),
@@ -47,6 +48,10 @@ const jsonLd = {
   <main id="main" class="shell">
     <Section id="about" title={t('section.about')}>
       <p class="summary"><Rich text={basics.summary} /></p>
+    </Section>
+
+    <Section id="ai" title={t('section.ai')}>
+      {resume.ai.map((text) => <p class="summary"><Rich text={text} /></p>)}
     </Section>
 
     <Section id="experience" title={t('section.experience')}>
@@ -103,6 +108,10 @@ const jsonLd = {
     font-size: var(--text-lg);
     color: var(--color-muted);
     text-wrap: pretty;
+  }
+
+  .summary + .summary {
+    margin-top: var(--space-3);
   }
 
   .operating {

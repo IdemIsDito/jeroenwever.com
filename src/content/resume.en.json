@@ -4,12 +4,16 @@
     "title": "Freelance staff-level front-end engineer",
     "intro": "Freelance staff-level front-end engineer. I've been building web products people actually use for almost 20 years",
     "tagline": "These days with AI agents, while I decide where the bar sits.",
-    "summary": "Curious, autodidactic engineer who built web products for the Benelux's biggest news and entertainment brands and for real-time sports betting. I work agentically: in my own products I write the tests and the quality bar first, an agent builds the feature on its own and a separate reviewer agent checks the work. Agents never commit: I decide what goes in. I scale that human control to the risk: a marketing site needs less oversight than a medical advice tool. The next step: I write only tickets and agents pick them up. I go deep where it matters most: server-side rendering at scale, analytics and experimentation that turn opinions into decisions. Everything I build is meant to stop needing me, whether that's a casino platform or an engineer. It usually ships sooner than the budget assumed.",
+    "summary": "I'm a tech junkie with a brain like a pressure cooker: curious, energetic, honest, self-taught. I have an urge to make things, and I've built web products for the Benelux's biggest news and entertainment brands and for real-time sports betting. I have a strong vision of how a development team should work together and I know which roles it takes. Everything I build is meant to stop needing me.",
     "location": "The Netherlands",
     "email": "jeroen@sugarrush.dev",
     "linkedin": "https://www.linkedin.com/in/jeroenwever/",
     "github": "https://github.com/idemisdito"
   },
+  "ai": [
+    "I work agentic first and try to get as close as I can to a lights-off factory: building software without human intervention. I don't think good software can do without people yet, so I start with human gates for product, graphic design, architecture, technical design and code. I turn those into agent gates as time and experience grow, as long as that doesn't introduce major issues.",
+    "Whatever can be solved deterministically, I solve deterministically."
+  ],
   "experience": [
     {
       "role": "Freelance Full Stack Developer",
@@ -188,5 +192,5 @@
       "year": "2007"
     }
   ],
-  "personal": "Right now I'm building a log cabin in the backyard, my team of three kids and I report to my wife, and I'm over-engineering a meal planner, because deciding at 17:00 what's for dinner is the mental equivalent of driving your car into a ditch. On the side I make [a swipe game about the AI race](https://last-invention.sugarrush.dev) and a scheduling tool for daycare."
+  "personal": "I just finished the log cabin in my backyard, bathroom and kitchen included, and it's now my little office. My team of three kids and I report to my wife, and I'm over-engineering a meal planner, because deciding at 17:00 what's for dinner is the mental equivalent of driving your car into a ditch. On the side I make [a swipe game about the AI race](https://last-invention.sugarrush.dev) and a scheduling tool for daycare."
 }

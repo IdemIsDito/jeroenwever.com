@@ -4,12 +4,16 @@
     "title": "Freelance staff-level front-end engineer",
     "intro": "Freelance staff-level front-end engineer. Ik bouw al bijna 20 jaar webproducten die mensen echt gebruiken",
     "tagline": "Tegenwoordig met AI-agents, waarbij ik bepaal waar de lat ligt.",
-    "summary": "Nieuwsgierige, autodidactische engineer die webproducten bouwde voor de grootste nieuws- en entertainmentmerken van de Benelux en voor real-time sports betting. Ik werk agentic: in mijn eigen producten schrijf ik eerst de tests en de kwaliteitslat, bouwt een agent de feature zelfstandig en toetst een aparte reviewer-agent het werk. Agents committen nooit: ik beslis wat erin gaat. Die menselijke controle stem ik af op het risico: een marketingsite vraagt minder toezicht dan een medisch adviesprogramma. De volgende stap: ik schrijf alleen nog tickets en agents pakken ze op. Ik ga diep waar het er het meest toe doet: server-side rendering op schaal, analytics en experimenten die meningen omzetten in beslissingen. Alles wat ik bouw is erop gebouwd om zonder mij verder te kunnen, of dat nu een casinoplatform is of een engineer. Het gaat meestal eerder live dan er begroot was.",
+    "summary": "Ik ben een techjunkie met een brein als een snelkookpan: nieuwsgierig, energiek, eerlijk, autodidact. Ik heb een drang om dingen te maken en heb webproducten voor de grootste nieuws- en entertainmentmerken van de Benelux en voor real-time sports betting gebouwd. Ik heb een sterke visie op hoe een developmentteam hoort samen te werken en weet welke rollen daarvoor nodig zijn. Alles wat ik bouw is erop gemaakt om zonder mij verder te kunnen.",
     "location": "Nederland",
     "email": "jeroen@sugarrush.dev",
     "linkedin": "https://www.linkedin.com/in/jeroenwever/",
     "github": "https://github.com/idemisdito"
   },
+  "ai": [
+    "Ik werk agentic first en probeer zo dicht mogelijk bij een lights-off factory te komen: software bouwen zonder menselijke tussenkomst. Goede software kan volgens mij nog niet zonder mensen, dus ik begin met human gates voor product, grafisch ontwerp, architectuur, technisch ontwerp en code. Die zet ik met tijd en ervaring om naar agent gates, zolang dat geen grote issues introduceert.",
+    "Alles wat deterministisch kan, los ik ook deterministisch op."
+  ],
   "experience": [
     {
       "role": "Freelance Full Stack Developer",
@@ -188,5 +192,5 @@
       "year": "2007"
     }
   ],
-  "personal": "Momenteel bouw ik een blokhut in de achtertuin, worden mijn team van drie kids en ik aangestuurd door mijn vrouw, en ben ik een maaltijdplanner aan het over-engineeren, want om 17:00 bedenken wat je gaat eten is hetzelfde als je auto de sloot in rijden. Daarnaast maak ik [een swipe-game over de AI-race](https://last-invention.sugarrush.dev) en een planningstool voor de kinderopvang."
+  "personal": "Ik heb net de blokhut in mijn tuin afgebouwd, met badkamer en keuken, en heb daar nu mijn kantoortje. Mijn team van drie kids en ik worden aangestuurd door mijn vrouw, en ik ben een maaltijdplanner aan het over-engineeren, want om 17:00 bedenken wat je gaat eten is hetzelfde als je auto de sloot in rijden. Daarnaast maak ik [een swipe-game over de AI-race](https://last-invention.sugarrush.dev) en een planningstool voor de kinderopvang."
 }

@@ -18,6 +18,7 @@ export default {
   'cv.docTitle': 'Resume',
   'mobile.contactNav': 'Quick contact',
   'section.about': 'About',
+  'section.ai': 'How I work with AI',
   'section.experience': 'Experience',
   'section.skills': 'Skills',
   'section.education': 'Education',

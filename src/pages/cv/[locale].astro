@@ -163,6 +163,9 @@ function fmt(ym: string): string {
 
     <p><Rich text={basics.summary} /></p>
 
+    <h2>{t('section.ai')}</h2>
+    {resume.ai.map((text) => <p><Rich text={text} /></p>)}
+
     <h2>{t('section.experience')}</h2>
     {
       resume.experience.map((job) => (
