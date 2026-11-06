@@ -134,16 +134,6 @@
       ]
     },
     {
-      "group": "Agentic engineering",
-      "items": [
-        "AI-gegenereerde code reviewen",
-        "Specificeren met tests voordat een agent begint",
-        "Kwaliteitsgates in CI",
-        "Agents van de juiste context voorzien",
-        "Werk verdelen over bouwende en reviewende agents (Claude Code)"
-      ]
-    },
-    {
       "group": "Vertrouwd",
       "items": [
         "C#",

@@ -134,16 +134,6 @@
       ]
     },
     {
-      "group": "Agentic engineering",
-      "items": [
-        "Reviewing AI-generated code",
-        "Specifying with tests before an agent starts",
-        "Quality gates in CI",
-        "Giving agents the right context",
-        "Splitting work across building and reviewing agents (Claude Code)"
-      ]
-    },
-    {
       "group": "Comfortable",
       "items": [
         "C#",
