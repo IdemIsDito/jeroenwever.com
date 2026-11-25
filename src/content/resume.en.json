@@ -16,6 +16,30 @@
   ],
   "experience": [
     {
+      "role": "Currently building",
+      "company": "Agent factory, my own experiment",
+      "start": "2026-10",
+      "end": null,
+      "summary": "An experiment of my own: a deterministic TypeScript engine that runs a software agency staffed by headless Claude Code agents, each in its own container. I am the board and the agents are the employees.",
+      "highlights": [
+        "Wrote the engine that hands out the work, enforces the rules and counts the budget, all in plain code with no AI in the loop",
+        "Built it so the agents can't publish anything themselves: the engine does that for them",
+        "Built the office, a pixel-art web interface in PixiJS where I watch the agents work and steer them",
+        "Host all of it on a Raspberry Pi 5: reachable through Cloudflare Tunnel, locked behind Cloudflare Access, with the database backed up to Cloudflare R2"
+      ],
+      "stack": [
+        "TypeScript",
+        "Bun",
+        "Claude Code",
+        "Docker",
+        "SQLite",
+        "GitHub Apps",
+        "PixiJS",
+        "Raspberry Pi",
+        "Cloudflare (Tunnel, Access, R2)"
+      ]
+    },
+    {
       "role": "Freelance Full Stack Engineer",
       "company": "Nederlandse Loterij (TOTO)",
       "start": "2023-01",
@@ -26,6 +50,7 @@
         "Rebuilt the casino from scratch on Vue 3 and .NET, then handed it over to newly hired in-house engineers. The team chose a custom SSR stack over Nuxt: no vendor lock-in, and every engineer learns what a meta-framework does under the hood",
         "Owned the initial SSR implementation for both casino and sportsbook. Researched the hard parts (memory leaks and state leaking across requests) and coached the team on preventing both",
         "Turned a three-month sportsbook proof-of-concept into a green light at the halfway demo. With four engineers, reached closed beta in a year and replaced the legacy product six months later, handling peaks of 4,000 logins and 2,000 bets per minute",
+        "Built the front-end of an event-driven platform: our team's backend engineer processed the Kafka feed into caches and WebSocket updates, and I handled all of those updates in the front-end",
         "Troubleshot the sportsbook in Kubernetes with kubectl, mostly by digging through pod logs. Tuned autoscaling for the evening peaks and sparred on the manifests",
         "Wrote C# in the .NET backend and built the Node and Vue layer that talks to it, so knows both sides of the line between C# and TypeScript",
         "Built the custom Google Analytics enhanced-ecommerce funnel for betting, plus the sportsbook's custom A/B-testing setup. A betslip is not a shopping cart",
@@ -38,6 +63,7 @@
         "Pinia",
         "Node.js",
         "Express",
+        "WebSockets",
         ".NET (C#)",
         "Kubernetes",
         "Azure",
@@ -51,13 +77,16 @@
       "company": "DPG Media",
       "start": "2018-03",
       "end": "2022-06",
-      "summary": "Built and ran entertainment products: video, puzzles, casual games, quizzes and podcasts. They served roughly 1.5 billion views a year across DPG's biggest brands (AD, HLN, de Volkskrant), with advertising, paywalls and tracking built in, under a \"you build it, you run it\" principle.",
+      "summary": "Built and ran entertainment products: video, puzzles, casual games, quizzes and podcasts. They served roughly 1.5 billion views a year across DPG's biggest brands (AD, HLN, de Volkskrant), with advertising, paywalls and tracking built in, hosted on AWS under a \"you build it, you run it\" principle.",
       "highlights": [
         "Built the embed system end to end: the loader script, the data-attribute element API, and the embeds themselves in vanilla JavaScript, CSS and HTML. Nearly all of it mine, with the team as sparring partners. Carried video from 4 to 20+ titles, then puzzles, games, quizzes and podcasts",
         "Implemented the complete Snowplow analytics integration on the front-end: plays and playthrough, profile-based recommendations, and daily-puzzle notifications that knew whether you'd already played",
+        "Consumed Snowplow's Kafka feed with the team: we counted puzzle events per player (item started, item paused and so on), built user profiles from the counts and notified players about their favorite games",
         "Built the web side of the \"wall\" product: a brand sets up one route with its own header and footer, and we render everything in between. One lightweight integration per label",
+        "Wrote the Lambda that did our React server-side rendering. Our Elixir backend called it for proxy requests from the brands and returned JSON with the rendered markup, meta tags, and JS and CSS URIs, which the brand stitched into its own site template",
         "Worked in continuous back-and-forth with the app teams on webview integration; later ported the products to React alongside the React Native apps",
-        "Ran what we built: containerized hosting in AWS, caching and WAF in Akamai, monitoring and alerting"
+        "Ran what we built on AWS: Fargate containers with blue-green deployments, PostgreSQL on RDS, DynamoDB for the puzzle games' high scores, S3 with imgix for images. I troubleshot production issues and debugged the containers. Caching and WAF in Akamai, monitoring and alerting",
+        "Built the Lambda in our video pipeline: an external provider delivered videos to S3, and my function attached a bumper using an ffmpeg layer before we uploaded them to another team for transcoding"
       ],
       "stack": [
         "TypeScript",
@@ -65,7 +94,8 @@
         "Node.js",
         "Elixir",
         "PostgreSQL",
-        "AWS",
+        "Kafka",
+        "AWS (Fargate, Lambda, S3, RDS, DynamoDB)",
         "Akamai",
         "Snowplow",
         "Google IMA"
@@ -154,7 +184,7 @@
         "Kubernetes",
         "Azure",
         "AWS",
-        "Cloudflare",
+        "Cloudflare (Workers, Pages, Containers, Tunnel, Access, DNS)",
         "Akamai"
       ]
     },

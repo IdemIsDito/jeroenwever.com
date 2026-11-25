@@ -16,6 +16,30 @@
   ],
   "experience": [
     {
+      "role": "Nu aan het bouwen",
+      "company": "Agent factory, mijn eigen experiment",
+      "start": "2026-10",
+      "end": null,
+      "summary": "Een eigen experiment: een deterministische TypeScript-engine die een softwarebureau draait met headless Claude Code-agents als personeel, elk in een eigen container. Ik ben het bestuur en de agents zijn de medewerkers.",
+      "highlights": [
+        "Schreef de engine die het werk verdeelt, de regels handhaaft en het budget bijhoudt, allemaal in gewone code zonder AI ertussen",
+        "Bouwde het zo dat de agents zelf niets kunnen publiceren: dat doet de engine voor ze",
+        "Bouwde het kantoor, een pixelart-webinterface in PixiJS waarin ik de agents zie werken en bijstuur",
+        "Host het geheel op een Raspberry Pi 5: bereikbaar via Cloudflare Tunnel, afgeschermd met Cloudflare Access, met een back-up van de database naar Cloudflare R2"
+      ],
+      "stack": [
+        "TypeScript",
+        "Bun",
+        "Claude Code",
+        "Docker",
+        "SQLite",
+        "GitHub Apps",
+        "PixiJS",
+        "Raspberry Pi",
+        "Cloudflare (Tunnel, Access, R2)"
+      ]
+    },
+    {
       "role": "Freelance Full Stack Engineer",
       "company": "Nederlandse Loterij (TOTO)",
       "start": "2023-01",
@@ -26,6 +50,7 @@
         "Herbouwde het casino vanaf nul op Vue 3 en .NET en droeg het daarna over aan nieuw aangenomen interne engineers. Het team koos een custom SSR-stack boven Nuxt: geen vendor lock-in, en elke engineer leert wat een meta-framework onder de motorkap doet",
         "Verantwoordelijk voor de initiële SSR-implementatie van casino én sportsbook. Onderzocht de lastige kanten (memory leaks en state die over requests heen lekt) en coachte het team in het voorkomen daarvan",
         "Kreeg, bij een proof-of-concept van drie maanden, bij de tussentijdse demo al een akkoord om dit te realiseren. Bereikte met vier engineers in een jaar de closed beta en verving zes maanden later het oude product, met pieken van 4.000 logins en 2.000 weddenschappen per minuut",
+        "Bouwde de front-end van een event-driven platform: de backend-engineer in ons team verwerkte de Kafka-feed tot caches en WebSocket-updates, en ik handelde al die updates af in de front-end",
         "Deed troubleshooting in Kubernetes voor het sportsbook met kubectl, vooral door de logs van pods door te spitten. Tunede de autoscaling voor de avondpieken en sparde mee over de manifests",
         "Schreef C# in de .NET-backend en bouwde de Node- en Vue-laag die ertegen praat, dus kent beide kanten van de grens tussen C# en TypeScript",
         "Bouwde de custom Google Analytics enhanced-ecommerce-funnel voor betting, plus de custom A/B-test-opzet van het sportsbook. Een betslip is geen winkelwagen",
@@ -38,6 +63,7 @@
         "Pinia",
         "Node.js",
         "Express",
+        "WebSockets",
         ".NET (C#)",
         "Kubernetes",
         "Azure",
@@ -51,13 +77,16 @@
       "company": "DPG Media",
       "start": "2018-03",
       "end": "2022-06",
-      "summary": "Bouwde en beheerde entertainmentproducten: video, puzzels, casual games, quizzen en podcasts. Goed voor zo'n 1,5 miljard views per jaar bij de grootste merken van DPG (AD, HLN, de Volkskrant), inclusief advertenties, paywalls en tracking, volgens het \"you build it, you run it\"-principe.",
+      "summary": "Bouwde en beheerde entertainmentproducten: video, puzzels, casual games, quizzen en podcasts. Goed voor zo'n 1,5 miljard views per jaar bij de grootste merken van DPG (AD, HLN, de Volkskrant), inclusief advertenties, paywalls en tracking, gehost op AWS volgens het \"you build it, you run it\"-principe.",
       "highlights": [
         "Bouwde het embed-systeem van begin tot eind: het loader-script, de element-API met data-attributen en de embeds zelf in vanilla JavaScript, CSS en HTML. Vrijwel volledig van mijn hand, met het team als sparringpartner. Zag video groeien van 4 naar 20+ titels, gevolgd door puzzels, games, quizzen en podcasts",
         "Implementeerde de volledige Snowplow-analytics-integratie in de front-end: plays en playthrough, aanbevelingen op basis van gebruikersprofielen, en dagelijkse-puzzelnotificaties die wisten of je al gespeeld had",
+        "Verwerkte met het team de Kafka-feed van Snowplow: we telden puzzel-events per speler (item gestart, item gepauzeerd enzovoort), bouwden gebruikersprofielen van die tellingen en stuurden spelers meldingen over hun favoriete games",
         "Bouwde de webkant van het \"wall\"-product: een merk richt één route in met eigen header en footer, en wij renderen alles daartussen. Één lichte integratie per titel",
+        "Schreef de Lambda voor onze server-side rendering van React. Onze Elixir-backend riep die aan bij proxyverzoeken van de merken en gaf JSON terug met de gerenderde markup, meta-tags en JS- en CSS-URI's, die het merk samenvoegde met zijn eigen sitetemplate",
         "Werkte in voortdurende afstemming met de app-teams aan webview-integratie; portte de producten later naar React, naast de React Native-apps",
-        "Beheerde wat we bouwden: gecontaineriseerde hosting in AWS, caching en WAF in Akamai, monitoring en alerting"
+        "Beheerde wat we bouwden op AWS: Fargate-containers met blue-green deployments, PostgreSQL op RDS, DynamoDB voor de highscores van de puzzelgames, S3 met imgix voor afbeeldingen. Ik loste productieproblemen op en debugde de containers. Caching en WAF in Akamai, monitoring en alerting",
+        "Bouwde de Lambda in onze videopipeline: een externe leverancier leverde video's aan in S3, en mijn functie voegde met een ffmpeg-layer een bumper toe voordat we ze uploadden naar een ander team voor transcodering"
       ],
       "stack": [
         "TypeScript",
@@ -65,7 +94,8 @@
         "Node.js",
         "Elixir",
         "PostgreSQL",
-        "AWS",
+        "Kafka",
+        "AWS (Fargate, Lambda, S3, RDS, DynamoDB)",
         "Akamai",
         "Snowplow",
         "Google IMA"
@@ -154,7 +184,7 @@
         "Kubernetes",
         "Azure",
         "AWS",
-        "Cloudflare",
+        "Cloudflare (Workers, Pages, Containers, Tunnel, Access, DNS)",
         "Akamai"
       ]
     },
