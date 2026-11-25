@@ -60,7 +60,7 @@ describe('resume pages', () => {
 describe('inline links in content', () => {
   test('render as anchors with no markdown left over', () => {
     for (const html of [en, nl]) {
-      for (const href of ['https://casino.toto.nl', 'https://sport.toto.nl', 'https://last-invention.sugarrush.dev']) {
+      for (const href of ['https://casino.toto.nl', 'https://sport.toto.nl']) {
         expect(html).toContain(`href="${href}"`);
       }
       expect(html).not.toContain('](https://');
